@@ -10,6 +10,7 @@ mod trading_group;
 mod trading_instrument;
 mod trading_profile;
 mod instrument_mapping_entity;
+mod trader_packages_field_order;
 
 pub use bid_ask_snapshot_model::*;
 pub use default_favorite_instruments::*;
@@ -23,3 +24,4 @@ pub use trading_group::*;
 pub use trading_instrument::*;
 pub use trading_profile::*;
 pub use instrument_mapping_entity::*;
+pub use trader_packages_field_order::*;
