@@ -13,6 +13,7 @@ pub struct TraderPackageFieldsOrderMyNoSqlEntity {
     pub phase1_min_opened_positions: Option<i32>,
     pub phase1_revenue_share: Option<i32>,
     pub phase1_refund: Option<i32>,
+    pub phase1_attempts: Option<i32>,
 
     pub phase2_daily_drawdown: Option<i32>,
     pub phase2_overall_drawdown: Option<i32>,
@@ -22,6 +23,7 @@ pub struct TraderPackageFieldsOrderMyNoSqlEntity {
     pub phase2_min_opened_positions: Option<i32>,
     pub phase2_revenue_share: Option<i32>,
     pub phase2_refund: Option<i32>,
+    pub phase2_attempts: Option<i32>,
 
     pub daily_drawdown: Option<i32>,
     pub overall_drawdown: Option<i32>,
