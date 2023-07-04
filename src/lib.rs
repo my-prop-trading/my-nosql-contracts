@@ -15,6 +15,9 @@ mod trader_packages_field_order;
 #[cfg(feature = "dashboard-statistics")]
 mod dash_board_brief_statistics_entity;
 
+#[cfg(feature = "dashboard-statistics")]
+mod loss_analysis_entity;
+
 #[cfg(feature = "trader-accounts")]
 mod trader_account_entity;
 
@@ -34,5 +37,9 @@ pub use trader_packages_field_order::*;
 
 #[cfg(feature = "dashboard-statistics")]
 pub use dash_board_brief_statistics_entity::*;
+
+#[cfg(feature = "dashboard-statistics")]
+pub use loss_analysis_entity::*;
+
 #[cfg(feature = "trader-accounts")]
 pub use trader_account_entity::*;
