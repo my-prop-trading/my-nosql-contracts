@@ -12,11 +12,11 @@ pub struct ChartCurrentDayMyNoSqlEntity {
 }
 
 impl ChartCurrentDayMyNoSqlEntity {
-    pub fn generate_partition_key<'s>(trader_account_id: impl Into<StrOrString<'s>>) -> &'s str {
-        trader_account_id
+    pub fn generate_partition_key<'s>(trader_account_id: impl Into<StrOrString<'s>>) -> StrOrString<'s> {
+        trader_account_id.into()
     }
 
-    pub fn generate_row_key() -> StrOrString {
-        "CurrentDay"
+    pub fn generate_row_key() -> StrOrString<'static> {
+        "CurrentDay".into()
     }
 }
