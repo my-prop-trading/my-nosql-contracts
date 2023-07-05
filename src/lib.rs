@@ -21,6 +21,9 @@ mod loss_analysis_entity;
 #[cfg(feature = "trader-accounts")]
 mod trader_account_entity;
 
+#[cfg(feature = "chart-current-day")]
+mod chart_current_day_entiy;
+
 pub use bid_ask_snapshot_model::*;
 pub use default_favorite_instruments::*;
 pub use default_value::*;
@@ -43,3 +46,6 @@ pub use loss_analysis_entity::*;
 
 #[cfg(feature = "trader-accounts")]
 pub use trader_account_entity::*;
+
+#[cfg(feature = "chart-current-day")]
+pub use chart_current_day_entiy::*;
