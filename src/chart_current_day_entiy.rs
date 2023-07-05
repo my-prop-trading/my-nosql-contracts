@@ -5,6 +5,13 @@ use serde::{Deserialize, Serialize};
 #[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct ChartCurrentDayMyNoSqlEntity {
+    pub balance: CandleMyNoSqlEntity,
+    pub equity: CandleMyNoSqlEntity,
+}
+
+#[derive(Serialize, Deserialize, Debug, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct CandleMyNoSqlEntity {
     pub open: f64,
     pub high: f64,
     pub low: f64,
