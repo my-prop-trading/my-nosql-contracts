@@ -51,7 +51,7 @@ pub use loss_analysis_entity::*;
 pub use trader_account_entity::*;
 
 #[cfg(feature = "chart-current-day")]
-pub use chart_current_day_entiy::*;
+pub use chart_current_day_entity::*;
 
 #[cfg(feature = "current-balance")]
 pub use current_balance_entity::*;
