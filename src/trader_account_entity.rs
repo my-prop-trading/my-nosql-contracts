@@ -57,6 +57,7 @@ pub struct TraderAccountMyNoSqlEntity {
 
     pub status: TraderAccountStatusMyNoSql,
     pub brand: String,
+    pub account_type: TraderAccountTypeMyNoSql,
 }
 
 #[derive(Serialize, Deserialize, Copy, Clone, Debug)]
@@ -79,6 +80,13 @@ pub enum TraderAccountStatusMyNoSql {
 #[repr(i32)]
 pub enum BrokerMyNoSql {
     Welltrade = 4,
+}
+
+#[derive(Serialize, Deserialize, Clone, Copy, Debug, PartialEq, PartialOrd, Ord, Eq, Hash)]
+#[repr(i32)]
+pub enum TraderAccountTypeMyNoSql {
+    Demo = 0,
+    Live = 1,
 }
 
 impl TraderAccountMyNoSqlEntity {
