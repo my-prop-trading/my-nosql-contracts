@@ -56,6 +56,7 @@ pub struct TraderAccountMyNoSqlEntity {
     pub updated_at: i64,
 
     pub status: TraderAccountStatusMyNoSql,
+    pub brand: String,
 }
 
 #[derive(Serialize, Deserialize, Copy, Clone, Debug)]
