@@ -41,6 +41,9 @@ mod chart_current_day_entity;
 #[cfg(feature = "current-balance")]
 mod current_balance_entity;
 
+#[cfg(feature = "payout-schedule-settings")]
+mod payout_schedule_settings_entity;
+
 #[cfg(feature = "dashboard-statistics")]
 pub use dash_board_brief_statistics_entity::*;
 
@@ -55,3 +58,6 @@ pub use chart_current_day_entity::*;
 
 #[cfg(feature = "current-balance")]
 pub use current_balance_entity::*;
+
+#[cfg(feature = "payout-schedule-settings")]
+pub use payout_schedule_settings_entity::*;
