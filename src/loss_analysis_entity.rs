@@ -9,6 +9,7 @@ pub struct LossAnalysisMyNoSqlEntity {
     pub overall_loss_level: f64,
     pub initial_account_balance_loss: f64,
     pub current_equity: f64,
+    pub current_balance: f64,
     pub initial_account_balance_loss_percent: f64,
     pub daily_loss_level: f64,
     pub daily_loss_percent: f64,
