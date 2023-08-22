@@ -79,7 +79,8 @@ pub enum TraderAccountStatusMyNoSql {
 #[derive(Serialize, Deserialize, Clone, Copy, Debug, PartialEq, PartialOrd, Ord, Eq, Hash)]
 #[repr(i32)]
 pub enum BrokerMyNoSql {
-    Welltrade = 4,
+    WelltradeDemo = 0,
+    WelltradeLive = 1,
 }
 
 #[derive(Serialize, Deserialize, Clone, Copy, Debug, PartialEq, PartialOrd, Ord, Eq, Hash)]
