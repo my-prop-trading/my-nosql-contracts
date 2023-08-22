@@ -1,5 +1,7 @@
 use rust_extensions::StrOrString;
 use serde::{Deserialize, Serialize};
+use crate::broker_no_sql::BrokerMyNoSql;
+use crate::trading_platform_no_sql::TradingPlatformMyNoSql;
 
 #[my_no_sql_macros::my_no_sql_entity("trader-accounts")]
 #[derive(Serialize, Deserialize, Debug, Clone)]
@@ -60,13 +62,6 @@ pub struct TraderAccountMyNoSqlEntity {
     pub account_type: TraderAccountTypeMyNoSql,
 }
 
-#[derive(Serialize, Deserialize, Copy, Clone, Debug)]
-#[repr(i32)]
-pub enum TradingPlatformMyNoSql {
-    MetaTrader4 = 0,
-    MetaTrader5 = 1,
-}
-
 #[derive(Serialize, Deserialize, Clone, Copy, Debug, PartialEq, PartialOrd, Ord, Eq, Hash)]
 #[repr(i32)]
 pub enum TraderAccountStatusMyNoSql {
@@ -74,13 +69,6 @@ pub enum TraderAccountStatusMyNoSql {
     Active = 1,
     Disabled = 2,
     StageCompleted = 3,
-}
-
-#[derive(Serialize, Deserialize, Clone, Copy, Debug, PartialEq, PartialOrd, Ord, Eq, Hash)]
-#[repr(i32)]
-pub enum BrokerMyNoSql {
-    WelltradeDemo = 0,
-    WelltradeLive = 1,
 }
 
 #[derive(Serialize, Deserialize, Clone, Copy, Debug, PartialEq, PartialOrd, Ord, Eq, Hash)]
