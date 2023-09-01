@@ -3,7 +3,7 @@ use crate::trading_platform_no_sql::TradingPlatformMyNoSql;
 use rust_extensions::StrOrString;
 use serde::{Deserialize, Serialize};
 
-#[my_no_sql_macros::my_no_sql_entity("loss-analysis")]
+#[my_no_sql_macros::my_no_sql_entity("trading-platform-credentials")]
 #[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct TraderPlatformCredentialsNoSqlEntity {
