@@ -51,6 +51,9 @@ mod payout_schedule_settings_entity;
 #[cfg(feature = "trader-platform-credentials")]
 mod trader_platform_credentials_entity;
 
+#[cfg(feature = "trader-blockers")]
+mod trader_blocker_entity;
+
 #[cfg(feature = "dashboard-statistics")]
 pub use dash_board_brief_statistics_entity::*;
 
@@ -71,3 +74,6 @@ pub use payout_schedule_settings_entity::*;
 
 #[cfg(feature = "trader-platform-credentials")]
 pub use trader_platform_credentials_entity::*;
+
+#[cfg(feature = "trader-blockers")]
+pub use trader_blocker_entity::*;
