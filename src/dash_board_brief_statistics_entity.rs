@@ -1,7 +1,9 @@
-use rust_extensions::StrOrString;
-use serde::{Deserialize, Serialize};
+use serde::*;
+use service_sdk::rust_extensions::StrOrString;
 
-#[my_no_sql_macros::my_no_sql_entity("dashboard-brief-statistics")]
+service_sdk::macros::use_my_no_sql_entity!();
+
+#[my_no_sql_entity("dashboard-brief-statistics")]
 #[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct DashboardBriefStatisticsMyNoSqlEntity {

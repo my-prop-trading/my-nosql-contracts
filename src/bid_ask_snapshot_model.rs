@@ -1,6 +1,8 @@
 use serde::*;
 
-#[my_no_sql_macros::my_no_sql_entity("bidask-snapshots")]
+service_sdk::macros::use_my_no_sql_entity!();
+
+#[my_no_sql_entity("bidask-snapshots")]
 #[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct BidAskSnapshotNoSqlEntity {

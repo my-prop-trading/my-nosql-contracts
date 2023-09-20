@@ -1,9 +1,10 @@
 use std::collections::HashMap;
-
 use rust_extensions::StrOrString;
-use serde::{Deserialize, Serialize};
+use serde::*;
 
-#[my_no_sql_macros::my_no_sql_entity("email-template")]
+service_sdk::macros::use_my_no_sql_entity!();
+
+#[my_no_sql_entity("email-template")]
 #[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct EmailTemplateMyNoSqlEntity {

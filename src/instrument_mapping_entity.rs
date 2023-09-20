@@ -1,9 +1,9 @@
-
-
-use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
+use serde::*;
 
-#[my_no_sql_macros::my_no_sql_entity("instrument-mapping")]
+service_sdk::macros::use_my_no_sql_entity!();
+
+#[my_no_sql_entity("instrument-mapping")]
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct InstrumentMappingEntity {
     #[serde(rename = "LpId")]

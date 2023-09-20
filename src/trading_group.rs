@@ -1,8 +1,8 @@
-use serde::{Deserialize, Serialize};
+use serde::*;
 
-// cSpell:disable
-#[my_no_sql_macros::my_no_sql_entity("live-tradinggroups")]
-// cSpell:enable
+service_sdk::macros::use_my_no_sql_entity!();
+
+#[my_no_sql_entity("live-tradinggroups")]
 #[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct TradingGroupNoSqlEntity {
