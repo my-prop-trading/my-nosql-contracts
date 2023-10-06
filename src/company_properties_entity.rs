@@ -1,9 +1,7 @@
 use rust_extensions::StrOrString;
 use serde::*;
 
-service_sdk::macros::use_my_no_sql_entity!();
-
-#[my_no_sql_entity("company-properties")]
+#[my_no_sql_macros::my_no_sql_entity("company-properties")]
 #[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct CompanyPropertiesMyNoSqlEntity {
