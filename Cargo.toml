@@ -12,6 +12,7 @@ current-balance = []
 payout-schedule-settings = []
 trader-platform-credentials = []
 trader-blockers = []
+company-properties = []
 
 [dependencies]
 my-no-sql-server-abstractions = { tag = "0.1.1", git = "https://github.com/MyJetTools/my-no-sql-server-abstractions.git" }
