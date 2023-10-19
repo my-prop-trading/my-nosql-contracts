@@ -54,6 +54,9 @@ mod trader_platform_credentials_entity;
 #[cfg(feature = "trader-blockers")]
 mod trader_blocker_entity;
 
+#[cfg(feature = "company-properties")]
+mod company_properties_entity;
+
 #[cfg(feature = "dashboard-statistics")]
 pub use dash_board_brief_statistics_entity::*;
 
@@ -77,3 +80,6 @@ pub use trader_platform_credentials_entity::*;
 
 #[cfg(feature = "trader-blockers")]
 pub use trader_blocker_entity::*;
+
+#[cfg(feature = "company-properties")]
+pub use company_properties_entity::*;
