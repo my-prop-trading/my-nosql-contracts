@@ -1,6 +1,6 @@
 [package]
 name = "my-nosql-contracts"
-version = "0.2.0"
+version = "0.3.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
@@ -15,7 +15,7 @@ trader-blockers = []
 company-properties = []
 
 [dependencies]
-service-sdk = { tag = "0.2.3", git = "https://github.com/MyJetTools/service-sdk.git", features = [
+service-sdk = { tag = "0.2.4", git = "https://github.com/MyJetTools/service-sdk.git", features = [
     "macros",
     "my-nosql-sdk",
 ] }
