@@ -15,6 +15,7 @@ pub struct LossAnalysisMyNoSqlEntity {
     pub initial_account_balance_loss_percent: f64,
     pub daily_loss_level: f64,
     pub daily_loss_percent: f64,
+    #[serde(default)]
     pub current_daily_loss: f64,
 }
 
