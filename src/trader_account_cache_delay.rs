@@ -10,6 +10,7 @@ pub struct TraderAccountCacheDelayMyNoSqlEntity {
     pub trader_account_id: String,
     pub time_interval_before_cache_update: i64,
     pub last_time_updated: Option<i64>,
+    pub do_rewrite_cache: bool,
 }
 
 impl TraderAccountCacheDelayMyNoSqlEntity {
