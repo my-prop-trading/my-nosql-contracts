@@ -13,6 +13,7 @@ payout-schedule-settings = []
 trader-platform-credentials = []
 trader-blockers = []
 company-properties = []
+trader-account-cache-delay = []
 
 [dependencies]
 service-sdk = { tag = "0.2.4", git = "https://github.com/MyJetTools/service-sdk.git", features = [
