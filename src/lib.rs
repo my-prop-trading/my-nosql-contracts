@@ -57,6 +57,9 @@ mod trader_blocker_entity;
 #[cfg(feature = "company-properties")]
 mod company_properties_entity;
 
+#[cfg(feature = "trader-account-cache-delay")]
+mod trader_account_cache_delay;
+
 #[cfg(feature = "dashboard-statistics")]
 pub use dash_board_brief_statistics_entity::*;
 
@@ -83,3 +86,6 @@ pub use trader_blocker_entity::*;
 
 #[cfg(feature = "company-properties")]
 pub use company_properties_entity::*;
+
+#[cfg(feature = "trader-account-cache-delay")]
+pub use trader_account_cache_delay::*;
