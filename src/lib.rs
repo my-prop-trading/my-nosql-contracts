@@ -13,6 +13,8 @@ mod instrument_mapping_entity;
 mod trader_packages_field_order;
 mod broker_no_sql;
 mod trading_platform_no_sql;
+mod trading_broker_slot_no_sql;
+mod trading_platform_settings_entity;
 
 pub use bid_ask_snapshot_model::*;
 pub use default_favorite_instruments::*;
@@ -29,6 +31,8 @@ pub use instrument_mapping_entity::*;
 pub use trader_packages_field_order::*;
 pub use broker_no_sql::*;
 pub use trading_platform_no_sql::*; 
+pub use trading_broker_slot_no_sql::*;
+pub use trading_platform_settings_entity::*;
 
 #[cfg(feature = "dashboard-statistics")]
 mod dash_board_brief_statistics_entity;
@@ -89,3 +93,9 @@ pub use company_properties_entity::*;
 
 #[cfg(feature = "trader-account-cache-delay")]
 pub use trader_account_cache_delay::*;
+
+#[cfg(feature = "company-properties")]
+pub use trading_broker_slot_no_sql::*;
+
+#[cfg(feature = "trader-account-cache-delay")]
+pub use trading_platform_settings_entity::*;
