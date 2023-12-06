@@ -4,6 +4,13 @@ use serde::*;
 
 service_sdk::macros::use_my_no_sql_entity!();
 
+#[derive(Serialize, Deserialize, Clone, Copy, Debug, PartialEq, PartialOrd, Ord, Eq, Hash)]
+#[repr(i32)]
+pub enum TradingPlatformTypeMyNoSql {
+    Demo = 0,
+    Live = 1,
+}
+
 #[my_no_sql_entity("trading-platform-settings")]
 #[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "PascalCase")]
@@ -14,8 +21,8 @@ pub struct TradingPlatformSettingsNoSqlEntity {
 }
 
 impl TradingPlatformSettingsNoSqlEntity {
-    pub fn generate_partition_key(trading_platform_type: TradingPlatformMyNoSql) -> &'static str {
-        match trading_platform_type {
+    pub fn generate_partition_key(trading_platform_server: TradingPlatformMyNoSql) -> &'static str {
+        match trading_platform_server {
             TradingPlatformMyNoSql::MetaTrader4 => "mt4".into(),
             TradingPlatformMyNoSql::MetaTrader5 => "mt5".into(),
         }
@@ -23,6 +30,16 @@ impl TradingPlatformSettingsNoSqlEntity {
 
     pub fn generate_row_key<'s>(trading_platform_slot_id: u32) -> StrOrString<'s> {
         StrOrString::create_as_string(trading_platform_slot_id.to_string())
+    }
+}
+
+pub fn get_trading_platform_type(
+    trading_platform_type: &'static str,
+) -> TradingPlatformTypeMyNoSql {
+    match trading_platform_type {
+        "Demo" => TradingPlatformTypeMyNoSql::Demo,
+        "Live" => TradingPlatformTypeMyNoSql::Live,
+        _ => panic!("TradingPlatformType should be 'Demo' or 'Live'"),
     }
 }
 
@@ -37,7 +54,7 @@ struct BrandSettings {
 #[serde(rename_all = "PascalCase")]
 struct Broker {
     name: String,
-    r#type: String,
+    r#type: TradingPlatformTypeMyNoSql,
     compatible_name: String,
     caption: String,
     enabled: bool,
@@ -85,7 +102,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_deserialize_config() {
+    fn test_metatrader_short_config() {
         // Your JSON data here
         let json_data = r#"
         {
@@ -144,8 +161,8 @@ mod tests {
         [
         {
             "TimeStamp": "2023-09-02T07:59:40.8484",
-            "PartitionKey": "mt4",
-            "RowKey": "0",
+    "PartitionKey": "mt4",
+    "RowKey": "0",
             "BrandSettings": {
                 "Broker": {
                     "Name": "Welltrade",
@@ -223,7 +240,7 @@ mod tests {
                     "Name": "Welltrade",
                     "Type": "Demo",
                     "CompatibleName": "WelltradeDemo",
-                    "Caption": "MT5 Welltrade Super Caption",
+    "Caption": "MT5 Welltrade Super Caption",
                     "Enabled": true
                 },
                 "Links": {
@@ -266,11 +283,11 @@ mod tests {
                 },
                 "Links": {
                     "Windows": "https://download.mql5.com/cdn/web/systemgates.limited/mt5/weltrade5setup.exe",
-                    "Mac": "https://download.mql5.com/cdn/web/metaquotes.software.corp/mt5/MetaTrader5.dmg",
-                    "Ios": "https://download.mql5.com/cdn/mobile/mt5/ios?hl=en&server=Weltrade-Live,Weltrade-Demo=8",
-                    "Android": "https://download.mql5.com/cdn/mobile/mt5/android?hl=en&server=Weltrade-Live,Weltrade-Demo",
-                    "Web": "https://www.weltrade.com/webterminal/?lang=en&version=5"
-                }
+    "Mac": "https://download.mql5.com/cdn/web/metaquotes.software.corp/mt5/MetaTrader5.dmg",
+    "Ios": "https://download.mql5.com/cdn/mobile/mt5/ios?hl=en&server=Weltrade-Live,Weltrade-Demo=8",
+    "Android": "https://download.mql5.com/cdn/mobile/mt5/android?hl=en&server=Weltrade-Live,Weltrade-Demo",
+    "Web": "https://www.weltrade.com/webterminal/?lang=en&version=5"
+    }
             },
             "TechSettings": {
                 "Server": "***",
@@ -308,8 +325,8 @@ mod tests {
                 }
             },
             "LiveAccountSettings": {
-                "PartitionKey": "mt4",
-                "RowKey": "3"
+    "PartitionKey": "mt4",
+    "RowKey": "3"
             },
             "TechSettings": {
                 "Server": "",
@@ -422,7 +439,7 @@ mod tests {
                 "ManagerLogin": "",
                 "Password": "",
                 "ReconnectTimeout": 15,
-                "DefaultGroup": "",
+    "DefaultGroup": "",
                 "ArchiveGroup": "",
                 "AccountsRanges": {
                     "UseRange": false,
@@ -581,68 +598,71 @@ mod tests {
 
         let parsed_config: Vec<TradingPlatformSettingsNoSqlEntity> =
             serde_json::from_str(json_data).unwrap();
-        // Broker0 mt4 slot 0 demo
-        assert_eq!(parsed_config[0].partition_key, "mt4".to_string());
-        assert_eq!(parsed_config[0].row_key, "0".to_string());
-        assert_eq!(parsed_config[0].brand_settings.broker.name, "Welltrade".to_string());
-        assert_eq!(parsed_config[0].brand_settings.broker.r#type, "Demo".to_string());
-        // Broker0 mt4 slot 1 live
-        assert_eq!(parsed_config[1].partition_key, "mt4".to_string());
-        assert_eq!(parsed_config[1].row_key, "1".to_string());
-        assert_eq!(parsed_config[1].brand_settings.broker.name, "Welltrade".to_string());
-        assert_eq!(parsed_config[1].brand_settings.broker.r#type, "Live".to_string());
-        // Broker0 mt5 slot 0 demo
-        assert_eq!(parsed_config[2].partition_key, "mt5".to_string());
-        assert_eq!(parsed_config[2].row_key, "0".to_string());
-        assert_eq!(parsed_config[2].brand_settings.broker.name, "Welltrade".to_string());
-        assert_eq!(parsed_config[2].brand_settings.broker.r#type, "Demo".to_string());
-        // Broker0 mt5 slot 1 live
-        assert_eq!(parsed_config[3].partition_key, "mt5".to_string());
-        assert_eq!(parsed_config[3].row_key, "1".to_string());
-        assert_eq!(parsed_config[3].brand_settings.broker.name, "Welltrade".to_string());
-        assert_eq!(parsed_config[3].brand_settings.broker.r#type, "Live".to_string());
 
         // Broker1 mt4 slot 2 demo
         assert_eq!(parsed_config[4].partition_key, "mt4".to_string());
         assert_eq!(parsed_config[4].row_key, "2".to_string());
         assert_eq!(parsed_config[4].brand_settings.broker.name, "".to_string());
-        assert_eq!(parsed_config[4].brand_settings.broker.r#type, "Demo".to_string());
+        assert_eq!(
+            parsed_config[4].brand_settings.broker.r#type,
+            get_trading_platform_type("Demo")
+        );
         // Broker1 mt4 slot 3 live
         assert_eq!(parsed_config[5].partition_key, "mt4".to_string());
         assert_eq!(parsed_config[5].row_key, "3".to_string());
         assert_eq!(parsed_config[5].brand_settings.broker.name, "".to_string());
-        assert_eq!(parsed_config[5].brand_settings.broker.r#type, "Live".to_string());
+        assert_eq!(
+            parsed_config[5].brand_settings.broker.r#type,
+            get_trading_platform_type("Live")
+        );
         // Broker1 mt5 slot 2 demo
         assert_eq!(parsed_config[6].partition_key, "mt5".to_string());
         assert_eq!(parsed_config[6].row_key, "2".to_string());
         assert_eq!(parsed_config[6].brand_settings.broker.name, "".to_string());
-        assert_eq!(parsed_config[6].brand_settings.broker.r#type, "Demo".to_string());
+        assert_eq!(
+            parsed_config[6].brand_settings.broker.r#type,
+            get_trading_platform_type("Demo")
+        );
         // Broker1 mt5 slot 3 live
         assert_eq!(parsed_config[7].partition_key, "mt5".to_string());
         assert_eq!(parsed_config[7].row_key, "3".to_string());
         assert_eq!(parsed_config[7].brand_settings.broker.name, "".to_string());
-        assert_eq!(parsed_config[7].brand_settings.broker.r#type, "Live".to_string());
+        assert_eq!(
+            parsed_config[7].brand_settings.broker.r#type,
+            get_trading_platform_type("Live")
+        );
 
         // Broker2 mt4 slot 4 demo
         assert_eq!(parsed_config[8].partition_key, "mt4".to_string());
         assert_eq!(parsed_config[8].row_key, "4".to_string());
         assert_eq!(parsed_config[8].brand_settings.broker.name, "".to_string());
-        assert_eq!(parsed_config[8].brand_settings.broker.r#type, "Demo".to_string());
+        assert_eq!(
+            parsed_config[8].brand_settings.broker.r#type,
+            get_trading_platform_type("Demo")
+        );
         // Broker2 mt4 slot 5 live
         assert_eq!(parsed_config[9].partition_key, "mt4".to_string());
         assert_eq!(parsed_config[9].row_key, "5".to_string());
         assert_eq!(parsed_config[9].brand_settings.broker.name, "".to_string());
-        assert_eq!(parsed_config[9].brand_settings.broker.r#type, "Live".to_string());
+        assert_eq!(
+            parsed_config[9].brand_settings.broker.r#type,
+            get_trading_platform_type("Live")
+        );
         // Broker2 mt5 slot 4 demo
         assert_eq!(parsed_config[10].partition_key, "mt5".to_string());
         assert_eq!(parsed_config[10].row_key, "4".to_string());
         assert_eq!(parsed_config[10].brand_settings.broker.name, "".to_string());
-        assert_eq!(parsed_config[10].brand_settings.broker.r#type, "Demo".to_string());
+        assert_eq!(
+            parsed_config[10].brand_settings.broker.r#type,
+            get_trading_platform_type("Demo")
+        );
         // Broker2 mt5 slot 5 live
         assert_eq!(parsed_config[11].partition_key, "mt5".to_string());
         assert_eq!(parsed_config[11].row_key, "5".to_string());
         assert_eq!(parsed_config[11].brand_settings.broker.name, "".to_string());
-        assert_eq!(parsed_config[11].brand_settings.broker.r#type, "Live".to_string());
-
+        assert_eq!(
+            parsed_config[11].brand_settings.broker.r#type,
+            get_trading_platform_type("Live")
+        );
     }
 }
