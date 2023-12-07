@@ -97,3 +97,9 @@ pub use trading_broker_slot_no_sql::*;
 
 #[cfg(feature = "trader-account-cache-delay")]
 pub use trading_platform_settings_entity::*;
+
+#[cfg(feature = "user-profile-visible-fields")]
+pub mod user_profile_visible_fields;
+
+#[cfg(feature = "user-profile-visible-fields")]
+pub use user_profile_visible_fields::*;

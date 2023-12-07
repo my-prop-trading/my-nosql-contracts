@@ -15,6 +15,7 @@ trader-blockers = []
 company-properties = []
 trader-account-cache-delay = []
 trading-platform-settings = []
+user-profile-visible-fields = []
 
 [dependencies]
 service-sdk = { tag = "0.2.5", git = "https://github.com/MyJetTools/service-sdk.git", features = [
