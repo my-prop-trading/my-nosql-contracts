@@ -15,9 +15,9 @@ pub enum TradingPlatformTypeMyNoSql {
 #[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct TradingPlatformSettingsNoSqlEntity {
-    brand_settings: BrandSettings,
-    live_account_settings: Option<LiveAccountSettings>,
-    tech_settings: TechSettings,
+    pub brand_settings: BrandSettings,
+    pub live_account_settings: Option<LiveAccountSettings>,
+    pub tech_settings: TechSettings,
 }
 
 impl TradingPlatformSettingsNoSqlEntity {
@@ -45,56 +45,56 @@ pub fn get_trading_platform_type(
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "PascalCase")]
-struct BrandSettings {
-    broker: Broker,
-    links: Links,
+pub struct BrandSettings {
+    pub broker: Broker,
+    pub links: Links,
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "PascalCase")]
-struct Broker {
-    name: String,
-    r#type: TradingPlatformTypeMyNoSql,
-    compatible_name: String,
-    caption: String,
-    enabled: bool,
+pub struct Broker {
+    pub name: String,
+    pub r#type: TradingPlatformTypeMyNoSql,
+    pub compatible_name: String,
+    pub caption: String,
+    pub enabled: bool,
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "PascalCase")]
-struct Links {
-    windows: String,
-    mac: String,
-    ios: String,
-    android: String,
-    web: String,
+pub struct Links {
+    pub windows: String,
+    pub mac: String,
+    pub ios: String,
+    pub android: String,
+    pub web: String,
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "PascalCase")]
-struct LiveAccountSettings {
-    partition_key: String,
-    row_key: String,
+pub struct LiveAccountSettings {
+    pub partition_key: String,
+    pub row_key: String,
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "PascalCase")]
-struct TechSettings {
-    server: String,
-    manager_login: String,
-    password: String,
-    reconnect_timeout: u32,
-    default_group: String,
-    archive_group: String,
-    accounts_ranges: AccountsRanges,
+pub struct TechSettings {
+    pub server: String,
+    pub manager_login: String,
+    pub password: String,
+    pub reconnect_timeout: u32,
+    pub default_group: String,
+    pub archive_group: String,
+    pub accounts_ranges: AccountsRanges,
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "PascalCase")]
-struct AccountsRanges {
-    use_range: bool,
-    min: u64,
-    max: u64,
+pub struct AccountsRanges {
+    pub use_range: bool,
+    pub min: u64,
+    pub max: u64,
 }
 
 #[cfg(test)]
