@@ -9,3 +9,12 @@ pub enum TradingPlatformMyNoSql {
     MetaTrader4 = 0,
     MetaTrader5 = 1,
 }
+
+impl TradingPlatformMyNoSql {
+    pub fn as_str(&self) -> &'static str {
+        match self {
+            TradingPlatformMyNoSql::MetaTrader4 => PLATFORM_METATRADER_4,
+            TradingPlatformMyNoSql::MetaTrader5 => PLATFORM_METATRADER_5,
+        }
+    }
+}
