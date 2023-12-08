@@ -92,9 +92,6 @@ pub use company_properties_entity::*;
 #[cfg(feature = "trader-account-cache-delay")]
 pub use trader_account_cache_delay::*;
 
-#[cfg(feature = "company-properties")]
-pub use trading_broker_slot_no_sql::*;
-
 #[cfg(feature = "trader-account-cache-delay")]
 pub use trading_platform_settings_entity::*;
 
@@ -103,3 +100,10 @@ pub mod user_profile_visible_fields;
 
 #[cfg(feature = "user-profile-visible-fields")]
 pub use user_profile_visible_fields::*;
+
+#[cfg(feature = "user_profile_report_template")]
+pub mod user_profile_report_template;
+
+#[cfg(feature = "user_profile_report_template")]
+pub use user_profile_report_template::*;
+

@@ -31,7 +31,11 @@ impl GetUserProfileVisibleFieldsMyNoSqlEntity {
         officer_id.into()
     }
 
-    pub fn generate_row_key<'s>() -> StrOrString<'s> {
+    pub fn generate_row_key<'s>(template_title: impl Into<StrOrString<'s>>) -> StrOrString<'s> {
+        template_title.into()
+    }
+
+    pub fn generate_default_row_key<'s>() -> StrOrString<'s> {
         "UserProfileVisibleFields".into()
     }
 }
