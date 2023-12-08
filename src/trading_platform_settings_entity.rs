@@ -161,8 +161,8 @@ mod tests {
         [
         {
             "TimeStamp": "2023-09-02T07:59:40.8484",
-    "PartitionKey": "mt4",
-    "RowKey": "0",
+            "PartitionKey": "mt4",
+            "RowKey": "0",
             "BrandSettings": {
                 "Broker": {
                     "Name": "Welltrade",
@@ -240,7 +240,7 @@ mod tests {
                     "Name": "Welltrade",
                     "Type": "Demo",
                     "CompatibleName": "WelltradeDemo",
-    "Caption": "MT5 Welltrade Super Caption",
+                    "Caption": "MT5 Welltrade Super Caption",
                     "Enabled": true
                 },
                 "Links": {
@@ -252,7 +252,7 @@ mod tests {
                 }
             },
             "LiveAccountSettings": {
-                "PartitionKey": "mt4",
+                "PartitionKey": "mt5",
                 "RowKey": "1"
             },
             "TechSettings": {
@@ -283,11 +283,11 @@ mod tests {
                 },
                 "Links": {
                     "Windows": "https://download.mql5.com/cdn/web/systemgates.limited/mt5/weltrade5setup.exe",
-    "Mac": "https://download.mql5.com/cdn/web/metaquotes.software.corp/mt5/MetaTrader5.dmg",
-    "Ios": "https://download.mql5.com/cdn/mobile/mt5/ios?hl=en&server=Weltrade-Live,Weltrade-Demo=8",
-    "Android": "https://download.mql5.com/cdn/mobile/mt5/android?hl=en&server=Weltrade-Live,Weltrade-Demo",
-    "Web": "https://www.weltrade.com/webterminal/?lang=en&version=5"
-    }
+                    "Mac": "https://download.mql5.com/cdn/web/metaquotes.software.corp/mt5/MetaTrader5.dmg",
+                    "Ios": "https://download.mql5.com/cdn/mobile/mt5/ios?hl=en&server=Weltrade-Live,Weltrade-Demo=8",
+                    "Android": "https://download.mql5.com/cdn/mobile/mt5/android?hl=en&server=Weltrade-Live,Weltrade-Demo",
+                    "Web": "https://www.weltrade.com/webterminal/?lang=en&version=5"
+                }
             },
             "TechSettings": {
                 "Server": "***",
@@ -325,8 +325,8 @@ mod tests {
                 }
             },
             "LiveAccountSettings": {
-    "PartitionKey": "mt4",
-    "RowKey": "3"
+                "PartitionKey": "mt4",
+                "RowKey": "3"
             },
             "TechSettings": {
                 "Server": "",
@@ -439,7 +439,7 @@ mod tests {
                 "ManagerLogin": "",
                 "Password": "",
                 "ReconnectTimeout": 15,
-    "DefaultGroup": "",
+                "DefaultGroup": "",
                 "ArchiveGroup": "",
                 "AccountsRanges": {
                     "UseRange": false,
