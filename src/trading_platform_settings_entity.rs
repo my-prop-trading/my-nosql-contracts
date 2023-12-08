@@ -1,8 +1,11 @@
-use crate::trading_platform_no_sql::TradingPlatformMyNoSql;
+use crate::{trading_platform_no_sql::TradingPlatformMyNoSql, PLATFORM_METATRADER_4, PLATFORM_METATRADER_5};
 use rust_extensions::StrOrString;
 use serde::*;
 
 service_sdk::macros::use_my_no_sql_entity!();
+
+pub const PLATFORM_DEMO: &str = "Demo";
+pub const PLATFORM_LIVE: &str = "Live";
 
 #[derive(Serialize, Deserialize, Clone, Copy, Debug, PartialEq, PartialOrd, Ord, Eq, Hash)]
 #[repr(i32)]
@@ -23,8 +26,8 @@ pub struct TradingPlatformSettingsNoSqlEntity {
 impl TradingPlatformSettingsNoSqlEntity {
     pub fn generate_partition_key(trading_platform_server: TradingPlatformMyNoSql) -> &'static str {
         match trading_platform_server {
-            TradingPlatformMyNoSql::MetaTrader4 => "mt4".into(),
-            TradingPlatformMyNoSql::MetaTrader5 => "mt5".into(),
+            TradingPlatformMyNoSql::MetaTrader4 => PLATFORM_METATRADER_4,
+            TradingPlatformMyNoSql::MetaTrader5 => PLATFORM_METATRADER_5,
         }
     }
 
@@ -37,9 +40,12 @@ pub fn get_trading_platform_type(
     trading_platform_type: &'static str,
 ) -> TradingPlatformTypeMyNoSql {
     match trading_platform_type {
-        "Demo" => TradingPlatformTypeMyNoSql::Demo,
-        "Live" => TradingPlatformTypeMyNoSql::Live,
-        _ => panic!("TradingPlatformType should be 'Demo' or 'Live'"),
+        PLATFORM_DEMO => TradingPlatformTypeMyNoSql::Demo,
+        PLATFORM_LIVE => TradingPlatformTypeMyNoSql::Live,
+        _ => panic!(
+            "TradingPlatformType should be '{}' or '{}'",
+            PLATFORM_DEMO, PLATFORM_LIVE
+        ),
     }
 }
 
@@ -58,6 +64,7 @@ pub struct Broker {
     pub compatible_name: String,
     pub caption: String,
     pub enabled: bool,
+    pub icon_url: String,
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
@@ -107,7 +114,7 @@ mod tests {
         let json_data = r#"
         {
             "TimeStamp": "2023-09-02T07:59:40.8484",
-            "PartitionKey": "mt4",
+            "PartitionKey": "MetaTrader4",
             "RowKey": "0",
             "BrandSettings": {
                 "Broker": {
@@ -115,7 +122,8 @@ mod tests {
                     "Type": "Demo",
                     "CompatibleName": "WelltradeDemo",
                     "Caption": "MT4 Welltrade Super Caption",
-                    "Enabled": true
+                    "Enabled": true,
+                    "IconUrl": "https://www.weltrade.com/local/templates/weltrade.main/img/wt-logo.svg"
                 },
                 "Links": {
                     "Windows": "https://download.mql5.com/cdn/web/systemgates.limited/mt5/weltrade5setup.exe",
@@ -126,7 +134,7 @@ mod tests {
                 }
             },
             "LiveAccountSettings": {
-                "PartitionKey": "mt4",
+                "PartitionKey": "MetaTrader4",
                 "RowKey": "1"
             },
             "TechSettings": {
@@ -161,7 +169,7 @@ mod tests {
         [
         {
             "TimeStamp": "2023-09-02T07:59:40.8484",
-            "PartitionKey": "mt4",
+            "PartitionKey": "MetaTrader4",
             "RowKey": "0",
             "BrandSettings": {
                 "Broker": {
@@ -169,7 +177,8 @@ mod tests {
                     "Type": "Demo",
                     "CompatibleName": "WelltradeDemo",
                     "Caption": "MT4 Welltrade",
-                    "Enabled": true
+                    "Enabled": true,
+                    "IconUrl": ""
                 },
                 "Links": {
                     "Windows": "https://download.mql5.com/cdn/web/systemgates.limited/mt5/weltrade5setup.exe",
@@ -180,7 +189,7 @@ mod tests {
                 }
             },
             "LiveAccountSettings": {
-                "PartitionKey": "mt4",
+                "PartitionKey": "MetaTrader4",
                 "RowKey": "1"
             },
             "TechSettings": {
@@ -199,7 +208,7 @@ mod tests {
         },
         {
             "TimeStamp": "2023-09-02T07:59:40.8484",
-            "PartitionKey": "mt4",
+            "PartitionKey": "MetaTrader4",
             "RowKey": "1",
             "BrandSettings": {
                 "Broker": {
@@ -207,7 +216,8 @@ mod tests {
                     "Type": "Live",
                     "CompatibleName": "WelltradeLive",
                     "Caption": "MT4 Welltrade Super Caption",
-                    "Enabled": true
+                    "Enabled": true,
+                    "IconUrl": ""
                 },
                 "Links": {
                     "Windows": "https://download.mql5.com/cdn/web/systemgates.limited/mt5/weltrade5setup.exe",
@@ -233,7 +243,7 @@ mod tests {
         },
         {
             "TimeStamp": "2023-09-02T07:59:40.8484",
-            "PartitionKey": "mt5",
+            "PartitionKey": "MetaTrader5",
             "RowKey": "0",
             "BrandSettings": {
                 "Broker": {
@@ -241,7 +251,8 @@ mod tests {
                     "Type": "Demo",
                     "CompatibleName": "WelltradeDemo",
                     "Caption": "MT5 Welltrade Super Caption",
-                    "Enabled": true
+                    "Enabled": true,
+                    "IconUrl": ""
                 },
                 "Links": {
                     "Windows": "https://download.mql5.com/cdn/web/systemgates.limited/mt5/weltrade5setup.exe",
@@ -252,7 +263,7 @@ mod tests {
                 }
             },
             "LiveAccountSettings": {
-                "PartitionKey": "mt5",
+                "PartitionKey": "MetaTrader5",
                 "RowKey": "1"
             },
             "TechSettings": {
@@ -271,7 +282,7 @@ mod tests {
         },
         {
             "TimeStamp": "2023-09-02T07:59:40.8484",
-            "PartitionKey": "mt5",
+            "PartitionKey": "MetaTrader5",
             "RowKey": "1",
             "BrandSettings": {
                 "Broker": {
@@ -279,7 +290,8 @@ mod tests {
                     "Type": "Live",
                     "CompatibleName": "WelltradeLive",
                     "Caption": "MT5 Welltrade Super Caption",
-                    "Enabled": true
+                    "Enabled": true,
+                    "IconUrl": ""
                 },
                 "Links": {
                     "Windows": "https://download.mql5.com/cdn/web/systemgates.limited/mt5/weltrade5setup.exe",
@@ -306,7 +318,7 @@ mod tests {
 
         {
             "TimeStamp": "2023-09-02T07:59:40.8484",
-            "PartitionKey": "mt4",
+            "PartitionKey": "MetaTrader4",
             "RowKey": "2",
             "BrandSettings": {
                 "Broker": {
@@ -314,7 +326,8 @@ mod tests {
                     "Type": "Demo",
                     "CompatibleName": "",
                     "Caption": "",
-                    "Enabled": false
+                    "Enabled": false,
+                    "IconUrl": ""
                 },
                 "Links": {
                     "Windows": "",
@@ -325,7 +338,7 @@ mod tests {
                 }
             },
             "LiveAccountSettings": {
-                "PartitionKey": "mt4",
+                "PartitionKey": "MetaTrader4",
                 "RowKey": "3"
             },
             "TechSettings": {
@@ -344,7 +357,7 @@ mod tests {
         },
         {
             "TimeStamp": "2023-09-02T07:59:40.8484",
-            "PartitionKey": "mt4",
+            "PartitionKey": "MetaTrader4",
             "RowKey": "3",
             "BrandSettings": {
                 "Broker": {
@@ -352,7 +365,8 @@ mod tests {
                     "Type": "Live",
                     "CompatibleName": "",
                     "Caption": "",
-                    "Enabled": false
+                    "Enabled": false,
+                    "IconUrl": ""
                 },
                 "Links": {
                     "Windows": "",
@@ -378,7 +392,7 @@ mod tests {
         },
         {
             "TimeStamp": "2023-09-02T07:59:40.8484",
-            "PartitionKey": "mt5",
+            "PartitionKey": "MetaTrader5",
             "RowKey": "2",
             "BrandSettings": {
                 "Broker": {
@@ -386,7 +400,8 @@ mod tests {
                     "Type": "Demo",
                     "CompatibleName": "",
                     "Caption": "",
-                    "Enabled": false
+                    "Enabled": false,
+                    "IconUrl": ""
                 },
                 "Links": {
                     "Windows": "",
@@ -397,7 +412,7 @@ mod tests {
                 }
             },
             "LiveAccountSettings": {
-                "PartitionKey": "mt5",
+                "PartitionKey": "MetaTrader5",
                 "RowKey": "3"
             },
             "TechSettings": {
@@ -416,7 +431,7 @@ mod tests {
         },
         {
             "TimeStamp": "2023-09-02T07:59:40.8484",
-            "PartitionKey": "mt5",
+            "PartitionKey": "MetaTrader5",
             "RowKey": "3",
             "BrandSettings": {
                 "Broker": {
@@ -424,7 +439,8 @@ mod tests {
                     "Type": "Live",
                     "CompatibleName": "",
                     "Caption": "",
-                    "Enabled": false
+                    "Enabled": false,
+                    "IconUrl": ""
                 },
                 "Links": {
                     "Windows": "",
@@ -451,7 +467,7 @@ mod tests {
 
         {
             "TimeStamp": "2023-09-02T07:59:40.8484",
-            "PartitionKey": "mt4",
+            "PartitionKey": "MetaTrader4",
             "RowKey": "4",
             "BrandSettings": {
                 "Broker": {
@@ -459,7 +475,8 @@ mod tests {
                     "Type": "Demo",
                     "CompatibleName": "",
                     "Caption": "",
-                    "Enabled": false
+                    "Enabled": false,
+                    "IconUrl": ""
                 },
                 "Links": {
                     "Windows": "",
@@ -470,7 +487,7 @@ mod tests {
                 }
             },
             "LiveAccountSettings": {
-                "PartitionKey": "mt4",
+                "PartitionKey": "MetaTrader4",
                 "RowKey": "5"
             },
             "TechSettings": {
@@ -489,7 +506,7 @@ mod tests {
         },
         {
             "TimeStamp": "2023-09-02T07:59:40.8484",
-            "PartitionKey": "mt4",
+            "PartitionKey": "MetaTrader4",
             "RowKey": "5",
             "BrandSettings": {
                 "Broker": {
@@ -497,7 +514,8 @@ mod tests {
                     "Type": "Live",
                     "CompatibleName": "",
                     "Caption": "",
-                    "Enabled": false
+                    "Enabled": false,
+                    "IconUrl": ""
                 },
                 "Links": {
                     "Windows": "",
@@ -523,7 +541,7 @@ mod tests {
         },
         {
             "TimeStamp": "2023-09-02T07:59:40.8484",
-            "PartitionKey": "mt5",
+            "PartitionKey": "MetaTrader5",
             "RowKey": "4",
             "BrandSettings": {
                 "Broker": {
@@ -531,7 +549,8 @@ mod tests {
                     "Type": "Demo",
                     "CompatibleName": "",
                     "Caption": "",
-                    "Enabled": false
+                    "Enabled": false,
+                    "IconUrl": ""
                 },
                 "Links": {
                     "Windows": "",
@@ -542,7 +561,7 @@ mod tests {
                 }
             },
             "LiveAccountSettings": {
-                "PartitionKey": "mt5",
+                "PartitionKey": "MetaTrader5",
                 "RowKey": "5"
             },
             "TechSettings": {
@@ -561,7 +580,7 @@ mod tests {
         },
         {
             "TimeStamp": "2023-09-02T07:59:40.8484",
-            "PartitionKey": "mt5",
+            "PartitionKey": "MetaTrader5",
             "RowKey": "5",
             "BrandSettings": {
                 "Broker": {
@@ -569,7 +588,8 @@ mod tests {
                     "Type": "Live",
                     "CompatibleName": "",
                     "Caption": "",
-                    "Enabled": false
+                    "Enabled": false,
+                    "IconUrl": ""
                 },
                 "Links": {
                     "Windows": "",
@@ -600,7 +620,7 @@ mod tests {
             serde_json::from_str(json_data).unwrap();
 
         // Broker1 mt4 slot 2 demo
-        assert_eq!(parsed_config[4].partition_key, "mt4".to_string());
+        assert_eq!(parsed_config[4].partition_key, PLATFORM_METATRADER_4.to_string());
         assert_eq!(parsed_config[4].row_key, "2".to_string());
         assert_eq!(parsed_config[4].brand_settings.broker.name, "".to_string());
         assert_eq!(
@@ -608,7 +628,7 @@ mod tests {
             get_trading_platform_type("Demo")
         );
         // Broker1 mt4 slot 3 live
-        assert_eq!(parsed_config[5].partition_key, "mt4".to_string());
+        assert_eq!(parsed_config[5].partition_key, PLATFORM_METATRADER_4.to_string());
         assert_eq!(parsed_config[5].row_key, "3".to_string());
         assert_eq!(parsed_config[5].brand_settings.broker.name, "".to_string());
         assert_eq!(
@@ -616,7 +636,7 @@ mod tests {
             get_trading_platform_type("Live")
         );
         // Broker1 mt5 slot 2 demo
-        assert_eq!(parsed_config[6].partition_key, "mt5".to_string());
+        assert_eq!(parsed_config[6].partition_key, PLATFORM_METATRADER_5.to_string());
         assert_eq!(parsed_config[6].row_key, "2".to_string());
         assert_eq!(parsed_config[6].brand_settings.broker.name, "".to_string());
         assert_eq!(
@@ -624,7 +644,7 @@ mod tests {
             get_trading_platform_type("Demo")
         );
         // Broker1 mt5 slot 3 live
-        assert_eq!(parsed_config[7].partition_key, "mt5".to_string());
+        assert_eq!(parsed_config[7].partition_key, PLATFORM_METATRADER_5.to_string());
         assert_eq!(parsed_config[7].row_key, "3".to_string());
         assert_eq!(parsed_config[7].brand_settings.broker.name, "".to_string());
         assert_eq!(
@@ -633,7 +653,7 @@ mod tests {
         );
 
         // Broker2 mt4 slot 4 demo
-        assert_eq!(parsed_config[8].partition_key, "mt4".to_string());
+        assert_eq!(parsed_config[8].partition_key, PLATFORM_METATRADER_4.to_string());
         assert_eq!(parsed_config[8].row_key, "4".to_string());
         assert_eq!(parsed_config[8].brand_settings.broker.name, "".to_string());
         assert_eq!(
@@ -641,7 +661,7 @@ mod tests {
             get_trading_platform_type("Demo")
         );
         // Broker2 mt4 slot 5 live
-        assert_eq!(parsed_config[9].partition_key, "mt4".to_string());
+        assert_eq!(parsed_config[9].partition_key, PLATFORM_METATRADER_4.to_string());
         assert_eq!(parsed_config[9].row_key, "5".to_string());
         assert_eq!(parsed_config[9].brand_settings.broker.name, "".to_string());
         assert_eq!(
@@ -649,7 +669,7 @@ mod tests {
             get_trading_platform_type("Live")
         );
         // Broker2 mt5 slot 4 demo
-        assert_eq!(parsed_config[10].partition_key, "mt5".to_string());
+        assert_eq!(parsed_config[10].partition_key, PLATFORM_METATRADER_5.to_string());
         assert_eq!(parsed_config[10].row_key, "4".to_string());
         assert_eq!(parsed_config[10].brand_settings.broker.name, "".to_string());
         assert_eq!(
@@ -657,7 +677,7 @@ mod tests {
             get_trading_platform_type("Demo")
         );
         // Broker2 mt5 slot 5 live
-        assert_eq!(parsed_config[11].partition_key, "mt5".to_string());
+        assert_eq!(parsed_config[11].partition_key, PLATFORM_METATRADER_5.to_string());
         assert_eq!(parsed_config[11].row_key, "5".to_string());
         assert_eq!(parsed_config[11].brand_settings.broker.name, "".to_string());
         assert_eq!(
