@@ -14,6 +14,29 @@ pub enum TradingPlatformTypeMyNoSql {
     Live = 1,
 }
 
+pub fn get_trading_platform_type(
+    trading_platform_type: &'static str,
+) -> TradingPlatformTypeMyNoSql {
+    match trading_platform_type {
+        PLATFORM_DEMO => TradingPlatformTypeMyNoSql::Demo,
+        PLATFORM_LIVE => TradingPlatformTypeMyNoSql::Live,
+        _ => panic!(
+            "TradingPlatformType should be '{}' or '{}'",
+            PLATFORM_DEMO, PLATFORM_LIVE
+        ),
+    }
+}
+
+impl TradingPlatformTypeMyNoSql {
+    pub fn as_str(&self) -> &'static str {
+        match self {
+            TradingPlatformTypeMyNoSql::Demo => PLATFORM_DEMO,
+            TradingPlatformTypeMyNoSql::Live => PLATFORM_LIVE,
+        }
+    }
+}
+
+
 #[my_no_sql_entity("trading-platform-settings")]
 #[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "PascalCase")]
@@ -33,19 +56,6 @@ impl TradingPlatformSettingsNoSqlEntity {
 
     pub fn generate_row_key<'s>(trading_platform_slot_id: u32) -> StrOrString<'s> {
         StrOrString::create_as_string(trading_platform_slot_id.to_string())
-    }
-}
-
-pub fn get_trading_platform_type(
-    trading_platform_type: &'static str,
-) -> TradingPlatformTypeMyNoSql {
-    match trading_platform_type {
-        PLATFORM_DEMO => TradingPlatformTypeMyNoSql::Demo,
-        PLATFORM_LIVE => TradingPlatformTypeMyNoSql::Live,
-        _ => panic!(
-            "TradingPlatformType should be '{}' or '{}'",
-            PLATFORM_DEMO, PLATFORM_LIVE
-        ),
     }
 }
 
