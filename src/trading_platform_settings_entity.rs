@@ -98,10 +98,10 @@ mod tests {
             "RowKey": "0",
             "BrandSettings": {
                 "Broker": {
-                    "Name": "Welltrade",
+                    "Name": "Weltrade",
                     "Type": "Demo",
-                    "CompatibleName": "WelltradeDemo",
-                    "Caption": "MT4 Welltrade Super Caption",
+                    "CompatibleName": "WeltradeDemo",
+                    "Caption": "MT4 Weltrade Super Caption",
                     "Enabled": true,
                     "IconUrl": "https://www.weltrade.com/local/templates/weltrade.main/img/wt-logo.svg"
                 },
@@ -143,7 +143,7 @@ mod tests {
     }
 
     #[test]
-    fn test_deserialize_default_welltrade_config() {
+    fn test_deserialize_default_Weltrade_config() {
         // Your JSON data here
         let json_data = r#"
         [
@@ -153,10 +153,10 @@ mod tests {
             "RowKey": "0",
             "BrandSettings": {
                 "Broker": {
-                    "Name": "Welltrade",
+                    "Name": "Weltrade",
                     "Type": "Demo",
-                    "CompatibleName": "WelltradeDemo",
-                    "Caption": "MT4 Welltrade",
+                    "CompatibleName": "WeltradeDemo",
+                    "Caption": "MT4 Weltrade",
                     "Enabled": true,
                     "IconUrl": ""
                 },
@@ -192,10 +192,10 @@ mod tests {
             "RowKey": "1",
             "BrandSettings": {
                 "Broker": {
-                    "Name": "Welltrade",
+                    "Name": "Weltrade",
                     "Type": "Live",
-                    "CompatibleName": "WelltradeLive",
-                    "Caption": "MT4 Welltrade Super Caption",
+                    "CompatibleName": "WeltradeLive",
+                    "Caption": "MT4 Weltrade Super Caption",
                     "Enabled": true,
                     "IconUrl": ""
                 },
@@ -227,10 +227,10 @@ mod tests {
             "RowKey": "0",
             "BrandSettings": {
                 "Broker": {
-                    "Name": "Welltrade",
+                    "Name": "Weltrade",
                     "Type": "Demo",
-                    "CompatibleName": "WelltradeDemo",
-                    "Caption": "MT5 Welltrade Super Caption",
+                    "CompatibleName": "WeltradeDemo",
+                    "Caption": "MT5 Weltrade Super Caption",
                     "Enabled": true,
                     "IconUrl": ""
                 },
@@ -266,10 +266,10 @@ mod tests {
             "RowKey": "1",
             "BrandSettings": {
                 "Broker": {
-                    "Name": "Welltrade",
+                    "Name": "Weltrade",
                     "Type": "Live",
-                    "CompatibleName": "WelltradeLive",
-                    "Caption": "MT5 Welltrade Super Caption",
+                    "CompatibleName": "WeltradeLive",
+                    "Caption": "MT5 Weltrade Super Caption",
                     "Enabled": true,
                     "IconUrl": ""
                 },
