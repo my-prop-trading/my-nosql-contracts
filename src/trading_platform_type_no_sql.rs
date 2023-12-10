@@ -29,7 +29,7 @@ impl std::fmt::Display for TradingPlatformTypeParseError {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(
             f,
-            "Failed to parse TradingPlatformTypeMyNoSql from '{}' should be '{}' or '{}'",
+            "Failed to parse TradingPlatformTypeMyNoSql from '{}' should be '{}(0)' or '{}(1)'",
             self.error, PLATFORM_DEMO, PLATFORM_LIVE
         )
     }
@@ -65,7 +65,7 @@ impl From<i32> for TradingPlatformTypeMyNoSql {
             0 => TradingPlatformTypeMyNoSql::Demo,
             1 => TradingPlatformTypeMyNoSql::Live,
             _ => panic!(
-                "Invalid value '{}' for TradingPlatformTypeMyNoSql should be '{}' or '{}'",
+                "Invalid value '{}' for TradingPlatformTypeMyNoSql should be '{}(0)' or '{}(1)'",
                 value, PLATFORM_DEMO, PLATFORM_LIVE
             )
         }
