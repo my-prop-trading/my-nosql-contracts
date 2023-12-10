@@ -66,7 +66,7 @@ impl From<i32> for TradingPlatformMyNoSql {
             0 => TradingPlatformMyNoSql::MetaTrader4,
             1 => TradingPlatformMyNoSql::MetaTrader5,
             _ => panic!(
-                "Invalid value '{}' for TradingPlatformMyNoSql should be '0 - {}' or '1 - {}'",
+                "Invalid value '{}' for TradingPlatformMyNoSql should be '{}(0)' or '{}(1)'",
                 value, PLATFORM_METATRADER_4, PLATFORM_METATRADER_5
             )
         }
