@@ -1,41 +1,8 @@
-use crate::{trading_platform_no_sql::TradingPlatformMyNoSql, PLATFORM_METATRADER_4, PLATFORM_METATRADER_5};
+use crate::{trading_platform_no_sql::TradingPlatformMyNoSql, PLATFORM_METATRADER_4, PLATFORM_METATRADER_5, TradingPlatformTypeMyNoSql};
 use rust_extensions::StrOrString;
 use serde::*;
 
 service_sdk::macros::use_my_no_sql_entity!();
-
-pub const PLATFORM_DEMO: &str = "Demo";
-pub const PLATFORM_LIVE: &str = "Live";
-
-#[derive(Serialize, Deserialize, Clone, Copy, Debug, PartialEq, PartialOrd, Ord, Eq, Hash)]
-#[repr(i32)]
-pub enum TradingPlatformTypeMyNoSql {
-    Demo = 0,
-    Live = 1,
-}
-
-pub fn get_trading_platform_type(
-    trading_platform_type: &'static str,
-) -> TradingPlatformTypeMyNoSql {
-    match trading_platform_type {
-        PLATFORM_DEMO => TradingPlatformTypeMyNoSql::Demo,
-        PLATFORM_LIVE => TradingPlatformTypeMyNoSql::Live,
-        _ => panic!(
-            "TradingPlatformType should be '{}' or '{}'",
-            PLATFORM_DEMO, PLATFORM_LIVE
-        ),
-    }
-}
-
-impl TradingPlatformTypeMyNoSql {
-    pub fn as_str(&self) -> &'static str {
-        match self {
-            TradingPlatformTypeMyNoSql::Demo => PLATFORM_DEMO,
-            TradingPlatformTypeMyNoSql::Live => PLATFORM_LIVE,
-        }
-    }
-}
-
 
 #[my_no_sql_entity("trading-platform-settings")]
 #[derive(Serialize, Deserialize, Debug, Clone)]
@@ -54,8 +21,8 @@ impl TradingPlatformSettingsNoSqlEntity {
         }
     }
 
-    pub fn generate_row_key<'s>(trading_platform_slot_id: u32) -> StrOrString<'s> {
-        StrOrString::create_as_string(trading_platform_slot_id.to_string())
+    pub fn generate_row_key<'s>(trading_platform_slot_id: impl Into<StrOrString<'s>>) -> StrOrString<'s> {
+        trading_platform_slot_id.into()
     }
 }
 
@@ -635,7 +602,7 @@ mod tests {
         assert_eq!(parsed_config[4].brand_settings.broker.name, "".to_string());
         assert_eq!(
             parsed_config[4].brand_settings.broker.r#type,
-            get_trading_platform_type("Demo")
+            TradingPlatformTypeMyNoSql::from_str("Demo")
         );
         // Broker1 mt4 slot 3 live
         assert_eq!(parsed_config[5].partition_key, PLATFORM_METATRADER_4.to_string());
@@ -643,7 +610,7 @@ mod tests {
         assert_eq!(parsed_config[5].brand_settings.broker.name, "".to_string());
         assert_eq!(
             parsed_config[5].brand_settings.broker.r#type,
-            get_trading_platform_type("Live")
+            TradingPlatformTypeMyNoSql::from_str("Live")
         );
         // Broker1 mt5 slot 2 demo
         assert_eq!(parsed_config[6].partition_key, PLATFORM_METATRADER_5.to_string());
@@ -651,7 +618,7 @@ mod tests {
         assert_eq!(parsed_config[6].brand_settings.broker.name, "".to_string());
         assert_eq!(
             parsed_config[6].brand_settings.broker.r#type,
-            get_trading_platform_type("Demo")
+            TradingPlatformTypeMyNoSql::from_str("Demo")
         );
         // Broker1 mt5 slot 3 live
         assert_eq!(parsed_config[7].partition_key, PLATFORM_METATRADER_5.to_string());
@@ -659,7 +626,7 @@ mod tests {
         assert_eq!(parsed_config[7].brand_settings.broker.name, "".to_string());
         assert_eq!(
             parsed_config[7].brand_settings.broker.r#type,
-            get_trading_platform_type("Live")
+            TradingPlatformTypeMyNoSql::from_str("Live")
         );
 
         // Broker2 mt4 slot 4 demo
@@ -668,7 +635,7 @@ mod tests {
         assert_eq!(parsed_config[8].brand_settings.broker.name, "".to_string());
         assert_eq!(
             parsed_config[8].brand_settings.broker.r#type,
-            get_trading_platform_type("Demo")
+            TradingPlatformTypeMyNoSql::from_str("Demo")
         );
         // Broker2 mt4 slot 5 live
         assert_eq!(parsed_config[9].partition_key, PLATFORM_METATRADER_4.to_string());
@@ -676,7 +643,7 @@ mod tests {
         assert_eq!(parsed_config[9].brand_settings.broker.name, "".to_string());
         assert_eq!(
             parsed_config[9].brand_settings.broker.r#type,
-            get_trading_platform_type("Live")
+            TradingPlatformTypeMyNoSql::from_str("Live")
         );
         // Broker2 mt5 slot 4 demo
         assert_eq!(parsed_config[10].partition_key, PLATFORM_METATRADER_5.to_string());
@@ -684,7 +651,7 @@ mod tests {
         assert_eq!(parsed_config[10].brand_settings.broker.name, "".to_string());
         assert_eq!(
             parsed_config[10].brand_settings.broker.r#type,
-            get_trading_platform_type("Demo")
+            TradingPlatformTypeMyNoSql::from_str("Demo")
         );
         // Broker2 mt5 slot 5 live
         assert_eq!(parsed_config[11].partition_key, PLATFORM_METATRADER_5.to_string());
@@ -692,7 +659,7 @@ mod tests {
         assert_eq!(parsed_config[11].brand_settings.broker.name, "".to_string());
         assert_eq!(
             parsed_config[11].brand_settings.broker.r#type,
-            get_trading_platform_type("Live")
+            TradingPlatformTypeMyNoSql::from_str("Live")
         );
     }
 }

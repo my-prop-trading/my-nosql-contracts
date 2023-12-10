@@ -13,6 +13,7 @@ mod instrument_mapping_entity;
 mod trader_packages_field_order;
 mod broker_no_sql;
 mod trading_platform_no_sql;
+mod trading_platform_type_no_sql;
 mod trading_platform_settings_entity;
 
 pub use bid_ask_snapshot_model::*;
@@ -30,6 +31,7 @@ pub use instrument_mapping_entity::*;
 pub use trader_packages_field_order::*;
 pub use broker_no_sql::*;
 pub use trading_platform_no_sql::*; 
+pub use trading_platform_type_no_sql::*;
 pub use trading_platform_settings_entity::*;
 
 #[cfg(feature = "dashboard-statistics")]

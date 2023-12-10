@@ -17,4 +17,17 @@ impl TradingPlatformMyNoSql {
             TradingPlatformMyNoSql::MetaTrader5 => PLATFORM_METATRADER_5,
         }
     }
+
+    pub fn from_str(
+        trading_platform_type: &'static str,
+    ) -> TradingPlatformMyNoSql {
+        match trading_platform_type {
+            PLATFORM_METATRADER_4 => TradingPlatformMyNoSql::MetaTrader4,
+            PLATFORM_METATRADER_5 => TradingPlatformMyNoSql::MetaTrader5,
+            _ => panic!(
+                "TradingPlatform should be '{}' or '{}'",
+                PLATFORM_METATRADER_4, PLATFORM_METATRADER_5
+            ),
+        }
+    }
 }
