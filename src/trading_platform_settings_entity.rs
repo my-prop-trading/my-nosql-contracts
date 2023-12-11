@@ -143,7 +143,7 @@ mod tests {
     }
 
     #[test]
-    fn test_deserialize_default_Weltrade_config() {
+    fn test_deserialize_default_weltrade_config() {
         // Your JSON data here
         let json_data = r#"
         [
