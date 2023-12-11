@@ -103,9 +103,9 @@ pub mod user_profile_visible_fields;
 #[cfg(feature = "user-profile-visible-fields")]
 pub use user_profile_visible_fields::*;
 
-#[cfg(feature = "user_profile_report_template")]
-pub mod user_profile_report_template;
+#[cfg(feature = "user-profile-field-template")]
+pub mod user_profile_field_template;
 
-#[cfg(feature = "user_profile_report_template")]
-pub use user_profile_report_template::*;
+#[cfg(feature = "user-profile-field-template")]
+pub use user_profile_field_template::*;
 

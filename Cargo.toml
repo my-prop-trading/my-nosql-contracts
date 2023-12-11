@@ -16,7 +16,7 @@ company-properties = []
 trader-account-cache-delay = []
 trading-platform-settings = []
 user-profile-visible-fields = []
-user_profile_report_template = []
+user-profile-field-template = []
 
 # List of features provided by this package. use to check that all features are building 
 # cargo build --features all
@@ -32,7 +32,7 @@ all = [
     "trader-account-cache-delay",
     "trading-platform-settings",
     "user-profile-visible-fields",
-    "user_profile_report_template"
+    "user-profile-field-template"
 ]
 
 [dependencies]
