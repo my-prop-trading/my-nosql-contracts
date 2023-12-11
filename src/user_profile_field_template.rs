@@ -63,6 +63,40 @@ pub enum UserProfileFieldNoSql {
     KycStatus = 16,
 }
 
+impl SortOrderNoSql {
+    pub fn from_i32(value: i32) -> Option<SortOrderNoSql> {
+        match value {
+            0 => Some(SortOrderNoSql::ASC),
+            1 => Some(SortOrderNoSql::DESC),
+            _ => None,
+        }
+    }
+}
+
+impl UserProfileFieldNoSql {
+    pub fn from_i32(value: i32) -> Option<UserProfileFieldNoSql> {
+        match value {
+            0 => Some(UserProfileFieldNoSql::ClientId),
+            1 => Some(UserProfileFieldNoSql::RegistrationDate),
+            3 => Some(UserProfileFieldNoSql::CrmStatus),
+            4 => Some(UserProfileFieldNoSql::FirstNameReg),
+            5 => Some(UserProfileFieldNoSql::LastNameReg),
+            6 => Some(UserProfileFieldNoSql::FirstNameKyc),
+            7 => Some(UserProfileFieldNoSql::LastNameKyc),
+            8 => Some(UserProfileFieldNoSql::Email),
+            9 => Some(UserProfileFieldNoSql::Manager),
+            10 => Some(UserProfileFieldNoSql::CountryReg),
+            11 => Some(UserProfileFieldNoSql::CountryRegIp),
+            12 => Some(UserProfileFieldNoSql::CountryPoi),
+            13 => Some(UserProfileFieldNoSql::CountryPoa),
+            14 => Some(UserProfileFieldNoSql::PoiStatus),
+            15 => Some(UserProfileFieldNoSql::PoaStatus),
+            16 => Some(UserProfileFieldNoSql::KycStatus),
+            _ => None,
+        }
+    }
+}
+
 impl UserProfileFieldTemplateMyNoSqlEntity {
     pub fn generate_partition_key<'s>(officer_id: impl Into<StrOrString<'s>>) -> StrOrString<'s> {
         officer_id.into()
