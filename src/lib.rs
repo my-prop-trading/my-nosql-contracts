@@ -15,6 +15,7 @@ mod broker_no_sql;
 mod trading_platform_no_sql;
 mod trading_platform_type_no_sql;
 mod trading_platform_settings_entity;
+mod broker_settings_entity;
 
 pub use bid_ask_snapshot_model::*;
 pub use default_favorite_instruments::*;
@@ -33,6 +34,7 @@ pub use broker_no_sql::*;
 pub use trading_platform_no_sql::*; 
 pub use trading_platform_type_no_sql::*;
 pub use trading_platform_settings_entity::*;
+pub use broker_settings_entity::*;
 
 #[cfg(feature = "dashboard-statistics")]
 mod dash_board_brief_statistics_entity;
