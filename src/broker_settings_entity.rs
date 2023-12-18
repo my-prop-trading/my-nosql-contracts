@@ -13,17 +13,17 @@ service_sdk::macros::use_my_no_sql_entity!();
 #[serde(rename_all = "PascalCase")]
 pub struct BrokerSettingsNoSqlEntity {
     #[serde(rename = "Id")]
-    id: i32,
+    pub id: i32,
     #[serde(rename = "Name")]
-    name: String,
+    pub name: String,
     #[serde(rename = "Enabled")]
-    enabled: bool,
+    pub enabled: bool,
     #[serde(rename = "IconUrl")]
-    icon_url: String,
+    pub icon_url: String,
     #[serde(rename = "MetaTrader4")]
-    meta_trader4: Platform,
+    pub meta_trader4: Platform,
     #[serde(rename = "MetaTrader5")]
-    meta_trader5: Platform,
+    pub meta_trader5: Platform,
 }
 
 impl BrokerSettingsNoSqlEntity {
@@ -45,21 +45,21 @@ impl BrokerSettingsNoSqlEntity {
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "PascalCase")]
-struct Platform {
-    enabled: bool,
-    platform: TradingPlatformMyNoSql,
-    links: Links,
-    demo: PlatformSettings,
-    live: PlatformSettings,
+pub struct Platform {
+    pub enabled: bool,
+    pub platform: TradingPlatformMyNoSql,
+    pub links: Links,
+    pub demo: PlatformSettings,
+    pub live: PlatformSettings,
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "PascalCase")]
-struct PlatformSettings {
-    name: String,
-    id: i32,
-    r#type: TradingPlatformTypeMyNoSql,
-    tech_settings: TechSettings,
+pub struct PlatformSettings {
+    pub name: String,
+    pub id: i32,
+    pub r#type: TradingPlatformTypeMyNoSql,
+    pub tech_settings: TechSettings,
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
