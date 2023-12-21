@@ -21,9 +21,9 @@ pub struct BrokerSettingsNoSqlEntity {
     #[serde(rename = "IconUrl")]
     pub icon_url: String,
     #[serde(rename = "MetaTrader4")]
-    pub meta_trader4: Platform,
+    pub meta_trader4: PlatformNoSqlEntity,
     #[serde(rename = "MetaTrader5")]
-    pub meta_trader5: Platform,
+    pub meta_trader5: PlatformNoSqlEntity,
 }
 
 impl BrokerSettingsNoSqlEntity {
@@ -45,27 +45,27 @@ impl BrokerSettingsNoSqlEntity {
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct Platform {
+pub struct PlatformNoSqlEntity {
     pub enabled: bool,
     pub platform: TradingPlatformMyNoSql,
-    pub links: Links,
-    pub demo: PlatformSettings,
-    pub live: PlatformSettings,
+    pub links: LinksNoSqlEntity,
+    pub demo: PlatformSettingsNoSqlEntity,
+    pub live: PlatformSettingsNoSqlEntity,
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct PlatformSettings {
+pub struct PlatformSettingsNoSqlEntity {
     pub name: String,
     pub id: i32,
     pub r#type: TradingPlatformTypeMyNoSql,
     pub client_server_address: String,
-    pub tech_settings: TechSettings,
+    pub tech_settings: TechSettingsNoSqlEntity,
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct Links {
+pub struct LinksNoSqlEntity {
     pub windows: String,
     pub mac: String,
     pub ios: String,
@@ -75,19 +75,19 @@ pub struct Links {
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct TechSettings {
+pub struct TechSettingsNoSqlEntity {
     pub server: String,
     pub manager_login: String,
     pub password: String,
     pub reconnect_timeout: u32,
     pub default_group: String,
     pub archive_group: String,
-    pub accounts_ranges: AccountsRanges,
+    pub accounts_ranges: AccountsRangesNoSqlEntity,
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct AccountsRanges {
+pub struct AccountsRangesNoSqlEntity {
     pub use_range: bool,
     pub min: u64,
     pub max: u64,
