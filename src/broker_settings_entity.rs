@@ -59,6 +59,7 @@ pub struct PlatformSettings {
     pub name: String,
     pub id: i32,
     pub r#type: TradingPlatformTypeMyNoSql,
+    pub client_server_address: String,
     pub tech_settings: TechSettings,
 }
 
@@ -126,6 +127,7 @@ mod tests {
                     "Id": 0,
                     "Name": "WeltradeDemo",
                     "Type": "Demo",
+                    "ClientServerAddress" : "mt4.test.srv.systemgates.com:443",
                     "TechSettings": {
                         "Server": "***",
                         "ManagerLogin": "***",
@@ -142,8 +144,9 @@ mod tests {
                 },
                 "Live": {
                     "Id": 1,
-                    "Name": "WeltradLive",
+                    "Name": "WeltradeLive",
                     "Type": "Live",
+                    "ClientServerAddress" : "mt4.test.srv.systemgates.com:443",
                     "TechSettings": {
                         "Server": "***",
                         "ManagerLogin": "***",
@@ -173,6 +176,7 @@ mod tests {
                     "Id": 0,
                     "Name": "WeltradeDemo",
                     "Type": "Demo",
+                    "ClientServerAddress" : "mt5.test.srv.systemgates.com:443",
                     "TechSettings": {
                         "Server": "***",
                         "ManagerLogin": "***",
@@ -191,6 +195,7 @@ mod tests {
                     "Id": 1,
                     "Name": "WeltradeLive",
                     "Type": "Live",
+                    "ClientServerAddress" : "mt5.test.srv.systemgates.com:443",
                     "TechSettings": {
                         "Server": "***",
                         "ManagerLogin": "***",
@@ -245,6 +250,7 @@ mod tests {
                         "Name": "WeltradeDemo",
                         "Id": 0,
                         "Type": "Demo",
+                        "ClientServerAddress" : "mt4.test.srv.systemgates.com:443",
                         "TechSettings": {
                             "Server": "***",
                             "ManagerLogin": "***",
@@ -263,6 +269,7 @@ mod tests {
                         "Id": 1,
                         "Type": "Live",
                         "Name": "WeltradeLive",
+                        "ClientServerAddress" : "mt4.test.srv.systemgates.com:443",
                         "TechSettings": {
                             "Server": "***",
                             "ManagerLogin": "***",
@@ -292,6 +299,7 @@ mod tests {
                         "Name": "WeltradeDemo",
                         "Id": 0,
                         "Type": "Demo",
+                        "ClientServerAddress" : "mt5.test.srv.systemgates.com:443",
                         "TechSettings": {
                             "Server": "***",
                             "ManagerLogin": "***",
@@ -310,6 +318,7 @@ mod tests {
                         "Id": 1,
                         "Type": "Live",
                         "Name": "WeltradeLive",
+                        "ClientServerAddress" : "mt5.test.srv.systemgates.com:443",
                         "TechSettings": {
                             "Server": "***",
                             "ManagerLogin": "***",
@@ -348,6 +357,7 @@ mod tests {
                         "Name": "M4MarketsDemo",
                         "Id": 2,
                         "Type": "Demo",
+                        "ClientServerAddress" : "mt4.test.srv.systemgates.com:443",
                         "TechSettings": {
                             "Server": "",
                             "ManagerLogin": "",
@@ -366,6 +376,7 @@ mod tests {
                         "Id": 3,
                         "Name": "M4MarketsLive",
                         "Type": "Live",
+                        "ClientServerAddress" : "mt4.test.srv.systemgates.com:443",
                         "TechSettings": {
                             "Server": "***",
                             "ManagerLogin": "***",
@@ -395,6 +406,7 @@ mod tests {
                         "Name": "M4MarketsDemo",
                         "Id": 2,
                         "Type": "Demo",
+                        "ClientServerAddress" : "mt5.test.srv.systemgates.com:443",
                         "TechSettings": {
                             "Server": "***",
                             "ManagerLogin": "***",
@@ -413,6 +425,7 @@ mod tests {
                         "Id": 3,
                         "Type": "Live",
                         "Name": "M4MarketsLive",
+                        "ClientServerAddress" : "mt5.test.srv.systemgates.com:443",
                         "TechSettings": {
                             "Server": "***",
                             "ManagerLogin": "***",
@@ -451,6 +464,7 @@ mod tests {
                         "Name": "",
                         "Id": 4,
                         "Type": "Demo",
+                        "ClientServerAddress" : "mt4.test.srv.systemgates.com:443",
                         "TechSettings": {
                             "Server": "",
                             "ManagerLogin": "",
@@ -469,6 +483,7 @@ mod tests {
                         "Id": 5,
                         "Name": "",
                         "Type": "Live",
+                        "ClientServerAddress" : "mt4.test.srv.systemgates.com:443",
                         "TechSettings": {
                             "Server": "",
                             "ManagerLogin": "",
@@ -498,6 +513,7 @@ mod tests {
                         "Name": "",
                         "Id": 4,
                         "Type": "Demo",
+                        "ClientServerAddress" : "mt5.test.srv.systemgates.com:443",
                         "TechSettings": {
                             "Server": "",
                             "ManagerLogin": "",
@@ -516,6 +532,7 @@ mod tests {
                         "Id": 5,
                         "Type": "Live",
                         "Name": "",
+                        "ClientServerAddress" : "mt5.test.srv.systemgates.com:443",
                         "TechSettings": {
                             "Server": "",
                             "ManagerLogin": "",
