@@ -10,8 +10,8 @@ service_sdk::macros::use_my_no_sql_entity!();
 #[derive(Serialize, Deserialize, Clone)]
 pub struct SendGridSettingsModel {
     pub send_grid_api_key: String,
-    pub from_email: String,
-    pub bcc_email: Option<String>,
+    pub email_from: String,
+    pub email_bcc: Option<String>,
     pub templates: HashMap<String, String>,
 }
 
