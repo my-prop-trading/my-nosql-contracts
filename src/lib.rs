@@ -14,7 +14,6 @@ mod trader_packages_field_order;
 mod broker_no_sql;
 mod trading_platform_no_sql;
 mod trading_platform_type_no_sql;
-mod product_settings;
 
 pub use bid_ask_snapshot_model::*;
 pub use default_favorite_instruments::*;
@@ -32,7 +31,6 @@ pub use trader_packages_field_order::*;
 pub use broker_no_sql::*;
 pub use trading_platform_no_sql::*; 
 pub use trading_platform_type_no_sql::*;
-pub use product_settings::*;
 
 #[cfg(feature = "dashboard-statistics")]
 mod dash_board_brief_statistics_entity;
@@ -114,3 +112,10 @@ pub mod broker_settings_entity;
 
 #[cfg(feature = "broker-settings-entity")]
 pub use broker_settings_entity::*;
+
+#[cfg(feature = "product-settings")]
+pub mod product_settings;
+
+#[cfg(feature = "product-settings")]
+pub use product_settings::*;
+
