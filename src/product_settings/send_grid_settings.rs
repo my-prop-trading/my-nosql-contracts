@@ -2,7 +2,7 @@ use std::collections::HashMap;
 
 use serde::*;
 
-use crate::EmailType;
+use crate::EmailTypeMyNoSql;
 
 service_sdk::macros::use_my_no_sql_entity!();
 
@@ -16,7 +16,7 @@ pub struct SendGridSettingsModel {
 }
 
 impl SendGridSettingsModel {
-    pub fn get_email_id(&self, email_type: EmailType) -> Option<String> {
+    pub fn get_email_id(&self, email_type: EmailTypeMyNoSql) -> Option<String> {
         let result = self.templates.get(email_type.as_str())?;
         Some(result.to_string())
     }
