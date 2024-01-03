@@ -13,12 +13,22 @@ pub struct SendGridSettingsModel {
     pub send_grid_api_key: String,
     pub email_from: String,
     pub email_bcc: Option<String>,
-    pub templates: HashMap<String, String>,
+    pub templates: HashMap<String, SendGridTemplatesModel>,
+    pub trading_packages_link: String,
+    pub company_name: String,
+    pub support_link: String,
+    pub home_page_link: String,
+}
+
+#[derive(Serialize, Deserialize, Clone)]
+pub struct SendGridTemplatesModel {
+    pub items: HashMap<String, String>,
 }
 
 impl SendGridSettingsModel {
-    pub fn get_email_id(&self, email_type: EmailTypeMyNoSql) -> Option<String> {
-        let result = self.templates.get(email_type.as_str())?;
+    pub fn get_email_id(&self, language: &str, email_type: EmailTypeMyNoSql) -> Option<String> {
+        let templates = self.templates.get(language)?;
+        let result = templates.items.get(email_type.as_str())?;
         Some(result.to_string())
     }
 }
