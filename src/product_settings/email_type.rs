@@ -1,4 +1,7 @@
-#[derive(Debug)]
+use serde::*;
+
+#[derive(Serialize, Deserialize, Clone, Copy, Debug, PartialEq, PartialOrd, Ord, Eq, Hash)]
+#[repr(i32)]
 pub enum EmailTypeMyNoSql {
     RegistrationConfirmation = 0,
     ForgotPassword = 1,
@@ -144,7 +147,7 @@ impl From<i32> for EmailTypeMyNoSql {
             _ => panic!(
                 "Invalid value '{}' for EmailTypeMyNoSql",
                 value,
-            )
+            ),
         }
     }
 }

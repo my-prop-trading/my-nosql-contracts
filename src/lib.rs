@@ -92,9 +92,6 @@ pub use company_properties_entity::*;
 #[cfg(feature = "trader-account-cache-delay")]
 pub use trader_account_cache_delay::*;
 
-#[cfg(feature = "trader-account-cache-delay")]
-pub use trading_platform_settings_entity::*;
-
 #[cfg(feature = "user-profile-visible-fields")]
 pub mod user_profile_visible_fields;
 

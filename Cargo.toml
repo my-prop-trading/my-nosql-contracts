@@ -32,7 +32,7 @@ all = [
     "trader-account-cache-delay",
     "user-profile-visible-fields",
     "user-profile-field-template",
-    "product-settings"
+    "product-settings",
 ]
 
 [dependencies]
