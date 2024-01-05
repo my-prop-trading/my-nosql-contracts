@@ -18,6 +18,8 @@ pub struct SendGridSettingsModel {
     pub company_name: String,
     pub support_link: String,
     pub home_page_link: String,
+    pub verification_link: String,
+    pub payouts_page_link: String,
 }
 
 #[derive(Serialize, Deserialize, Clone)]
