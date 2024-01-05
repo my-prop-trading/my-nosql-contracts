@@ -14,19 +14,13 @@ pub struct SendGridSettingsModel {
     pub send_grid_api_key: String,
     pub email_from: String,
     pub email_bcc: Option<String>,
-    pub templates: HashMap<String, SendGridTemplatesModel>,
+    pub templates: HashMap<String, HashMap<String, String>>,
     pub trading_packages_link: String,
     pub company_name: String,
     pub support_link: String,
     pub home_page_link: String,
     pub verification_link: String,
     pub payouts_page_link: String,
-}
-
-#[derive(Serialize, Deserialize, Clone)]
-#[serde(rename_all = "PascalCase")]
-pub struct SendGridTemplatesModel {
-    pub items: HashMap<String, String>,
 }
 
 impl SendGridSettingsModel {
