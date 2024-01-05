@@ -9,6 +9,7 @@ service_sdk::macros::use_my_no_sql_entity!();
 
 #[enum_model(partition_key:"email-provider", row_key: "send-grid")]
 #[derive(Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase")]
 pub struct SendGridSettingsModel {
     pub send_grid_api_key: String,
     pub email_from: String,
@@ -23,6 +24,7 @@ pub struct SendGridSettingsModel {
 }
 
 #[derive(Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase")]
 pub struct SendGridTemplatesModel {
     pub items: HashMap<String, String>,
 }
