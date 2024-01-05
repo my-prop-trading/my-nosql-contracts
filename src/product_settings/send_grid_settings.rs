@@ -26,7 +26,7 @@ pub struct SendGridSettingsModel {
 impl SendGridSettingsModel {
     pub fn get_email_id(&self, language: &str, email_type: EmailTypeMyNoSql) -> Option<String> {
         let templates = self.templates.get(language)?;
-        let result = templates.items.get(email_type.as_str())?;
+        let result = templates.get(email_type.as_str())?;
         Some(result.to_string())
     }
 }
