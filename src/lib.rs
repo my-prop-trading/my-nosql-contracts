@@ -116,3 +116,9 @@ pub mod product_settings;
 #[cfg(feature = "product-settings")]
 pub use product_settings::*;
 
+
+#[cfg(feature = "woo-commerce")]
+pub mod woo_coommerce_product_mapping_entity;
+
+#[cfg(feature = "woo-commerce")]
+pub use woo_coommerce_product_mapping_entity::*;
