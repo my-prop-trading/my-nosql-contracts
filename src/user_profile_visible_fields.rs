@@ -7,8 +7,8 @@ service_sdk::macros::use_my_no_sql_entity!();
 #[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct GetUserProfileVisibleFieldsMyNoSqlEntity {
-    pub registration_date_from: bool,
-    pub registration_date_to: bool,
+    #[serde(default)]   
+    pub registration_date: bool,
     pub crm_status: bool,
     pub first_name_reg: bool,
     pub last_name_reg: bool,
