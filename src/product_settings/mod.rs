@@ -9,3 +9,6 @@ pub use send_grid_settings::*;
 
 mod brand_settings;
 pub use brand_settings::*;
+
+mod identomat_settings;
+pub use identomat_settings::*;

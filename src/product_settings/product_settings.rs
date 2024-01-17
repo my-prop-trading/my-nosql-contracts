@@ -1,5 +1,6 @@
 use crate::SendGridSettingsModel;
 use crate::BrandSettingsModel;
+use crate::IdentomatSettingsModel;
 
 service_sdk::macros::use_my_no_sql_entity!();
 
@@ -7,4 +8,5 @@ service_sdk::macros::use_my_no_sql_entity!();
 pub enum ProductSettings {
     SendGrid(SendGridSettingsModel),
     BrandSettings(BrandSettingsModel),
+    IdentomatSettings(IdentomatSettingsModel),
 }
