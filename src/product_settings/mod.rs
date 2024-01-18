@@ -12,3 +12,6 @@ pub use brand_settings::*;
 
 mod identomat_settings;
 pub use identomat_settings::*;
+
+mod kyc_settings;
+pub use kyc_settings::*;
