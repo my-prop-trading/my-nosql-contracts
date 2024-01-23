@@ -30,6 +30,19 @@ impl KycProofTypeMyNoSql {
     }
 }
 
+impl From<i32> for KycProofTypeMyNoSql {
+    fn from(value: i32) -> Self {
+        match value {
+            0 => KycProofTypeMyNoSql::ProofOfIdentity,
+            1 => KycProofTypeMyNoSql::ProofOfAddress,
+            _ => panic!(
+                "Invalid value '{}' for KycProofTypeMyNoSql should be '{}(0)' or '{}(1)'",
+                value, PROOF_OF_IDENTITY, PROOF_OF_ADDRESS
+            )
+        }
+    }
+}
+
 #[my_no_sql_entity("kyc-identomat-cache")]
 #[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "PascalCase")]
