@@ -1,47 +1,10 @@
 use service_sdk::rust_extensions::StrOrString;
 use serde::*;
-
+use crate::kyc_proof_type_no_sql::KycProofTypeMyNoSql;
 service_sdk::macros::use_my_no_sql_entity!();
 
 pub const PROOF_OF_IDENTITY: &str = "ProofOfIdentity";
 pub const PROOF_OF_ADDRESS: &str = "ProofOfAddress";
-
-#[derive(Serialize, Deserialize, Copy, Clone, Debug)]
-#[repr(i32)]
-pub enum KycIdentomatStatusMyNoSql {
-    Created = 0,
-    Updated = 1,
-    Deleted = 2,
-}
-
-#[derive(Serialize, Deserialize, Clone, Copy, Debug, PartialEq, PartialOrd, Ord, Eq, Hash)]
-#[repr(i32)]
-pub enum KycProofTypeMyNoSql {
-    ProofOfIdentity = 0,
-    ProofOfAddress = 1,
-}
-
-impl KycProofTypeMyNoSql {
-    pub fn as_str(&self) -> &'static str {
-        match self {
-            KycProofTypeMyNoSql::ProofOfIdentity => PROOF_OF_IDENTITY,
-            KycProofTypeMyNoSql::ProofOfAddress => PROOF_OF_ADDRESS,
-        }
-    }
-}
-
-impl From<i32> for KycProofTypeMyNoSql {
-    fn from(value: i32) -> Self {
-        match value {
-            0 => KycProofTypeMyNoSql::ProofOfIdentity,
-            1 => KycProofTypeMyNoSql::ProofOfAddress,
-            _ => panic!(
-                "Invalid value '{}' for KycProofTypeMyNoSql should be '{}(0)' or '{}(1)'",
-                value, PROOF_OF_IDENTITY, PROOF_OF_ADDRESS
-            )
-        }
-    }
-}
 
 #[my_no_sql_entity("kyc-identomat-cache")]
 #[derive(Serialize, Deserialize, Debug, Clone)]
@@ -60,4 +23,12 @@ impl KycIdentomatCacheMyNoSqlEntity {
     pub fn generate_row_key(kyc_proof_type: KycProofTypeMyNoSql) -> &'static str {
         kyc_proof_type.as_str()
     }
+}
+
+#[derive(Serialize, Deserialize, Copy, Clone, Debug)]
+#[repr(i32)]
+pub enum KycIdentomatStatusMyNoSql {
+    Created = 0,
+    Updated = 1,
+    Deleted = 2,
 }
