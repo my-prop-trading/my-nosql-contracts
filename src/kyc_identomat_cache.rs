@@ -25,7 +25,7 @@ impl KycIdentomatCacheMyNoSqlEntity {
     }
 }
 
-#[derive(Serialize, Deserialize, Copy, Clone, Debug)]
+#[derive(Serialize, Deserialize, Copy, Clone, Debug, PartialEq)]
 #[repr(i32)]
 pub enum KycIdentomatStatusMyNoSql {
     Created = 0,
