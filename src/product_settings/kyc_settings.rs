@@ -1,9 +1,4 @@
-use std::collections::HashMap;
-
-
 use serde::*;
-
-use crate::EmailTypeMyNoSql;
 
 service_sdk::macros::use_my_no_sql_entity!();
 

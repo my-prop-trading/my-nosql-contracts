@@ -1,6 +1,4 @@
 use rust_extensions::StrOrString;
-use crate::broker_no_sql::BrokerMyNoSql;
-use crate::trading_platform_no_sql::TradingPlatformMyNoSql;
 use serde::*;
 
 service_sdk::macros::use_my_no_sql_entity!();
