@@ -3,9 +3,6 @@ use serde::*;
 use crate::kyc_proof_type_no_sql::KycProofTypeMyNoSql;
 service_sdk::macros::use_my_no_sql_entity!();
 
-pub const PROOF_OF_IDENTITY: &str = "ProofOfIdentity";
-pub const PROOF_OF_ADDRESS: &str = "ProofOfAddress";
-
 #[my_no_sql_entity("kyc-identomat-cache")]
 #[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "PascalCase")]
