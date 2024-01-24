@@ -14,7 +14,7 @@ mod trader_packages_field_order;
 mod broker_no_sql;
 mod trading_platform_no_sql;
 mod trading_platform_type_no_sql;
-mod kyc_proof_type_no_sql;
+pub mod kyc_proof_type_no_sql;
 
 pub use bid_ask_snapshot_model::*;
 pub use default_favorite_instruments::*;
