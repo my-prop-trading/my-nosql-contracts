@@ -129,3 +129,10 @@ pub mod kyc_identomat_cache;
 
 #[cfg(feature = "kyc-identomat-cache")]
 pub use kyc_identomat_cache::*;
+
+
+#[cfg(feature = "payout-withdrawal-settings")]
+pub mod payout_withdrawal_settings_entity;
+
+#[cfg(feature = "payout-withdrawal-settings")]
+pub use payout_withdrawal_settings_entity::*;
