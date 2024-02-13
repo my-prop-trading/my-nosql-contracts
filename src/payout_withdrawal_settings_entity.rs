@@ -12,17 +12,11 @@ pub struct PayoutWithdrawalSettingsMyNoSqlEntity {
 
 impl PayoutWithdrawalSettingsMyNoSqlEntity {
     pub fn generate_partition_key(payout_type: PayoutType) -> &'static str {
-        match payout_type {
-            PayoutType::BankTransfer => "bank-transfer",
-            PayoutType::Crypto => "crypto",
-        }
+        payout_type.into()
     }
 
     pub fn generate_row_key(min_max_type: MinMaxType) -> &'static str {
-        match min_max_type {
-            MinMaxType::Min => "min".into(),
-            MinMaxType::Max => "max".into(),
-        }
+        min_max_type.into()
     }
 }
 
@@ -37,3 +31,45 @@ pub enum MinMaxType {
     Min = 0,
     Max = 1,
 }
+
+// Also create PayoutType from string
+impl From<&str> for PayoutType {
+    fn from(payout_type: &str) -> Self {
+        match payout_type {
+            "bank-transfer" => PayoutType::BankTransfer,
+            "crypto" => PayoutType::Crypto,
+            _ => PayoutType::BankTransfer,
+        }
+    }
+}
+
+impl From<PayoutType> for &'static str {
+    fn from(payout_type: PayoutType) -> Self {
+        match payout_type {
+            PayoutType::BankTransfer => "bank-transfer",
+            PayoutType::Crypto => "crypto",
+        }
+    }
+}
+
+
+// Also create MinMaxType from string
+impl From<&str> for MinMaxType {
+    fn from(min_max_type: &str) -> Self {
+        match min_max_type {
+            "min" => MinMaxType::Min,
+            "max" => MinMaxType::Max,
+            _ => MinMaxType::Min,
+        }
+    }
+}
+
+impl From<MinMaxType> for &'static str {
+    fn from(min_max_type: MinMaxType) -> Self {
+        match min_max_type {
+            MinMaxType::Min => "min",
+            MinMaxType::Max => "max",
+        }
+    }
+}
+
