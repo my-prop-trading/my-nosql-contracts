@@ -34,7 +34,7 @@ pub enum MinMaxType {
 
 // Also create PayoutType from string
 impl PayoutType {
-    fn from_str(payout_type: &str) -> Self {
+    pub fn from_str(payout_type: &str) -> Self {
         match payout_type {
             "bank-transfer" => PayoutType::BankTransfer,
             "crypto" => PayoutType::Crypto,
@@ -55,7 +55,7 @@ impl From<PayoutType> for &'static str {
 
 // Also create MinMaxType from string
 impl MinMaxType {
-    fn from_str(min_max_type: &str) -> Self {
+    pub fn from_str(min_max_type: &str) -> Self {
         match min_max_type {
             "min" => MinMaxType::Min,
             "max" => MinMaxType::Max,
