@@ -62,6 +62,12 @@ pub struct TraderAccountMyNoSqlEntity {
     pub status: TraderAccountStatusMyNoSql,
     pub brand: String,
     pub account_type: TraderAccountTypeMyNoSql,
+
+    #[serde(default)]
+    pub trader_package_group_id: String,
+
+    #[serde(default)]
+    pub trader_package_group_name: String,
 }
 
 #[derive(Serialize, Deserialize, Clone, Copy, Debug, PartialEq, PartialOrd, Ord, Eq, Hash)]
