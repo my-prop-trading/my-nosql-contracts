@@ -2,6 +2,7 @@ use crate::SendGridSettingsModel;
 use crate::BrandSettingsModel;
 use crate::IdentomatSettingsModel;
 use crate::KycSettingsModel;
+use crate::TradingPackagesSettingsModel;
 
 service_sdk::macros::use_my_no_sql_entity!();
 
@@ -10,5 +11,6 @@ pub enum ProductSettings {
     SendGrid(SendGridSettingsModel),
     BrandSettings(BrandSettingsModel),
     IdentomatSettings(IdentomatSettingsModel),
-    KycSettings(KycSettingsModel)
+    KycSettings(KycSettingsModel),
+    TradingPackagesSettingsModel(TradingPackagesSettingsModel),
 }
