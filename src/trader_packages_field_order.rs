@@ -27,6 +27,25 @@ pub struct TraderPackageFieldsOrderMyNoSqlEntity {
     pub phase2_refund: Option<i32>,
     pub phase2_attempts: Option<i32>,
 
+    #[serde(default)]
+    pub phase3_daily_drawdown: Option<i32>,
+    #[serde(default)]
+    pub phase3_overall_drawdown: Option<i32>,
+    #[serde(default)]
+    pub phase3_target_profit: Option<i32>,
+    #[serde(default)]
+    pub phase3_duration: Option<i32>,
+    #[serde(default)]
+    pub phase3_min_trading_days: Option<i32>,
+    #[serde(default)]
+    pub phase3_min_opened_positions: Option<i32>,
+    #[serde(default)]
+    pub phase3_revenue_share: Option<i32>,
+    #[serde(default)]
+    pub phase3_refund: Option<i32>,
+    #[serde(default)]
+    pub phase3_attempts: Option<i32>,
+
     pub daily_drawdown: Option<i32>,
     pub overall_drawdown: Option<i32>,
     pub target_profit: Option<i32>,
