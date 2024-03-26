@@ -48,6 +48,25 @@ pub struct TraderAccountMyNoSqlEntity {
     pub phase2_refund: f64,
     pub phase2_attempts: String,
 
+    #[serde(default)]
+    pub phase3_daily_drawdown: f64,
+    #[serde(default)]
+    pub phase3_overall_drawdown: f64,
+    #[serde(default)]
+    pub phase3_target_profit: f64,
+    #[serde(default)]
+    pub phase3_duration: i32,
+    #[serde(default)]
+    pub phase3_min_trading_days: Option<i32>,
+    #[serde(default)]
+    pub phase3_min_opened_positions: Option<i32>,
+    #[serde(default)]
+    pub phase3_revenue_share: Option<f64>,
+    #[serde(default)]
+    pub phase3_refund: f64,
+    #[serde(default)]
+    pub phase3_attempts: String,
+
     pub daily_drawdown: f64,
     pub overall_drawdown: f64,
 
@@ -68,6 +87,9 @@ pub struct TraderAccountMyNoSqlEntity {
 
     #[serde(default)]
     pub trader_package_group_name: String,
+
+    #[serde(default = "get_default_phase")]
+    pub phase_type: TraderPackagePhaseTypMyNoSql,
 }
 
 #[derive(Serialize, Deserialize, Clone, Copy, Debug, PartialEq, PartialOrd, Ord, Eq, Hash)]
@@ -87,6 +109,16 @@ pub enum TraderAccountTypeMyNoSql {
     Live = 1,
 }
 
+
+#[derive(Serialize, Deserialize, Clone, Copy, Debug, PartialEq, PartialOrd, Ord, Eq, Hash)]
+#[repr(i32)]
+pub enum TraderPackagePhaseTypMyNoSql {
+    Phase1 = 0,
+    Phase2 = 1,
+    Phase3 = 2,
+    InstantFunding = 3,
+}
+
 impl TraderAccountMyNoSqlEntity {
     pub fn generate_partition_key() -> &'static str {
         "c"
@@ -95,4 +127,8 @@ impl TraderAccountMyNoSqlEntity {
     pub fn generate_row_key<'s>(trader_account_id: impl Into<StrOrString<'s>>) -> StrOrString<'s> {
         trader_account_id.into()
     }
+}
+
+fn get_default_phase() -> TraderPackagePhaseTypMyNoSql {
+    TraderPackagePhaseTypMyNoSql::Phase2
 }
