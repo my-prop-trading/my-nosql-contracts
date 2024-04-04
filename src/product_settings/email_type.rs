@@ -32,6 +32,14 @@ pub enum EmailTypeMyNoSql {
     PayoutDeclined = 26,
     ProfitSplitDay = 27,
     RevenueShareTaken = 28,
+    SuccessfulScenarioPhase3 = 29,
+    SuccessfulScenarioPhase1KycRequired = 30,
+    SuccessfulScenarioPhase1ContractRequired = 31,
+    SuccessfulScenarioPhase3KycRequired = 32,
+    SuccessfulScenarioPhase3ContractRequired = 33,
+    FailedScenarioPhase3 = 34,
+    PaymentReceivedInstantFundingKycRequired = 35,
+    PaymentReceivedInstantFundingContractRequired = 36,
 }
 
 impl EmailTypeMyNoSql {
@@ -66,6 +74,14 @@ impl EmailTypeMyNoSql {
             Self::PayoutDeclined,
             Self::ProfitSplitDay,
             Self::RevenueShareTaken,
+            Self::SuccessfulScenarioPhase3,
+            Self::SuccessfulScenarioPhase1KycRequired,
+            Self::SuccessfulScenarioPhase1ContractRequired,
+            Self::SuccessfulScenarioPhase3KycRequired,
+            Self::SuccessfulScenarioPhase3ContractRequired,
+            Self::FailedScenarioPhase3,
+            Self::PaymentReceivedInstantFundingKycRequired,
+            Self::PaymentReceivedInstantFundingContractRequired,
             ];
         return enums;
     }
@@ -101,7 +117,14 @@ impl EmailTypeMyNoSql {
             Self::PayoutDeclined => "PayoutDeclined",
             Self::ProfitSplitDay => "ProfitSplitDay",
             Self::RevenueShareTaken => "RevenueShareTaken",
-
+            Self::SuccessfulScenarioPhase3 => "SuccessfulScenarioPhase3",
+            Self::SuccessfulScenarioPhase1KycRequired => "SuccessfulScenarioPhase1KycRequired",
+            Self::SuccessfulScenarioPhase1ContractRequired => "SuccessfulScenarioPhase1ContractRequired",
+            Self::SuccessfulScenarioPhase3KycRequired => "SuccessfulScenarioPhase3KycRequired",
+            Self::SuccessfulScenarioPhase3ContractRequired => "SuccessfulScenarioPhase3ContractRequired",
+            Self::FailedScenarioPhase3 => "FailedScenarioPhase3",
+            Self::PaymentReceivedInstantFundingKycRequired => "PaymentReceivedInstantFundingKycRequired",
+            Self::PaymentReceivedInstantFundingContractRequired => "PaymentReceivedInstantFundingContractRequired",
         }
     }
 }
@@ -144,6 +167,14 @@ impl From<i32> for EmailTypeMyNoSql {
             26 => EmailTypeMyNoSql::PayoutDeclined,
             27 => EmailTypeMyNoSql::ProfitSplitDay,
             28 => EmailTypeMyNoSql::RevenueShareTaken,
+            29 => EmailTypeMyNoSql::SuccessfulScenarioPhase3,
+            30 => EmailTypeMyNoSql::SuccessfulScenarioPhase1KycRequired,
+            31 => EmailTypeMyNoSql::SuccessfulScenarioPhase1ContractRequired,
+            32 => EmailTypeMyNoSql::SuccessfulScenarioPhase3KycRequired,
+            33 => EmailTypeMyNoSql::SuccessfulScenarioPhase3ContractRequired,
+            34 => EmailTypeMyNoSql::FailedScenarioPhase3,
+            35 => EmailTypeMyNoSql::PaymentReceivedInstantFundingKycRequired,
+            36 => EmailTypeMyNoSql::PaymentReceivedInstantFundingContractRequired,
             _ => panic!(
                 "Invalid value '{}' for EmailTypeMyNoSql",
                 value,
