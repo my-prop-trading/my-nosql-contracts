@@ -1,6 +1,4 @@
 use rust_extensions::StrOrString;
-use crate::broker_no_sql::BrokerMyNoSql;
-use crate::trading_platform_no_sql::TradingPlatformMyNoSql;
 use serde::*;
 
 service_sdk::macros::use_my_no_sql_entity!();
@@ -12,8 +10,8 @@ pub struct TraderAccountMyNoSqlEntity {
     pub id: String,
     pub title: String,
     pub phase: i32,
-    pub broker: BrokerMyNoSql,
-    pub trading_platform: TradingPlatformMyNoSql,
+    pub broker: i32,
+    pub trading_platform: i32,
     pub start_date: Option<i64>,
     pub end_date: Option<i64>,
     pub aggregated_id: String,
