@@ -11,9 +11,6 @@ mod trading_instrument;
 mod trading_profile;
 mod instrument_mapping_entity;
 mod trader_packages_field_order;
-mod broker_no_sql;
-mod trading_platform_no_sql;
-mod trading_platform_type_no_sql;
 pub mod kyc_proof_type_no_sql;
 
 pub use bid_ask_snapshot_model::*;
@@ -29,9 +26,6 @@ pub use trading_instrument::*;
 pub use trading_profile::*;
 pub use instrument_mapping_entity::*;
 pub use trader_packages_field_order::*;
-pub use broker_no_sql::*;
-pub use trading_platform_no_sql::*; 
-pub use trading_platform_type_no_sql::*;
 pub use kyc_proof_type_no_sql::*;
 
 #[cfg(feature = "dashboard-statistics")]
@@ -51,9 +45,6 @@ mod current_balance_entity;
 
 #[cfg(feature = "payout-schedule-settings")]
 mod payout_schedule_settings_entity;
-
-#[cfg(feature = "trader-platform-credentials")]
-mod trader_platform_credentials_entity;
 
 #[cfg(feature = "trader-blockers")]
 mod trader_blocker_entity;
@@ -82,9 +73,6 @@ pub use current_balance_entity::*;
 #[cfg(feature = "payout-schedule-settings")]
 pub use payout_schedule_settings_entity::*;
 
-#[cfg(feature = "trader-platform-credentials")]
-pub use trader_platform_credentials_entity::*;
-
 #[cfg(feature = "trader-blockers")]
 pub use trader_blocker_entity::*;
 
@@ -105,12 +93,6 @@ pub mod user_profile_field_template;
 
 #[cfg(feature = "user-profile-field-template")]
 pub use user_profile_field_template::*;
-
-#[cfg(feature = "broker-settings-entity")]
-pub mod broker_settings_entity;
-
-#[cfg(feature = "broker-settings-entity")]
-pub use broker_settings_entity::*;
 
 #[cfg(feature = "product-settings")]
 pub mod product_settings;
