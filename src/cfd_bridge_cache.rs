@@ -21,7 +21,7 @@ pub struct CfdBridgeCacheMyNoSqlEntity {
     pub margin: f64,
     pub margin_free: f64,
     pub margin_level: f64,
-    pub account_type: AccountType,
+    pub account_type: AccountTypeMyNoSql,
 }
 
 impl CfdBridgeCacheMyNoSqlEntity {
