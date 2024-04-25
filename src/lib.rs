@@ -28,6 +28,7 @@ pub use instrument_mapping_entity::*;
 pub use trader_packages_field_order::*;
 pub use kyc_proof_type_no_sql::*;
 
+
 #[cfg(feature = "dashboard-statistics")]
 mod dash_board_brief_statistics_entity;
 
@@ -118,3 +119,9 @@ pub mod payout_withdrawal_settings_entity;
 
 #[cfg(feature = "payout-withdrawal-settings")]
 pub use payout_withdrawal_settings_entity::*;
+
+#[cfg(feature = "cfd-bridge-cache")]
+pub mod cfd_bridge_cache;
+
+#[cfg(feature = "cfd-bridge-cache")]
+pub use cfd_bridge_cache::*;
