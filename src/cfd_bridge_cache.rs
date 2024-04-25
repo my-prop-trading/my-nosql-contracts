@@ -25,12 +25,11 @@ pub struct CfdBridgeCacheMyNoSqlEntity {
 }
 
 impl CfdBridgeCacheMyNoSqlEntity {
-
     pub fn generate_partition_key<'s>(trader_account_id: impl Into<StrOrString<'s>>) -> StrOrString<'s> {
         trader_account_id.into()
     }
 
-    pub fn generate_row_key(platform_account_id: impl Into<StrOrString<'s>>) -> StrOrString<'s> {
+    pub fn generate_row_key<'s>(platform_account_id: impl Into<StrOrString<'s>>) -> StrOrString<'s> {
         platform_account_id.into()
     }
 }
