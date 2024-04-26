@@ -25,11 +25,43 @@ pub struct CfdBridgeCacheMyNoSqlEntity {
 }
 
 impl CfdBridgeCacheMyNoSqlEntity {
-    pub fn generate_partition_key<'s>(trader_account_id: impl Into<StrOrString<'s>>) -> StrOrString<'s> {
-        trader_account_id.into()
+    pub fn generate_partition_key_demo() -> &'static str {
+        AccountTypeMyNoSql::Demo.as_str()
     }
 
-    pub fn generate_row_key<'s>(platform_account_id: impl Into<StrOrString<'s>>) -> StrOrString<'s> {
-        platform_account_id.into()
+    pub fn generate_partition_key_live() -> &'static str {
+        AccountTypeMyNoSql::Live.as_str()
+    }
+
+    pub fn generate_row_key<'s>(trader_account_id: impl Into<StrOrString<'s>>) -> StrOrString<'s> {
+        trader_account_id.into()
+    }
+}
+
+impl AccountTypeMyNoSql {
+    pub fn as_str(&self) -> &str {
+        match self {
+            Self::Demo => "Demo",
+            Self::Live => "live",
+        }
+    }
+}
+
+impl ToString for AccountTypeMyNoSql {
+    fn to_string(&self) -> String {
+        self.as_str().to_string()
+    }
+}
+
+impl From<i32> for AccountTypeMyNoSql {
+    fn from(value: i32) -> Self {
+        match value {
+            0 => AccountTypeMyNoSql::Demo,
+            1 => AccountTypeMyNoSql::Live,
+            _ => panic!(
+                "Invalid value '{}' for AccountTypeMyNoSql",
+                value,
+            ),
+        }
     }
 }
