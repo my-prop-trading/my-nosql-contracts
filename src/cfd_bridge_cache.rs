@@ -33,6 +33,10 @@ impl CfdBridgeCacheMyNoSqlEntity {
         AccountTypeMyNoSql::Live.as_str()
     }
 
+    pub fn generate_partition_key<'s>(account_type: i32) -> StrOrString<'s> {
+        AccountTypeMyNoSql::from(account_type).to_string().into()
+    }
+
     pub fn generate_row_key<'s>(trader_account_id: impl Into<StrOrString<'s>>) -> StrOrString<'s> {
         trader_account_id.into()
     }
