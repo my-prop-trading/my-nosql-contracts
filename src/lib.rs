@@ -121,7 +121,7 @@ pub mod payout_withdrawal_settings_entity;
 pub use payout_withdrawal_settings_entity::*;
 
 #[cfg(feature = "cfd-bridge-cache")]
-pub mod cfd_bridge_cache;
+pub mod cfd_bridge;
 
 #[cfg(feature = "cfd-bridge-cache")]
-pub use cfd_bridge_cache::*;
+pub use cfd_bridge::*;
