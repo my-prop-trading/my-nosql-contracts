@@ -24,4 +24,5 @@ pub struct BrandSettingsModel {
     pub email_from: String,
     pub email_cc: Option<String>,
     pub email_bcc: Option<String>,
+    pub languages_iso2: Vec<String>,
 }
