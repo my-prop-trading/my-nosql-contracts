@@ -125,3 +125,10 @@ pub mod cfd_bridge;
 
 #[cfg(feature = "cfd-bridge-cache")]
 pub use cfd_bridge::*;
+
+#[cfg(feature = "language-content")]
+pub mod language_content_entity;
+
+#[cfg(feature = "language-content")]
+pub use language_content_entity::*;
+
