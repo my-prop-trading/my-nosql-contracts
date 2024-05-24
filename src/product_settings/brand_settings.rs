@@ -20,6 +20,7 @@ pub struct BrandSettingsModel {
     pub home_page_url: String,
     pub verification_url: String,
     pub payouts_page_url: String,
+    pub login_url: String,
     pub company_name: String,
     pub email_from: String,
     pub email_cc: Option<String>,
