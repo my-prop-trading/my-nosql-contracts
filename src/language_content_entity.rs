@@ -3,12 +3,6 @@ use service_sdk::rust_extensions::StrOrString;
 use serde::*;
 
 service_sdk::macros::use_my_no_sql_entity!();
-#[derive(Serialize, Deserialize, Debug, Clone)]
-#[serde(rename_all = "PascalCase")]
-pub struct LanguageContentMyNoSqlEntity {
-    pub content: String,
-}
-
 #[my_no_sql_entity("language-content")]
 #[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "PascalCase")]
