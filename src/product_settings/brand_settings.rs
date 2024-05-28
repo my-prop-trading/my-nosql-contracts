@@ -1,4 +1,5 @@
 use serde::*;
+use std::collections::HashMap;
 
 service_sdk::macros::use_my_no_sql_entity!();
 #[enum_model(partition_key:"settings", row_key: "brand")]
@@ -25,7 +26,7 @@ pub struct BrandSettingsModel {
     pub email_from: String,
     pub email_cc: Option<String>,
     pub email_bcc: Option<String>,
-    pub languages_iso2: Vec<String>,
+    pub languages: HashMap<String, String>,
     pub show_live_chat: bool,
     pub live_chat_license: Option<String>,
 }
