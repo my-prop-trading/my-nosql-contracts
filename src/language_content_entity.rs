@@ -8,6 +8,8 @@ service_sdk::macros::use_my_no_sql_entity!();
 #[serde(rename_all = "PascalCase")]
 pub struct LanguageContentMyNoSqlEntity {
     pub content: HashMap<String, String>,
+    pub local_language_name: String,
+    pub language_name: String, 
 }
 
 impl LanguageContentMyNoSqlEntity {
