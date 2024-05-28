@@ -26,4 +26,6 @@ pub struct BrandSettingsModel {
     pub email_cc: Option<String>,
     pub email_bcc: Option<String>,
     pub languages_iso2: Vec<String>,
+    pub show_live_chat: bool,
+    pub live_chat_license: Option<String>,
 }
