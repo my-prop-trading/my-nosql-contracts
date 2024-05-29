@@ -11,6 +11,7 @@ pub struct LanguageContentMyNoSqlEntity {
     pub local_language_name: String,
     pub language_name: String, 
     pub language_iso2: String,
+    pub enabled: bool
 }
 
 impl LanguageContentMyNoSqlEntity {
