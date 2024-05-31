@@ -10,6 +10,7 @@ pub struct CfdBridgeBalanceCacheMyNoSqlEntity {
     pub client_id: String,
     pub trader_account_id: String,
     pub platform_account_id: String,
+    pub platform_balance: f64,
     pub balance: f64,
     pub equity: f64,
     pub margin: f64,
