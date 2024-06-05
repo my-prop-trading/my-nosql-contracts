@@ -12,6 +12,7 @@ mod trading_profile;
 mod instrument_mapping_entity;
 mod trader_packages_field_order;
 pub mod kyc_proof_type_no_sql;
+mod features_entity;
 
 pub use bid_ask_snapshot_model::*;
 pub use default_favorite_instruments::*;
@@ -132,3 +133,9 @@ pub mod language_content_entity;
 #[cfg(feature = "language-content")]
 pub use language_content_entity::*;
 
+
+#[cfg(feature = "features")]
+pub mod features_entity;
+
+#[cfg(feature = "features")]
+pub use features_entity::*;
