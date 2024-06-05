@@ -22,6 +22,7 @@ impl FeaturesMyNoSqlEntity {
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
+#[repr(i32)]
 pub enum AppFeature {
     DirectRegistration = 0,
     RegistrationThroughCheckout = 1,
@@ -42,6 +43,14 @@ impl AppFeature {
             "direct-registration" => AppFeature::DirectRegistration,
             "registration-through-checkout" => AppFeature::RegistrationThroughCheckout,
             _ => AppFeature::DirectRegistration,
+        }
+    }
+
+    pub fn from_i32(value: i32) -> Option<AppFeature> {
+        match value {
+            0 => Some(AppFeature::DirectRegistration),
+            1 => Some(AppFeature::RegistrationThroughCheckout),
+            _ => None,
         }
     }
 }
