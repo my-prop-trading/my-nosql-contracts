@@ -138,3 +138,9 @@ pub mod features_entity;
 
 #[cfg(feature = "features-entity")]
 pub use features_entity::*;
+
+#[cfg(feature = "cfd-cross-margin-bridge-cache")]
+pub mod cfd_cross_margin_bridge;
+
+#[cfg(feature = "cfd-cross-margin-bridge-cache")]
+pub use cfd_cross_margin_bridge::*;
