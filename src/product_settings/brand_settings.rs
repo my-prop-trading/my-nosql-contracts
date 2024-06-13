@@ -29,4 +29,5 @@ pub struct BrandSettingsModel {
     pub languages: HashMap<String, String>,
     pub show_live_chat: bool,
     pub live_chat_license: Option<String>,
+    pub styles_css: String
 }
