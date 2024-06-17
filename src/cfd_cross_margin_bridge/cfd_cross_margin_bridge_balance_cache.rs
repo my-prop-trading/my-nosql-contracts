@@ -18,6 +18,7 @@ pub struct CfdCrossMarginBridgeBalanceCacheMyNoSqlEntity {
     pub margin_level: f64,
     pub account_type: CfdCrossMarginAccountTypeMyNoSql,
     pub enabled: bool,
+    pub leverage: f64,
 }
 
 impl CfdCrossMarginBridgeBalanceCacheMyNoSqlEntity {
