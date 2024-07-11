@@ -7,6 +7,8 @@ service_sdk::macros::use_my_no_sql_entity!();
 #[serde(rename_all = "PascalCase")]
 pub struct PayoutWithdrawalLimitSettingsMyNoSqlEntity {
     pub value: f64,
+
+    #[serde(default)]
     pub is_enabled: bool,
 }
 
