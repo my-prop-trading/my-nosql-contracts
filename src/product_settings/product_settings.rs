@@ -14,5 +14,5 @@ pub enum ProductSettings {
     IdentomatSettings(IdentomatSettingsModel),
     KycSettings(KycSettingsModel),
     TradingPackagesSettingsModel(TradingPackagesSettingsModel),
-    AcqufySettingsModel(AcqufySettingsModel),
+    Acqufy(AcqufySettingsModel),
 }
