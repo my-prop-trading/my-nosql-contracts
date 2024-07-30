@@ -31,9 +31,9 @@ pub struct BrandSettingsNoSqlEntity {
     pub languages: HashMap<String, String>,
     pub styles_css_url: String,
     pub live_chat_license: Option<String>,
-    pub hide_live_chat: bool,
-    pub hide_affiliate_menu: bool,
-    pub hide_trade_server_on_dashboard: bool,
+    pub hide_live_chat: Option<bool>,
+    pub hide_affiliate_menu: Option<bool>,
+    pub hide_trade_server_on_dashboard: Option<bool>,
 }
 
 impl BrandSettingsNoSqlEntity {
