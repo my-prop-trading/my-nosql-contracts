@@ -33,6 +33,9 @@ pub struct BrandSettingsNoSqlEntity {
     pub live_chat_license: Option<String>,
     pub hide_live_chat: Option<bool>,
     pub hide_affiliate_menu: Option<bool>,
+    pub mail_logo: Option<String>,
+    pub mail_success_picture: Option<String>,
+    pub mail_fail_picture: Option<String>,
 }
 
 impl BrandSettingsNoSqlEntity {
