@@ -32,7 +32,7 @@ pub struct BrandSettingsModel {
     pub styles_css_url: String,
     pub hide_live_chat: Option<bool>,
     pub hide_affiliate_menu: Option<bool>,
-    pub mail_logo: Option<String>,
-    pub mail_success_picture: Option<String>,
-    pub mail_fail_picture: Option<String>,
+    pub mail_logo_url: Option<String>,
+    pub mail_success_picture_url: Option<String>,
+    pub mail_fail_picture_url: Option<String>,
 }
