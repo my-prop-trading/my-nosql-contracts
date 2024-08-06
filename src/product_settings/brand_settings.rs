@@ -35,4 +35,7 @@ pub struct BrandSettingsModel {
     pub mail_logo_url: Option<String>,
     pub mail_success_picture_url: Option<String>,
     pub mail_fail_picture_url: Option<String>,
+    pub discord_url: Option<String>,
+    pub hide_discord: Option<bool>,
+    pub google_tag_manager_key: Option<String>,
 }
