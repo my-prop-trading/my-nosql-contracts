@@ -17,4 +17,9 @@ mod kyc_settings;
 pub use kyc_settings::*;
 
 mod trading_packages_settings;
+
 pub use trading_packages_settings::*;
+
+mod ctrader_settings;
+pub use ctrader_settings::*;
+
