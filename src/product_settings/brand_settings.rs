@@ -27,7 +27,6 @@ pub struct BrandSettingsModel {
     pub email_cc: Option<String>,
     pub email_bcc: Option<String>,
     pub languages: HashMap<String, String>,
-    pub show_live_chat: bool,
     pub live_chat_license: Option<String>,
     pub styles_css_url: String,
     pub hide_live_chat: Option<bool>,
