@@ -27,8 +27,8 @@ pub struct BrandSettingsModel {
     pub email_cc: Option<String>,
     pub email_bcc: Option<String>,
     pub languages: HashMap<String, String>,
-    pub live_chat_license: Option<String>,
     pub styles_css_url: String,
+    pub live_chat_license: Option<String>,
     pub hide_live_chat: Option<bool>,
     pub affiliate_url: Option<String>,
     pub hide_affiliate_menu: Option<bool>,
@@ -36,6 +36,7 @@ pub struct BrandSettingsModel {
     pub mail_success_picture_url: Option<String>,
     pub mail_fail_picture_url: Option<String>,
     pub discord_url: Option<String>,
-    pub hide_discord: Option<bool>,
+    pub hide_discord_menu: Option<bool>,
     pub google_tag_manager_key: Option<String>,
+    pub hide_google_tag: Option<bool>,
 }
