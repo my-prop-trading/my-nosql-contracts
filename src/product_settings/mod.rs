@@ -20,6 +20,12 @@ mod trading_packages_settings;
 
 pub use trading_packages_settings::*;
 
+mod acqufy_settings;
+pub use acqufy_settings::*;
+
+mod payout_settings;
+pub use payout_settings::*;
+
 mod ctrader_settings;
 pub use ctrader_settings::*;
 

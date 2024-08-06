@@ -11,8 +11,9 @@ mod trading_instrument;
 mod trading_profile;
 mod instrument_mapping_entity;
 mod trader_packages_field_order;
-pub mod kyc_proof_type_no_sql;
+mod brands;
 
+pub mod kyc_proof_type_no_sql;
 pub use bid_ask_snapshot_model::*;
 pub use default_favorite_instruments::*;
 pub use default_value::*;
@@ -144,3 +145,9 @@ pub mod cfd_cross_margin_bridge;
 
 #[cfg(feature = "cfd-cross-margin-bridge-cache")]
 pub use cfd_cross_margin_bridge::*;
+
+#[cfg(feature = "payout-withdrawal-limit-settings")]
+pub mod payout_withdrawal_limit_settings_entity;
+
+#[cfg(feature = "payout-withdrawal-limit-settings")]
+pub use payout_withdrawal_limit_settings_entity::*;

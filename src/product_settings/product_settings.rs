@@ -3,6 +3,8 @@ use crate::BrandSettingsModel;
 use crate::IdentomatSettingsModel;
 use crate::KycSettingsModel;
 use crate::TradingPackagesSettingsModel;
+use crate::AcqufySettingsModel;
+use crate::PayoutSettingsModel;
 
 service_sdk::macros::use_my_no_sql_entity!();
 
@@ -13,6 +15,8 @@ pub enum ProductSettings {
     IdentomatSettings(IdentomatSettingsModel),
     KycSettings(KycSettingsModel),
     TradingPackagesSettingsModel(TradingPackagesSettingsModel),
+    Acqufy(AcqufySettingsModel),
+    PayoutSettings(PayoutSettingsModel),
     CtraderSettings(CtraderSettingsModel),
     CrossMarginSettings(CrossMarginSettingsModel),
 }

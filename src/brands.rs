@@ -2,10 +2,12 @@ use serde::*;
 use std::collections::HashMap;
 
 service_sdk::macros::use_my_no_sql_entity!();
-#[enum_model(partition_key:"settings", row_key: "brand")]
-#[derive(Serialize, Deserialize, Clone)]
+
+#[my_no_sql_entity("brands")]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct BrandSettingsModel {
+pub struct BrandSettingsNoSqlEntity {
+    pub brand_id: String,
     pub logo_url: String,
     pub policy_url: String,
     pub terms_url: String,
@@ -30,13 +32,20 @@ pub struct BrandSettingsModel {
     pub styles_css_url: String,
     pub live_chat_license: Option<String>,
     pub hide_live_chat: Option<bool>,
-    pub affiliate_url: Option<String>,
     pub hide_affiliate_menu: Option<bool>,
     pub mail_logo_url: Option<String>,
     pub mail_success_picture_url: Option<String>,
     pub mail_fail_picture_url: Option<String>,
     pub discord_url: Option<String>,
-    pub hide_discord_menu: Option<bool>,
+    pub hide_discord: Option<bool>,
     pub google_tag_manager_key: Option<String>,
-    pub hide_google_tag: Option<bool>,
+    pub hide_google_tag: Option<String>,
+}
+
+impl BrandSettingsNoSqlEntity {
+    pub const PARTITION_KEY: &'static str = "brand";
+
+    pub fn get_domain(&self) -> &str {
+        self.row_key.as_str()
+    }
 }

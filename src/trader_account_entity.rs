@@ -87,6 +87,9 @@ pub struct TraderAccountMyNoSqlEntity {
 
     #[serde(default = "get_default_phase")]
     pub phase_type: TraderPackagePhaseTypMyNoSql,
+
+    #[serde(default)]
+    pub refund: f64,
 }
 
 #[derive(Serialize, Deserialize, Clone, Copy, Debug, PartialEq, PartialOrd, Ord, Eq, Hash)]

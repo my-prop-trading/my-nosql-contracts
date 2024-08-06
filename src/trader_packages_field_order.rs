@@ -50,6 +50,9 @@ pub struct TraderPackageFieldsOrderMyNoSqlEntity {
     pub overall_drawdown: Option<i32>,
     pub target_profit: Option<i32>,
     pub revenue_share: Option<i32>,
+
+    #[serde(default)]
+    pub refund: Option<i32>,
 }
 
 impl TraderPackageFieldsOrderMyNoSqlEntity {
