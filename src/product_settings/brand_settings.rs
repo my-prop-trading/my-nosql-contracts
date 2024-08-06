@@ -39,4 +39,5 @@ pub struct BrandSettingsModel {
     pub hide_discord_menu: Option<bool>,
     pub google_tag_manager_key: Option<String>,
     pub hide_google_tag: Option<bool>,
+    pub show_live_chat: bool,
 }
