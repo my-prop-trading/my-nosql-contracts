@@ -23,3 +23,7 @@ pub use trading_packages_settings::*;
 mod ctrader_settings;
 pub use ctrader_settings::*;
 
+mod cross_margin_settings;
+pub use cross_margin_settings::*;
+
+

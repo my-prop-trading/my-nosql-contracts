@@ -1,4 +1,4 @@
-use crate::{CtraderSettingsModel, SendGridSettingsModel};
+use crate::{CrossMarginSettingsModel, CtraderSettingsModel, SendGridSettingsModel};
 use crate::BrandSettingsModel;
 use crate::IdentomatSettingsModel;
 use crate::KycSettingsModel;
@@ -13,5 +13,6 @@ pub enum ProductSettings {
     IdentomatSettings(IdentomatSettingsModel),
     KycSettings(KycSettingsModel),
     TradingPackagesSettingsModel(TradingPackagesSettingsModel),
-    CtraderSettings(CtraderSettingsModel)
+    CtraderSettings(CtraderSettingsModel),
+    CrossMarginSettings(CrossMarginSettingsModel),
 }
