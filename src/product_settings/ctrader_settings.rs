@@ -1,5 +1,5 @@
-use serde::{Deserialize, Serialize};
-use service_sdk::my_no_sql_sdk::macros::enum_model;
+use serde::*;
+service_sdk::macros::use_my_no_sql_entity!();
 
 #[enum_model(partition_key:"trading-platform-bridge", row_key: "ctrader")]
 #[derive(Serialize, Deserialize, Clone)]
