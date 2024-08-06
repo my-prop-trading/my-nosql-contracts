@@ -39,6 +39,7 @@ pub struct BrandSettingsNoSqlEntity {
     pub discord_url: Option<String>,
     pub hide_discord: Option<bool>,
     pub google_tag_manager_key: Option<String>,
+    pub hide_google_tag: Option<String>,
 }
 
 impl BrandSettingsNoSqlEntity {

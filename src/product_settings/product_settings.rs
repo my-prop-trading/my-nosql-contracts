@@ -4,6 +4,7 @@ use crate::IdentomatSettingsModel;
 use crate::KycSettingsModel;
 use crate::TradingPackagesSettingsModel;
 use crate::AcqufySettingsModel;
+use crate::PayoutSettingsModel;
 
 service_sdk::macros::use_my_no_sql_entity!();
 
@@ -15,4 +16,5 @@ pub enum ProductSettings {
     KycSettings(KycSettingsModel),
     TradingPackagesSettingsModel(TradingPackagesSettingsModel),
     Acqufy(AcqufySettingsModel),
+    PayoutSettings(PayoutSettingsModel),
 }
