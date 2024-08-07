@@ -5,6 +5,7 @@ service_sdk::macros::use_my_no_sql_entity!();
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, Eq)]
 #[serde(rename_all = "PascalCase")]
 pub struct CrossMarginSettingsModel {
+    pub enabled: bool,
     pub group_demo: String,
     pub group_live: String,
     pub integration_bridge_grpc_service_url: String,

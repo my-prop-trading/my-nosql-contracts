@@ -5,6 +5,7 @@ service_sdk::macros::use_my_no_sql_entity!();
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, Eq)]
 #[serde(rename_all = "PascalCase")]
 pub struct CtraderSettingsModel {
+    pub enabled: bool,
     pub demo_manager_login: i64,
     pub demo_manager_password_encrypted: String,
     pub live_manager_login: i64,
