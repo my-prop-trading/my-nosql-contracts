@@ -24,6 +24,10 @@ pub struct GetUserProfileVisibleFieldsMyNoSqlEntity {
     pub poa_status: bool,
     pub kyc_status: bool,
     pub client_id: bool,
+    #[serde(default)]
+    pub phone: bool,
+    #[serde(default)]
+    pub affiliate_id: bool,
 }
 
 impl GetUserProfileVisibleFieldsMyNoSqlEntity {
