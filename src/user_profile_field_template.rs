@@ -26,6 +26,8 @@ pub struct UserProfileFieldTemplateMyNoSqlEntity {
     pub kyc_status: Option<i32>,
     pub title: String,
     pub order_by: Vec<UserProfileFieldSortOrderNoSql>,
+    pub phone: Option<String>,
+    pub affiliate_id: Option<String>,
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
@@ -61,6 +63,8 @@ pub enum UserProfileFieldNoSql {
     PoiStatus = 14,
     PoaStatus = 15,
     KycStatus = 16,
+    AffiliateId = 17,
+    Phone = 18,
 }
 
 impl SortOrderNoSql {
@@ -92,6 +96,8 @@ impl UserProfileFieldNoSql {
             14 => Some(UserProfileFieldNoSql::PoiStatus),
             15 => Some(UserProfileFieldNoSql::PoaStatus),
             16 => Some(UserProfileFieldNoSql::KycStatus),
+            17 => Some(UserProfileFieldNoSql::AffiliateId),
+            18 => Some(UserProfileFieldNoSql::Phone),
             _ => None,
         }
     }
