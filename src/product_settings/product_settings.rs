@@ -5,6 +5,7 @@ use crate::KycSettingsModel;
 use crate::TradingPackagesSettingsModel;
 use crate::AcqufySettingsModel;
 use crate::PayoutSettingsModel;
+use crate::RecaptchaSettingsModel;
 
 service_sdk::macros::use_my_no_sql_entity!();
 
@@ -19,4 +20,5 @@ pub enum ProductSettings {
     PayoutSettings(PayoutSettingsModel),
     CtraderSettings(CtraderSettingsModel),
     CrossMarginSettings(CrossMarginSettingsModel),
+    RecaptchaSettings(RecaptchaSettingsModel),
 }

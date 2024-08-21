@@ -33,3 +33,5 @@ mod cross_margin_settings;
 pub use cross_margin_settings::*;
 
 
+mod recapcha_settings;
+pub use recapcha_settings::*;
