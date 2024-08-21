@@ -35,3 +35,6 @@ pub use cross_margin_settings::*;
 
 mod recapcha_settings;
 pub use recapcha_settings::*;
+
+mod google_analytics_settings;
+pub use google_analytics_settings::*;

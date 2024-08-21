@@ -6,6 +6,7 @@ use crate::TradingPackagesSettingsModel;
 use crate::AcqufySettingsModel;
 use crate::PayoutSettingsModel;
 use crate::RecaptchaSettingsModel;
+use crate::GoogleAnalyticsSettingsModel;
 
 service_sdk::macros::use_my_no_sql_entity!();
 
@@ -21,4 +22,5 @@ pub enum ProductSettings {
     CtraderSettings(CtraderSettingsModel),
     CrossMarginSettings(CrossMarginSettingsModel),
     RecaptchaSettings(RecaptchaSettingsModel),
+    GoogleAnalyticsSettings(GoogleAnalyticsSettingsModel),
 }
