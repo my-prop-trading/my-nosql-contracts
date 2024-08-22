@@ -33,8 +33,8 @@ mod cross_margin_settings;
 pub use cross_margin_settings::*;
 
 
-mod recapcha_settings;
-pub use recapcha_settings::*;
+mod recaptcha_settings;
+pub use recaptcha_settings::*;
 
 mod google_analytics_settings;
 pub use google_analytics_settings::*;
