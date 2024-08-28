@@ -6,6 +6,6 @@ service_sdk::macros::use_my_no_sql_entity!();
 #[derive(Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct GoogleAnalyticsSettingsModel {
-    pub monitoring_events: Vec<String>,
+    pub monitoring_events: Option<Vec<String>>,
     pub session_id_ga: Option<String>,
 }
