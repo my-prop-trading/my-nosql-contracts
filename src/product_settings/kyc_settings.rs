@@ -14,4 +14,5 @@ pub enum KycProviderTypeMyNoSql {
 #[serde(rename_all = "PascalCase")]
 pub struct KycSettingsModel {
     pub provider: KycProviderTypeMyNoSql,
+    pub applicant_id_cleanup_timeout_min: Option<i32>,
 }
