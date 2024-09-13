@@ -7,6 +7,7 @@ use crate::AcqufySettingsModel;
 use crate::PayoutSettingsModel;
 use crate::RecaptchaSettingsModel;
 use crate::GoogleAnalyticsSettingsModel;
+use crate::TradingPlatformSettingsModel;
 
 service_sdk::macros::use_my_no_sql_entity!();
 
@@ -23,4 +24,5 @@ pub enum ProductSettings {
     CrossMarginSettings(CrossMarginSettingsModel),
     RecaptchaSettings(RecaptchaSettingsModel),
     GoogleAnalyticsSettings(GoogleAnalyticsSettingsModel),
+    TradingPlatformSettings(TradingPlatformSettingsModel),
 }

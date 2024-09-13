@@ -38,3 +38,6 @@ pub use recaptcha_settings::*;
 
 mod google_analytics_settings;
 pub use google_analytics_settings::*;
+
+mod trading_platform_settings;
+pub use trading_platform_settings::*;
