@@ -41,3 +41,6 @@ pub use google_analytics_settings::*;
 
 mod trading_platform_settings;
 pub use trading_platform_settings::*;
+
+mod trade_locker_settings;
+pub use trade_locker_settings::*;
