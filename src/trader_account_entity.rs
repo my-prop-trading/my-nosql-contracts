@@ -90,6 +90,10 @@ pub struct TraderAccountMyNoSqlEntity {
 
     #[serde(default)]
     pub refund: f64,
+
+    #[serde(default)]
+    //this is an absolute value
+    pub refund_granted_by_manager: Option<f64>,
 }
 
 #[derive(Serialize, Deserialize, Clone, Copy, Debug, PartialEq, PartialOrd, Ord, Eq, Hash)]
