@@ -1,4 +1,4 @@
-use crate::{CrossMarginSettingsModel, CtraderSettingsModel, SendGridSettingsModel};
+use crate::{CrossMarginSettingsModel, CtraderSettingsModel, SendGridSettingsModel, TradeLockerSettingsModel};
 use crate::BrandSettingsModel;
 use crate::IdentomatSettingsModel;
 use crate::KycSettingsModel;
@@ -25,4 +25,5 @@ pub enum ProductSettings {
     RecaptchaSettings(RecaptchaSettingsModel),
     GoogleAnalyticsSettings(GoogleAnalyticsSettingsModel),
     TradingPlatformSettings(TradingPlatformSettingsModel),
+    TradeLockerSettings(TradeLockerSettingsModel),
 }
