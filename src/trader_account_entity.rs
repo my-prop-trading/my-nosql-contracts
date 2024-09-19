@@ -94,6 +94,12 @@ pub struct TraderAccountMyNoSqlEntity {
     #[serde(default)]
     //this is an absolute value
     pub refund_granted_by_manager: Option<f64>,
+
+    #[serde(default)]
+    pub overall_loss_formula_selector: OverallLossFormulaSelectorMyNoSql,
+
+    #[serde(default)]
+    pub daily_loss_formula_selector: DailyLossFormulaSelectorMyNoSql,
 }
 
 #[derive(Serialize, Deserialize, Clone, Copy, Debug, PartialEq, PartialOrd, Ord, Eq, Hash)]
@@ -121,6 +127,24 @@ pub enum TraderPackagePhaseTypMyNoSql {
     Phase2 = 1,
     Phase3 = 2,
     InstantFunding = 3,
+}
+
+#[derive(Debug, PartialEq, PartialOrd, Ord, Eq, Hash, Clone, Copy, Serialize, Deserialize, Default)]
+#[repr(i32)]
+pub enum DailyLossFormulaSelectorMyNoSql {
+    #[default]
+    Default = 0,
+    DayEntryEquityAndInitialBalance = 1,
+    DayEntryEquity = 2,
+}
+
+#[derive(Debug, PartialEq, PartialOrd, Ord, Eq, Hash, Clone, Copy, Serialize, Deserialize, Default)]
+#[repr(i32)]
+pub enum OverallLossFormulaSelectorMyNoSql  {
+    #[default]
+    Default = 0,
+    InitialBalance = 1,
+    MaxRecordedEquity = 2,
 }
 
 impl TraderAccountMyNoSqlEntity {
