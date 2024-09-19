@@ -5,7 +5,6 @@ service_sdk::macros::use_my_no_sql_entity!();
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, Eq)]
 #[serde(rename_all = "PascalCase")]
 pub struct TradeLockerSettingsModel {
-    pub enabled: bool,
     pub api_url: String,
     pub api_key: String,
 }
