@@ -17,6 +17,8 @@ pub struct LossAnalysisMyNoSqlEntity {
     pub daily_loss_percent: f64,
     #[serde(default)]
     pub current_daily_loss: f64,
+    #[serde(default)]
+    pub day_entry_equity: f64,
 }
 
 impl LossAnalysisMyNoSqlEntity {
