@@ -147,6 +147,34 @@ pub enum OverallLossFormulaSelectorMyNoSql  {
     MaxRecordedEquity = 2,
 }
 
+use std::convert::TryFrom;
+
+impl TryFrom<i32> for DailyLossFormulaSelectorMyNoSql {
+    type Error = &'static str;
+
+    fn try_from(value: i32) -> Result<Self, Self::Error> {
+        match value {
+            0 => Ok(DailyLossFormulaSelectorMyNoSql::Default),
+            1 => Ok(DailyLossFormulaSelectorMyNoSql::DayEntryEquityAndInitialBalance),
+            2 => Ok(DailyLossFormulaSelectorMyNoSql::DayEntryEquity),
+            _ => Err("Invalid value for DailyLossFormulaSelectorMyNoSql"),
+        }
+    }
+}
+
+impl TryFrom<i32> for OverallLossFormulaSelectorMyNoSql {
+    type Error = &'static str;
+
+    fn try_from(value: i32) -> Result<Self, Self::Error> {
+        match value {
+            0 => Ok(OverallLossFormulaSelectorMyNoSql::Default),
+            1 => Ok(OverallLossFormulaSelectorMyNoSql::InitialBalance),
+            2 => Ok(OverallLossFormulaSelectorMyNoSql::MaxRecordedEquity),
+            _ => Err("Invalid value for OverallLossFormulaSelectorMyNoSql"),
+        }
+    }
+}
+
 impl TraderAccountMyNoSqlEntity {
     pub fn generate_partition_key() -> &'static str {
         "c"
