@@ -19,6 +19,7 @@ pub enum BlockerTypeMyNoSql {
     BlockTrades = 1,
     BlockTradesAndFuture = 2,
     BlockTradesAndFutureAndCurrent = 4,
+    BlockTradesForPayouts = 5,
 }
 
 impl TraderBlockerMyNoSqlEntity {
