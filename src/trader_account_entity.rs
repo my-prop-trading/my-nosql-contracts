@@ -110,6 +110,7 @@ pub enum TraderAccountStatusMyNoSql {
     Disabled = 2,
     StageCompleted = 3,
     Blocked = 4,
+    TradingSuspended = 5,
 }
 
 #[derive(Serialize, Deserialize, Clone, Copy, Debug, PartialEq, PartialOrd, Ord, Eq, Hash)]
