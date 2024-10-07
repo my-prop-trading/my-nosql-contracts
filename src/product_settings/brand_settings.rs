@@ -40,4 +40,7 @@ pub struct BrandSettingsModel {
     pub google_tag_manager_key: Option<String>,
     pub hide_google_tag: Option<bool>,
     pub show_live_chat: bool,
+    pub hide_economic_calendar_menu: Option<bool>,
+    pub disclaimer_url: Option<String>,
+    pub cookie_policy_url: Option<String>,
 }
