@@ -40,6 +40,9 @@ pub enum EmailTypeMyNoSql {
     FailedScenarioPhase3 = 34,
     PaymentReceivedInstantFundingKycRequired = 35,
     PaymentReceivedInstantFundingContractRequired = 36,
+    DemoAccountBlock = 37,
+    DemoAccountUnblock = 38,
+    ReactivateAccount = 39,
 }
 
 impl EmailTypeMyNoSql {
@@ -82,6 +85,9 @@ impl EmailTypeMyNoSql {
             Self::FailedScenarioPhase3,
             Self::PaymentReceivedInstantFundingKycRequired,
             Self::PaymentReceivedInstantFundingContractRequired,
+            Self::DemoAccountBlock,
+            Self::DemoAccountUnblock,
+            Self::ReactivateAccount,
             ];
         return enums;
     }
@@ -125,6 +131,9 @@ impl EmailTypeMyNoSql {
             Self::FailedScenarioPhase3 => "FailedScenarioPhase3",
             Self::PaymentReceivedInstantFundingKycRequired => "PaymentReceivedInstantFundingKycRequired",
             Self::PaymentReceivedInstantFundingContractRequired => "PaymentReceivedInstantFundingContractRequired",
+            Self::DemoAccountBlock => "DemoAccountBlock",
+            Self::DemoAccountUnblock => "DemoAccountUnblock",
+            Self::ReactivateAccount => "ReactivateAccount",
         }
     }
 }
@@ -175,6 +184,11 @@ impl From<i32> for EmailTypeMyNoSql {
             34 => EmailTypeMyNoSql::FailedScenarioPhase3,
             35 => EmailTypeMyNoSql::PaymentReceivedInstantFundingKycRequired,
             36 => EmailTypeMyNoSql::PaymentReceivedInstantFundingContractRequired,
+            35 => EmailTypeMyNoSql::PaymentReceivedInstantFundingKycRequired,
+            36 => EmailTypeMyNoSql::PaymentReceivedInstantFundingContractRequired,
+            37 => EmailTypeMyNoSql::DemoAccountBlock,
+            38 => EmailTypeMyNoSql::DemoAccountUnblock,
+            39 => EmailTypeMyNoSql::ReactivateAccount,
             _ => panic!(
                 "Invalid value '{}' for EmailTypeMyNoSql",
                 value,
