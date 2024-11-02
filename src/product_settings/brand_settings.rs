@@ -47,5 +47,5 @@ pub struct BrandSettingsModel {
     pub mail_success_picture_url: Option<String>,
     pub mail_fail_picture_url: Option<String>,
     // 
-    pub registration_type: Option<i64>,
+    pub registration_type: Option<String>,
 }
