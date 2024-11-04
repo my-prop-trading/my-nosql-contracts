@@ -44,3 +44,9 @@ pub use trading_platform_settings::*;
 
 mod trade_locker_settings;
 pub use trade_locker_settings::*;
+
+mod keitaro_settings;
+pub use keitaro_settings::*;
+
+mod google_analytics_affiliate_settings;
+pub use google_analytics_affiliate_settings::*;
