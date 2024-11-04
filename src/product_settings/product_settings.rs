@@ -8,6 +8,8 @@ use crate::PayoutSettingsModel;
 use crate::RecaptchaSettingsModel;
 use crate::GoogleAnalyticsSettingsModel;
 use crate::TradingPlatformSettingsModel;
+use crate::KeitaroSettingsModel;
+use crate::GoogleAnalyticsAffiliateSettingsModel;
 
 service_sdk::macros::use_my_no_sql_entity!();
 
@@ -26,4 +28,6 @@ pub enum ProductSettings {
     GoogleAnalyticsSettings(GoogleAnalyticsSettingsModel),
     TradingPlatformSettings(TradingPlatformSettingsModel),
     TradeLockerSettings(TradeLockerSettingsModel),
+    KeitaroSettingsModel(KeitaroSettingsModel),
+    GoogleAnalyticsAffiliateSettingsModel(GoogleAnalyticsAffiliateSettingsModel),
 }
