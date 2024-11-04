@@ -8,4 +8,5 @@ service_sdk::macros::use_my_no_sql_entity!();
 pub struct GoogleAnalyticsAffiliateSettingsModel {
     pub api_key: String,
     pub affiliate_url: String,
+    pub measurement_id: String,
 }
