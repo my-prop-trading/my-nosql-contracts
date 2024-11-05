@@ -1,15 +1,6 @@
 use serde::*;
-use std::collections::HashMap;
 
 service_sdk::macros::use_my_no_sql_entity!();
-
-// #[enum_model(partition_key:"settings", row_key: "trading-platform")]
-// #[derive(Serialize, Deserialize, Clone)]
-// #[serde(rename_all = "PascalCase")]
-// pub struct TradingPlatformSettingsModel {
-//     pub trading_platforms_settings: HashMap<i32, PlatformSettingsModel>,
-// }
-
 
 #[enum_model(partition_key:"trading-platform")]
 #[derive(Serialize, Deserialize, Clone)]
@@ -36,20 +27,6 @@ impl TradingPlatformSettingsModel {
     }
 }
 
-// impl TradingPlatformSettingsModel {
-//     pub fn resolve_trading_platform_by_id(
-//         &self,
-//         platform_id: i32,
-//     ) -> Option<PlatformSettingsModel> {
-
-//         if let Some(settings) = self.trading_platforms_settings.get(&platform_id) {
-//             Some(settings.clone())
-//         } else {
-//             None
-//         }
-//     }
-// }
-
 #[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct PlatformSettingsLinks {
@@ -60,8 +37,8 @@ pub struct PlatformSettingsLinks {
     pub web: Option<String>,
 }
 
-#[serde(rename_all = "PascalCase")]
 #[derive(Serialize, Deserialize, Debug, Clone)]
+#[serde(rename_all = "PascalCase")]
 pub struct PlatformSettingsGroup {
     pub group_name_default: String,
     pub groups: Vec<String>

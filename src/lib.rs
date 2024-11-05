@@ -11,7 +11,6 @@ mod trading_instrument;
 mod trading_profile;
 mod instrument_mapping_entity;
 mod trader_packages_field_order;
-mod brands;
 
 pub mod kyc_proof_type_no_sql;
 pub use bid_ask_snapshot_model::*;
