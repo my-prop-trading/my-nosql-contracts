@@ -184,8 +184,6 @@ impl From<i32> for EmailTypeMyNoSql {
             34 => EmailTypeMyNoSql::FailedScenarioPhase3,
             35 => EmailTypeMyNoSql::PaymentReceivedInstantFundingKycRequired,
             36 => EmailTypeMyNoSql::PaymentReceivedInstantFundingContractRequired,
-            35 => EmailTypeMyNoSql::PaymentReceivedInstantFundingKycRequired,
-            36 => EmailTypeMyNoSql::PaymentReceivedInstantFundingContractRequired,
             37 => EmailTypeMyNoSql::DemoAccountBlock,
             38 => EmailTypeMyNoSql::DemoAccountUnblock,
             39 => EmailTypeMyNoSql::ReactivateAccount,

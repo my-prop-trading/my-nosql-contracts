@@ -10,6 +10,7 @@ use crate::GoogleAnalyticsSettingsModel;
 use crate::TradingPlatformSettingsModel;
 use crate::KeitaroSettingsModel;
 use crate::GoogleAnalyticsAffiliateSettingsModel;
+use crate::AffiliateSettingsModel;
 
 service_sdk::macros::use_my_no_sql_entity!();
 
@@ -30,4 +31,5 @@ pub enum ProductSettings {
     TradeLockerSettings(TradeLockerSettingsModel),
     KeitaroSettingsModel(KeitaroSettingsModel),
     GoogleAnalyticsAffiliateSettingsModel(GoogleAnalyticsAffiliateSettingsModel),
+    AffiliateSettings(AffiliateSettingsModel),
 }

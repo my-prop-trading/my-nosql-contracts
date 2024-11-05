@@ -32,7 +32,6 @@ pub use ctrader_settings::*;
 mod cross_margin_settings;
 pub use cross_margin_settings::*;
 
-
 mod recaptcha_settings;
 pub use recaptcha_settings::*;
 
@@ -50,3 +49,6 @@ pub use keitaro_settings::*;
 
 mod google_analytics_affiliate_settings;
 pub use google_analytics_affiliate_settings::*;
+
+mod affiliate_settings;
+pub use affiliate_settings::*;
