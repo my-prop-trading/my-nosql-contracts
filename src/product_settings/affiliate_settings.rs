@@ -16,9 +16,9 @@ pub struct AffiliateSettingsModel {
     pub provider: AffiliateProviderTypeMyNoSql,
 }
 
-impl AffiliateSettingsModel {
+impl AffiliateProviderTypeMyNoSql {
     pub fn as_str(&self) -> &str {
-        match self.provider {
+        match self {
             AffiliateProviderTypeMyNoSql::Acqufy => "acqufy",
             AffiliateProviderTypeMyNoSql::Keitaro => "keitaro",    
         }
