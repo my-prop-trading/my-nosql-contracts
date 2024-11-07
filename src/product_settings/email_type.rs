@@ -43,6 +43,7 @@ pub enum EmailTypeMyNoSql {
     DemoAccountBlock = 37,
     DemoAccountUnblock = 38,
     ReactivateAccount = 39,
+    RegistrationSuccessful = 40,
 }
 
 impl EmailTypeMyNoSql {
@@ -88,6 +89,7 @@ impl EmailTypeMyNoSql {
             Self::DemoAccountBlock,
             Self::DemoAccountUnblock,
             Self::ReactivateAccount,
+            Self::RegistrationSuccessful,
             ];
         return enums;
     }
@@ -134,6 +136,7 @@ impl EmailTypeMyNoSql {
             Self::DemoAccountBlock => "DemoAccountBlock",
             Self::DemoAccountUnblock => "DemoAccountUnblock",
             Self::ReactivateAccount => "ReactivateAccount",
+            Self::RegistrationSuccessful => "RegistrationSuccessful",
         }
     }
 }
@@ -187,6 +190,8 @@ impl From<i32> for EmailTypeMyNoSql {
             37 => EmailTypeMyNoSql::DemoAccountBlock,
             38 => EmailTypeMyNoSql::DemoAccountUnblock,
             39 => EmailTypeMyNoSql::ReactivateAccount,
+            40 => EmailTypeMyNoSql::RegistrationSuccessful,
+            
             _ => panic!(
                 "Invalid value '{}' for EmailTypeMyNoSql",
                 value,
