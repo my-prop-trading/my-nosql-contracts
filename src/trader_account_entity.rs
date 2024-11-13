@@ -1,5 +1,6 @@
 use rust_extensions::StrOrString;
 use serde::*;
+use crate::common::TraderAccountTypeMyNoSql;
 
 service_sdk::macros::use_my_no_sql_entity!();
 
@@ -111,14 +112,6 @@ pub enum TraderAccountStatusMyNoSql {
     StageCompleted = 3,
     Blocked = 4,
 }
-
-#[derive(Serialize, Deserialize, Clone, Copy, Debug, PartialEq, PartialOrd, Ord, Eq, Hash)]
-#[repr(i32)]
-pub enum TraderAccountTypeMyNoSql {
-    Demo = 0,
-    Live = 1,
-}
-
 
 #[derive(Serialize, Deserialize, Clone, Copy, Debug, PartialEq, PartialOrd, Ord, Eq, Hash)]
 #[repr(i32)]

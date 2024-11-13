@@ -28,6 +28,8 @@ pub use instrument_mapping_entity::*;
 pub use trader_packages_field_order::*;
 pub use kyc_proof_type_no_sql::*;
 
+mod common;
+pub use common::*;
 
 #[cfg(feature = "dashboard-statistics")]
 mod dash_board_brief_statistics_entity;
@@ -150,3 +152,9 @@ pub mod payout_withdrawal_limit_settings_entity;
 
 #[cfg(feature = "payout-withdrawal-limit-settings")]
 pub use payout_withdrawal_limit_settings_entity::*;
+
+#[cfg(feature = "intraday-settings")]
+pub mod intraday_settings_entity;
+
+#[cfg(feature = "intraday-settings")]
+pub use intraday_settings_entity::*;

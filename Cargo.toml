@@ -25,7 +25,7 @@ language-content=[]
 features-entity=[]
 cfd-cross-margin-bridge-cache=[]
 payout-withdrawal-limit-settings=[]
-
+intraday-settings=[]
 # List of features provided by this package. use to check that all features are building 
 # cargo build --features all
 all = [
@@ -49,6 +49,7 @@ all = [
     "features-entity",
     "cfd-cross-margin-bridge-cache",
     "payout-withdrawal-limit-settings",
+    "intraday-settings",
 ]
 
 [dependencies]
