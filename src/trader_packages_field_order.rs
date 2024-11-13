@@ -53,6 +53,9 @@ pub struct TraderPackageFieldsOrderMyNoSqlEntity {
 
     #[serde(default = "default_refund")]
     pub refund: Option<i32>,
+
+    #[serde(default)]
+    pub trader_package_type: Option<i32>,
 }
 
 fn default_refund() -> Option<i32> {

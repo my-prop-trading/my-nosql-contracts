@@ -100,7 +100,7 @@ pub struct TraderAccountMyNoSqlEntity {
     pub overall_loss_formula_selector: OverallLossFormulaSelectorMyNoSql,
 
     #[serde(default)]
-    pub daily_loss_formula_selector: DailyLossFormulaSelectorMyNoSql,
+    pub trader_package_type: TraderPackageTypeMyNoSql,
 }
 
 #[derive(Serialize, Deserialize, Clone, Copy, Debug, PartialEq, PartialOrd, Ord, Eq, Hash)]
@@ -140,6 +140,15 @@ pub enum OverallLossFormulaSelectorMyNoSql  {
     MaxRecordedEquity = 2,
 }
 
+#[derive(Debug, PartialEq, PartialOrd, Ord, Eq, Hash, Clone, Copy, Serialize, Deserialize, Default)]
+#[repr(i32)]
+pub enum TraderPackageTypeMyNoSql  {
+    #[default]
+    Swing = 0,
+    Intraday = 1,
+}
+
+
 use std::convert::TryFrom;
 
 impl TryFrom<i32> for DailyLossFormulaSelectorMyNoSql {
@@ -167,6 +176,19 @@ impl TryFrom<i32> for OverallLossFormulaSelectorMyNoSql {
         }
     }
 }
+
+impl TryFrom<i32> for TraderPackageTypeMyNoSql {
+    type Error = &'static str;
+
+    fn try_from(value: i32) -> Result<Self, Self::Error> {
+        match value {
+            0 => Ok(TraderPackageTypeMyNoSql::Swing),
+            1 => Ok(TraderPackageTypeMyNoSql::Intraday),
+            _ => Err("Invalid value for TraderPackageTypeMyNoSql"),
+        }
+    }
+}
+
 
 impl TraderAccountMyNoSqlEntity {
     pub fn generate_partition_key() -> &'static str {
