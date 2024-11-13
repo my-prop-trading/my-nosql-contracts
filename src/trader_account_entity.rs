@@ -100,6 +100,9 @@ pub struct TraderAccountMyNoSqlEntity {
     pub overall_loss_formula_selector: OverallLossFormulaSelectorMyNoSql,
 
     #[serde(default)]
+    pub daily_loss_formula_selector: DailyLossFormulaSelectorMyNoSql,
+
+    #[serde(default)]
     pub trader_package_type: TraderPackageTypeMyNoSql,
 }
 
