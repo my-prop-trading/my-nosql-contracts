@@ -37,8 +37,8 @@ impl IntradayRestrictionsNoSqlEntity {
         "c"
     }
 
-    pub fn generate_row_key<'s>() -> StrOrString<'s> {
-        "intraday-restrictions".into()
+    pub fn generate_row_key() -> &'static str {
+        "intraday-restrictions"
     }
 }
 
@@ -54,7 +54,7 @@ impl IntradayFilterNoSqlEntity {
         "c"
     }
 
-    pub fn generate_row_key<'s>() -> StrOrString<'s> {
-        "intraday-filter".into()
+    pub fn generate_row_key() -> &'static str {
+        "intraday-filter"
     }
 }
