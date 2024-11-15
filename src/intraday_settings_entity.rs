@@ -29,7 +29,7 @@ impl IntradaySettingsNoSqlEntity {
 #[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct IntradayRestrictionsNoSqlEntity {
-    pub account_type: TraderAccountTypeMyNoSql,
+    pub account_type: TraderAccountRestrictionsTypeMyNoSql,
 }
 
 impl IntradayRestrictionsNoSqlEntity {
@@ -57,4 +57,12 @@ impl IntradayFilterNoSqlEntity {
     pub fn generate_row_key() -> &'static str {
         "intraday-filter"
     }
+}
+
+#[derive(Serialize, Deserialize, Clone, Copy, Debug, PartialEq, PartialOrd, Ord, Eq, Hash)]
+#[repr(i32)]
+pub enum TraderAccountRestrictionsTypeMyNoSql {
+    Demo = 0,
+    Live = 1,
+    DemoAndLive = 2,
 }
