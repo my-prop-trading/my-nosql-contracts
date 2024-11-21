@@ -13,6 +13,13 @@ pub struct IntradaySettingsNoSqlEntity {
     pub minutes_start: i32,
     pub hours_end: i32,
     pub minutes_end: i32,
+    #[serde(default = "get_default_enabled")]
+    pub is_enabled: bool,
+}
+
+
+fn get_default_enabled() -> bool {
+    true
 }
 
 impl IntradaySettingsNoSqlEntity {
