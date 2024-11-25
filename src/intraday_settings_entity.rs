@@ -1,6 +1,5 @@
 use rust_extensions::StrOrString;
 use serde::*;
-use crate::common::TraderAccountTypeMyNoSql;
 
 service_sdk::macros::use_my_no_sql_entity!();
 
