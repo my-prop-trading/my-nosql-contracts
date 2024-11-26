@@ -104,6 +104,9 @@ pub struct TraderAccountMyNoSqlEntity {
 
     #[serde(default)]
     pub trader_package_type: TraderPackageTypeMyNoSql,
+
+    #[serde(default)]
+    pub trading_condition: TradingConditionTypeMyNoSql,
 }
 
 #[derive(Serialize, Deserialize, Clone, Copy, Debug, PartialEq, PartialOrd, Ord, Eq, Hash)]
