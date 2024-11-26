@@ -151,8 +151,30 @@ pub enum TraderPackageTypeMyNoSql  {
     Intraday = 1,
 }
 
+#[derive(Debug, PartialEq, PartialOrd, Ord, Eq, Hash, Clone, Copy, Serialize, Deserialize, Default)]
+#[repr(i32)]
+pub enum TradingConditionTypeMyNoSql {
+    #[default]
+    None = 0, 
+    RawSpreads = 1, 
+    NoCommission = 2,
+}
+
 
 use std::convert::TryFrom;
+
+impl TryFrom<i32> for TradingConditionTypeMyNoSql {
+    type Error = &'static str;
+
+    fn try_from(value: i32) -> Result<Self, Self::Error> {
+        match value {
+            0 => Ok(TradingConditionTypeMyNoSql::None),
+            1 => Ok(TradingConditionTypeMyNoSql::RawSpreads),
+            2 => Ok(TradingConditionTypeMyNoSql::NoCommission),
+            _ => Err("Invalid value for TradingConditionTypeMyNoSql"),
+        }
+    }
+}
 
 impl TryFrom<i32> for DailyLossFormulaSelectorMyNoSql {
     type Error = &'static str;
