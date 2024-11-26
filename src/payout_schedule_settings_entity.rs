@@ -7,8 +7,12 @@ service_sdk::macros::use_my_no_sql_entity!();
 #[serde(rename_all = "PascalCase")]
 pub struct PayoutScheduleSettingsMyNoSqlEntity {
     pub first_payout_in_days: i64,
+    #[serde(default)]
+    pub first_payout_in_minutes: i64,
 
     pub further_payouts_in_days: i64,
+    #[serde(default)]
+    pub further_payout_in_minutes: i64,
 }
 
 impl PayoutScheduleSettingsMyNoSqlEntity {
