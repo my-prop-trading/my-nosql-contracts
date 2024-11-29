@@ -12,7 +12,7 @@ pub struct PayoutScheduleSettingsMyNoSqlEntity {
 
     pub further_payouts_in_days: i64,
     #[serde(default)]
-    pub further_payout_in_minutes: i64,
+    pub further_payouts_in_minutes: i64,
 }
 
 impl PayoutScheduleSettingsMyNoSqlEntity {
