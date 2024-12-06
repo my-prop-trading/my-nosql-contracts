@@ -48,4 +48,5 @@ pub struct BrandSettingsModel {
     pub mail_fail_picture_url: Option<String>,
     // 
     pub registration_type: Option<String>,
+    pub economic_calendar_url: Option<String>,
 }
