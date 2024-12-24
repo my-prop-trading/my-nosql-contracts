@@ -52,3 +52,6 @@ pub use google_analytics_affiliate_settings::*;
 
 mod affiliate_settings;
 pub use affiliate_settings::*;
+
+mod meta_pixel_settings;
+pub use meta_pixel_settings::*;
