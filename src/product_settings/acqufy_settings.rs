@@ -9,4 +9,5 @@ pub struct AcqufySettingsModel {
     pub api_key: String,
     pub affiliate_url: String,
     pub traffic_management_url: String,
+    pub server_tracking_url: String,
 }
