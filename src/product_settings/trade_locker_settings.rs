@@ -7,4 +7,5 @@ service_sdk::macros::use_my_no_sql_entity!();
 pub struct TradeLockerSettingsModel {
     pub api_url: String,
     pub api_key: String,
+    pub socket_api_url: String,
 }
