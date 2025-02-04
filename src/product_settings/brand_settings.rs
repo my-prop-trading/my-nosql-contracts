@@ -37,6 +37,7 @@ pub struct BrandSettingsModel {
     pub hide_economic_calendar_menu: Option<bool>,
     pub disclaimer_url: Option<String>,
     pub cookie_policy_url: Option<String>,
+    pub google_ads_floodlight_key: Option<String>,
     // email 
     pub email_from: String,
     pub email_from_name: Option<String>,
