@@ -13,6 +13,7 @@ pub struct PayoutSettingsModel {
 }
 
 #[derive(Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase")]
 pub struct CryptoDescription {
     pub crypto: String,
     pub networks: Vec<String>,
