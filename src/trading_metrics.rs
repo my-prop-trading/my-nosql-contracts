@@ -1,4 +1,5 @@
 use serde::{Deserialize, Serialize};
+use service_sdk::rust_extensions::StrOrString;
 service_sdk::macros::use_my_no_sql_entity!();
 
 #[my_no_sql_entity("trading-metrics-cache")]
@@ -6,6 +7,7 @@ service_sdk::macros::use_my_no_sql_entity!();
 #[serde(rename_all = "PascalCase")]
 pub struct TradingMetricsMyNoSqlEntity {
     pub timestamp: i64,
+    pub expires: String,
     pub average_win: f64,
     pub average_loss: f64,
     pub win_ratio: f64,
@@ -33,4 +35,14 @@ pub struct TradingMetricsMyNoSqlEntity {
     pub daily_loss_percent: f64,
     pub current_daily_loss: f64,
     pub day_entry_equity: f64,
+}
+
+impl TradingMetricsMyNoSqlEntity {
+    pub fn generate_pk<'s>(client_id: impl Into<StrOrString<'s>>) -> StrOrString<'s> {
+        client_id.into()
+    }
+
+    pub fn generate_rk<'s>(trader_account_id: impl Into<StrOrString<'s>>) -> StrOrString<'s> {
+        trader_account_id.into()
+    }
 }
