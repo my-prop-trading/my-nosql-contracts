@@ -157,7 +157,6 @@ pub mod intraday_settings_entity;
 #[cfg(feature = "intraday-settings")]
 pub use intraday_settings_entity::*;
 
-
 #[cfg(feature = "max-allocation")]
 pub mod max_allocation_entity;
 
@@ -166,3 +165,6 @@ pub use max_allocation_entity::*;
 
 #[cfg(feature = "trading-metrics")]
 pub mod trading_metrics;
+
+#[cfg(feature = "trading-metrics")]
+pub use trading_metrics::*;
