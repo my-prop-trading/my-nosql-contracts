@@ -6,7 +6,6 @@ service_sdk::macros::use_my_no_sql_entity!();
 #[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct TradingMetricsMyNoSqlEntity {
-    pub timestamp: i64,
     pub expires: String,
     pub average_win: f64,
     pub average_loss: f64,
