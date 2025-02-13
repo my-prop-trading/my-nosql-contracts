@@ -38,11 +38,11 @@ pub struct TradingMetricsMyNoSqlEntity {
 }
 
 impl TradingMetricsMyNoSqlEntity {
-    pub fn generate_pk<'s>(client_id: impl Into<StrOrString<'s>>) -> StrOrString<'s> {
+    pub fn generate_partition_key<'s>(client_id: impl Into<StrOrString<'s>>) -> StrOrString<'s> {
         client_id.into()
     }
 
-    pub fn generate_rk<'s>(trader_account_id: impl Into<StrOrString<'s>>) -> StrOrString<'s> {
+    pub fn generate_row_key<'s>(trader_account_id: impl Into<StrOrString<'s>>) -> StrOrString<'s> {
         trader_account_id.into()
     }
 }
