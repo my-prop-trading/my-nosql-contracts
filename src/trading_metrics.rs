@@ -1,4 +1,5 @@
 use serde::{Deserialize, Serialize};
+use service_sdk::my_no_sql_sdk::abstractions::Timestamp;
 use service_sdk::rust_extensions::StrOrString;
 service_sdk::macros::use_my_no_sql_entity!();
 
@@ -6,7 +7,7 @@ service_sdk::macros::use_my_no_sql_entity!();
 #[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct TradingMetricsMyNoSqlEntity {
-    pub expires: String,
+    pub expires: Timestamp,
     pub average_win: f64,
     pub average_loss: f64,
     pub win_ratio: f64,
