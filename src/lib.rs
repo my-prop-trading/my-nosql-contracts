@@ -168,3 +168,9 @@ pub mod trading_metrics;
 
 #[cfg(feature = "trading-metrics")]
 pub use trading_metrics::*;
+
+#[cfg(feature = "rest-api-cache")]
+pub mod rest_api_cache;
+
+#[cfg(feature = "rest-api-cache")]
+pub use rest_api_cache::*;

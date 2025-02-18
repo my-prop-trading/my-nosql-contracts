@@ -28,6 +28,7 @@ payout-withdrawal-limit-settings=[]
 intraday-settings=[]
 max-allocation=[]
 trading-metrics=[]
+rest-api-cache=[]
 # List of features provided by this package. use to check that all features are building 
 # cargo build --features all
 all = [
@@ -54,6 +55,7 @@ all = [
     "intraday-settings",
     "max-allocation",
     "trading-metrics",
+    "rest-api-cache"
 ]
 
 [dependencies]
