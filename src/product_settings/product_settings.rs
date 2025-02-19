@@ -12,6 +12,7 @@ use crate::KeitaroSettingsModel;
 use crate::GoogleAnalyticsAffiliateSettingsModel;
 use crate::AffiliateSettingsModel;
 use crate::MetaPixelSettingsModel;
+use crate::product_settings::bridgerpay_settings::BridgerpaySettingsModel;
 
 service_sdk::macros::use_my_no_sql_entity!();
 
@@ -34,4 +35,5 @@ pub enum ProductSettings {
     GoogleAnalyticsAffiliateSettingsModel(GoogleAnalyticsAffiliateSettingsModel),
     AffiliateSettings(AffiliateSettingsModel),
     MetaPixelSettings(MetaPixelSettingsModel),
+    BridgerpaySettings(BridgerpaySettingsModel)
 }

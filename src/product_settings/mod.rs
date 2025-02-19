@@ -55,3 +55,6 @@ pub use affiliate_settings::*;
 
 mod meta_pixel_settings;
 pub use meta_pixel_settings::*;
+
+mod bridgerpay_settings;
+pub use bridgerpay_settings::*;
