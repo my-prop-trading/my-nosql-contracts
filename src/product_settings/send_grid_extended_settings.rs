@@ -16,7 +16,7 @@ pub enum ReceiverType {
 #[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct TemplateDetails {
     pub template_id: String,
-    pub enabled: ReceiverType,
+    pub receiver: ReceiverType,
 }
 
 #[enum_model(partition_key:"email-provider", row_key: "send-grid-extended")]
