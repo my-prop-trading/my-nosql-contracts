@@ -58,3 +58,6 @@ pub use meta_pixel_settings::*;
 
 mod bridgerpay_settings;
 pub use bridgerpay_settings::*;
+
+mod send_grid_extended_settings;
+pub use send_grid_extended_settings::*;
