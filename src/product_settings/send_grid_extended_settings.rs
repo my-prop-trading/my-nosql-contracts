@@ -14,6 +14,7 @@ pub enum ReceiverType {
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase")]
 pub struct TemplateDetails {
     pub template_id: String,
     pub receiver: ReceiverType,
