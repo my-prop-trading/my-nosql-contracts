@@ -34,4 +34,10 @@ impl SendGridExtendingSettingsModel {
         let result = templates.get(email_type.as_str())?;
         Some(result.template_id.to_string())
     }
+
+    pub fn get_email_details(&self, language: &str, email_type: EmailTypeMyNoSql) -> Option<TemplateDetails> {
+        let templates = self.templates.get(language)?;
+        let result = templates.get(email_type.as_str())?;
+        Some((*result).clone())
+    }
 }
