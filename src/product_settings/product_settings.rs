@@ -14,6 +14,7 @@ use crate::AffiliateSettingsModel;
 use crate::MetaPixelSettingsModel;
 use crate::product_settings::bridgerpay_settings::BridgerpaySettingsModel;
 use crate::SendGridExtendingSettingsModel;
+use crate::ActiveCampaignSettingsModel;
 
 service_sdk::macros::use_my_no_sql_entity!();
 
@@ -38,4 +39,5 @@ pub enum ProductSettings {
     MetaPixelSettings(MetaPixelSettingsModel),
     BridgerpaySettings(BridgerpaySettingsModel),
     SendGridExtendingSettings(SendGridExtendingSettingsModel),
+    ActiveCampaignSettings(ActiveCampaignSettingsModel),
 }

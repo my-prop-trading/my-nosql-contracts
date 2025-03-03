@@ -61,3 +61,6 @@ pub use bridgerpay_settings::*;
 
 mod send_grid_extended_settings;
 pub use send_grid_extended_settings::*;
+
+mod activecampaign_settings;
+pub use activecampaign_settings::*;
