@@ -8,4 +8,6 @@ service_sdk::macros::use_my_no_sql_entity!();
 pub struct ActiveCampaignSettingsModel {
     pub api_key: String,
     pub url: String,
+    pub event_actid: String,
+    pub event_key: String,
 }
