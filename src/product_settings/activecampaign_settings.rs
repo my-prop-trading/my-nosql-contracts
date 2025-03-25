@@ -11,4 +11,5 @@ pub struct ActiveCampaignSettingsModel {
     pub event_actid: String,
     pub event_key: String,
     pub backoffice_url: String,
+    pub default_account_owner: String,
 }
