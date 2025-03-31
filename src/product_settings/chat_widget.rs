@@ -1,3 +1,5 @@
+use serde::*;
+
 #[derive(Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct ChatWidget {
