@@ -64,3 +64,6 @@ pub use send_grid_extended_settings::*;
 
 mod activecampaign_settings;
 pub use activecampaign_settings::*;
+
+mod chat_widget;
+pub use chat_widget::*;
