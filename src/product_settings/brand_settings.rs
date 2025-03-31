@@ -1,6 +1,8 @@
 use serde::*;
 use std::collections::HashMap;
 
+use super::ChatWidget;
+
 service_sdk::macros::use_my_no_sql_entity!();
 #[enum_model(partition_key:"settings", row_key: "brand")]
 #[derive(Serialize, Deserialize, Clone)]
