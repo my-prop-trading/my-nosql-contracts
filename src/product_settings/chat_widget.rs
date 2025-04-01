@@ -4,7 +4,7 @@ use serde::*;
 #[serde(rename_all = "PascalCase")]
 pub struct ChatWidget {
     pub live_chat: Option<LiveChat>,
-    pub zend_desk: Option<ZendDesk>,
+    pub zend_desk: Option<ZenDesk>,
 }
 
 #[derive(Serialize, Deserialize, Clone)]
@@ -15,6 +15,6 @@ pub struct LiveChat {
 
 #[derive(Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct ZendDesk {
+pub struct ZenDesk {
     pub key: String,
 }
