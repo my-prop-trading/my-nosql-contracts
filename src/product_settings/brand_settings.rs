@@ -28,6 +28,7 @@ pub struct BrandSettingsModel {
     pub languages: HashMap<String, String>,
     pub styles_css_url: String,
     pub chat_widget: ChatWidget,
+    pub live_chat_license: Option<String>, 
     pub hide_live_chat: Option<bool>,
     pub affiliate_url: Option<String>,
     pub hide_affiliate_menu: Option<bool>,
