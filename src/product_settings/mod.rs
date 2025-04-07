@@ -67,3 +67,6 @@ pub use activecampaign_settings::*;
 
 mod chat_widget;
 pub use chat_widget::*;
+
+mod sentry_settings;
+pub use sentry_settings::*;

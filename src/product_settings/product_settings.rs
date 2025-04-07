@@ -15,6 +15,7 @@ use crate::MetaPixelSettingsModel;
 use crate::product_settings::bridgerpay_settings::BridgerpaySettingsModel;
 use crate::SendGridExtendingSettingsModel;
 use crate::ActiveCampaignSettingsModel;
+use crate::SentrySettingsModel;
 
 service_sdk::macros::use_my_no_sql_entity!();
 
@@ -31,6 +32,7 @@ pub enum ProductSettings {
     CrossMarginSettings(CrossMarginSettingsModel),
     RecaptchaSettings(RecaptchaSettingsModel),
     GoogleAnalyticsSettings(GoogleAnalyticsSettingsModel),
+    SentrySettings(SentrySettingsModel),
     TradingPlatformSettings(TradingPlatformSettingsModel),
     TradeLockerSettings(TradeLockerSettingsModel),
     KeitaroSettingsModel(KeitaroSettingsModel),
