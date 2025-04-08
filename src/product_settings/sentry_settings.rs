@@ -7,4 +7,5 @@ service_sdk::macros::use_my_no_sql_entity!();
 #[serde(rename_all = "PascalCase")]
 pub struct SentrySettingsModel {
     pub key: Option<String>,
+    pub hide: bool,
 }
