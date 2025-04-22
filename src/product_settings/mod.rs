@@ -70,3 +70,6 @@ pub use chat_widget::*;
 
 mod sentry_settings;
 pub use sentry_settings::*;
+
+mod pixel_tik_tok_settings;
+pub use pixel_tik_tok_settings::*;
