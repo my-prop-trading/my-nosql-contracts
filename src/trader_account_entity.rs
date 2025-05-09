@@ -8,6 +8,8 @@ service_sdk::macros::use_my_no_sql_entity!();
 #[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct TraderAccountMyNoSqlEntity {
+    pub expires: Timestamp,
+
     pub id: String,
     pub title: String,
     pub phase: i32,
@@ -165,6 +167,7 @@ pub enum TradingConditionTypeMyNoSql {
 
 
 use std::convert::TryFrom;
+use service_sdk::my_no_sql_sdk::abstractions::Timestamp;
 
 impl TryFrom<i32> for TradingConditionTypeMyNoSql {
     type Error = &'static str;
