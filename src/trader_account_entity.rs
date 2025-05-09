@@ -219,8 +219,8 @@ impl TryFrom<i32> for TraderPackageTypeMyNoSql {
 
 
 impl TraderAccountMyNoSqlEntity {
-    pub fn generate_partition_key() -> &'static str {
-        "c"
+    pub fn generate_partition_key(client_id: impl Into<String>) -> String {
+        client_id.into()
     }
 
     pub fn generate_row_key<'s>(trader_account_id: impl Into<StrOrString<'s>>) -> StrOrString<'s> {
