@@ -3,10 +3,10 @@ use service_sdk::my_no_sql_sdk::abstractions::Timestamp;
 use service_sdk::rust_extensions::StrOrString;
 service_sdk::macros::use_my_no_sql_entity!();
 
-#[my_no_sql_entity("trader-account-http-cache")]
+#[my_no_sql_entity("trader-account-api-cache")]
 #[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct TraderAccountCacheMyNoSqlEntity {
+pub struct TraderAccountApiCacheMyNoSqlEntity {
     pub expires: Timestamp,
     pub trader_account_id: String,
     pub aggregate_id: String,
@@ -40,7 +40,7 @@ pub struct TraderAccountCacheMyNoSqlEntity {
 }
 
 
-impl TraderAccountCacheMyNoSqlEntity {
+impl TraderAccountApiCacheMyNoSqlEntity {
     pub fn generate_pk<'s>(client_id: impl Into<StrOrString<'s>>) -> StrOrString<'s> {
         client_id.into()
     }
