@@ -174,6 +174,11 @@ pub mod rest_api_cache;
 
 #[cfg(feature = "payment-page")]
 pub mod payment_page;
+#[cfg(feature = "account-candle")]
+mod account_candle;
+
+#[cfg(feature = "account-candle")]
+pub use account_candle::*;
 
 #[cfg(feature = "rest-api-cache")]
 pub use rest_api_cache::*;
