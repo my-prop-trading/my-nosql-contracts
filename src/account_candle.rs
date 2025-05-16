@@ -1,4 +1,5 @@
 use serde::{Deserialize, Serialize};
+use service_sdk::my_no_sql_sdk::abstractions::Timestamp;
 use service_sdk::my_no_sql_sdk::macros::my_no_sql_entity;
 use service_sdk::rust_extensions::StrOrString;
 
@@ -8,11 +9,12 @@ service_sdk::macros::use_my_no_sql_entity!();
 #[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct AccountCandleMyNoSqlEntity {
+    pub expires: Timestamp,
     pub interval_date: String,
     pub interval: i32,
-    pub balance_data: AccountCandleDataMyNoSqlEntity,
-    pub equity_data: AccountCandleDataMyNoSqlEntity,
-    pub pnl_data: AccountCandleDataMyNoSqlEntity,
+    pub balance_data: Option<AccountCandleDataMyNoSqlEntity>,
+    pub equity_data: Option<AccountCandleDataMyNoSqlEntity>,
+    pub pnl_data: Option<AccountCandleDataMyNoSqlEntity>,
 }
 
 #[derive(Default, Debug, Clone, Serialize, Deserialize)]
