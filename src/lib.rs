@@ -176,6 +176,7 @@ pub mod rest_api_cache;
 pub mod payment_page;
 #[cfg(feature = "account-candle")]
 mod account_candle;
+mod platform_info_entity;
 
 #[cfg(feature = "account-candle")]
 pub use account_candle::*;
