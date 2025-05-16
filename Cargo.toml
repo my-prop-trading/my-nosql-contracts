@@ -32,6 +32,7 @@ rest-api-cache=[]
 payment-page=[]
 account-candle=[]
 platform-info=[]
+profit-widget=[]
 # List of features provided by this package. use to check that all features are building 
 # cargo build --features all
 all = [
@@ -62,6 +63,7 @@ all = [
     "payment-page",
     "account-candle",
     "platform-info",
+    "profit-widget"
 ]
 
 [dependencies]

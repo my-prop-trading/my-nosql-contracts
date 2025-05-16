@@ -179,6 +179,8 @@ pub mod account_candle;
 
 #[cfg(feature = "platform-info")]
 pub mod platform_info_entity;
+#[cfg(feature = "profit-widget")]
+pub mod profit_widget;
 
 #[cfg(feature = "account-candle")]
 pub use account_candle::*;
