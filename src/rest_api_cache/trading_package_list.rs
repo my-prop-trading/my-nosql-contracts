@@ -139,6 +139,7 @@ pub struct PlatformDetailApiCacheMyNoSqlEntity {
     pub id: i32,
     pub platform_short_name: String,
     pub platform_icon_url: Option<String>,
+    pub restricted_countries: Vec<String>,
 }
 
 impl crate::TradingPackageListApiCacheMyNoSqlEntity {
