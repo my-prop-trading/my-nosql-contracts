@@ -1,4 +1,5 @@
 use serde::{Deserialize, Serialize};
+use service_sdk::my_no_sql_sdk::abstractions::Timestamp;
 
 service_sdk::macros::use_my_no_sql_entity!();
 
@@ -6,6 +7,7 @@ service_sdk::macros::use_my_no_sql_entity!();
 #[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct TradingPackageListApiCacheMyNoSqlEntity {
+    pub expires: Timestamp,
     pub brokers: Vec<BrokerApiCacheMyNoSqlEntity>,
     pub orders: Vec<TradingPackageFieldsOrderApiCacheMyNoSqlEntity>,
     pub packages: Vec<TradingPackageApiCacheMyNoSqlEntity>,
@@ -144,7 +146,7 @@ impl crate::TradingPackageListApiCacheMyNoSqlEntity {
         "*"
     }
 
-    pub fn generate_rk() -> &'static str {
-        "*"
+    pub fn generate_rk(country_code: impl Into<String>) -> String {
+        country_code.into()
     }
 }
