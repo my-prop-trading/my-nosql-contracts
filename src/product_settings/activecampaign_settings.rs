@@ -16,7 +16,8 @@ pub struct ActiveCampaignSettingsModel {
     pub deal_group_index: ActiveCampaignDealGroup,
 }
 
-#[derive(Serialize, Deserialize Clone)]
+#[derive(Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase")]
 pub struct ActiveCampaignDealStageStatus {
     // Payins
     pub successful: String,
@@ -44,6 +45,7 @@ pub struct ActiveCampaignDealStageStatus {
 }
 
 #[derive(Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase")]
 pub struct ActiveCampaignDealGroup {
     pub payin: String,
     pub phase1_challenge: String,
