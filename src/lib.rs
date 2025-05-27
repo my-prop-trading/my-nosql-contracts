@@ -181,7 +181,9 @@ pub mod account_candle;
 pub mod platform_info_entity;
 #[cfg(feature = "profit-widget")]
 pub mod profit_widget;
-mod personal_data;
+
+#[cfg(feature = "personal-data")]
+pub mod personal_data;
 
 #[cfg(feature = "account-candle")]
 pub use account_candle::*;
