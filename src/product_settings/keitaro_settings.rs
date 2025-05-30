@@ -8,4 +8,6 @@ service_sdk::macros::use_my_no_sql_entity!();
 pub struct KeitaroSettingsModel {
     pub api_key: String,
     pub affiliate_url: String,
+    #[serde(rename = "promo_api_key", skip_serializing_if = "Option::is_none")]
+    pub promo_api_key: Option<String>,
 }
