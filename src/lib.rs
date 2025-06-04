@@ -185,6 +185,9 @@ pub mod profit_widget;
 #[cfg(feature = "personal-data")]
 pub mod personal_data;
 
+#[cfg(feature = "account-trade")]
+pub mod account_trade;
+
 #[cfg(feature = "account-candle")]
 pub use account_candle::*;
 
