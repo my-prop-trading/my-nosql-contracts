@@ -27,7 +27,6 @@ pub struct AccountTradeMyNoSqlEntity {
     pub profit: f64,
     pub taxes: f64,
     pub comment: String,
-    pub timestamp: i64,
     pub platform_id: i32,
     pub account_type: i32,
 }
