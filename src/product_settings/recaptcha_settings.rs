@@ -9,4 +9,5 @@ pub struct RecaptchaSettingsModel {
     pub recaptcha_secret_key: String,
     pub recaptcha_site_key: String,
     pub recaptcha_threshold_score: f64,
+    pub disabled: Option<bool>,
 }
