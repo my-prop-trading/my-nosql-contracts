@@ -35,6 +35,7 @@ platform-info=[]
 profit-widget=[]
 personal-data=[]
 account-trade=[]
+file=[]
 # List of features provided by this package. use to check that all features are building 
 # cargo build --features all
 all = [
@@ -68,6 +69,7 @@ all = [
     "profit-widget",
     "personal-data",
     "account-trade",
+    "file",
 ]
 
 [dependencies]
