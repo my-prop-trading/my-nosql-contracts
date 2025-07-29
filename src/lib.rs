@@ -188,6 +188,9 @@ pub mod personal_data;
 #[cfg(feature = "account-trade")]
 pub mod account_trade;
 
+#[cfg(feature = "file")]
+pub mod file_entity;
+
 #[cfg(feature = "account-candle")]
 pub use account_candle::*;
 
