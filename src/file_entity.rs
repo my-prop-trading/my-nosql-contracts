@@ -8,14 +8,14 @@ service_sdk::macros::use_my_no_sql_entity!();
 #[my_no_sql_entity("files")]
 #[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct AccountCandleMyNoSqlEntity {
+pub struct FileMyNoSqlEntity {
     pub expires: Timestamp,
     pub bytes: Vec<u8>,
     pub name: String,
     pub owner_id: String,
 }
 
-impl AccountCandleMyNoSqlEntity {
+impl FileMyNoSqlEntity {
     pub fn generate_rk<'s>(id: impl Into<StrOrString<'s>>) -> StrOrString<'s> {
         id.into()
     }
