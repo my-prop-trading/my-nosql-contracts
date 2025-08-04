@@ -10,7 +10,8 @@ service_sdk::macros::use_my_no_sql_entity!();
 #[serde(rename_all = "PascalCase")]
 pub struct FileMyNoSqlEntity {
     pub expires: Timestamp,
-    pub bytes: Vec<u8>,
+    pub content_bytes: Vec<u8>,
+    pub content_type: String,
     pub name: String,
     pub owner_id: String,
 }
