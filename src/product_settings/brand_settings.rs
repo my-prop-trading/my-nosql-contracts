@@ -51,4 +51,6 @@ pub struct BrandSettingsModel {
     // 
     pub registration_type: Option<String>,
     pub economic_calendar_url: Option<String>,
+    #[serde(default)]
+    pub disabled_features: Vec<i32>,
 }
