@@ -1,10 +1,9 @@
-name: build and test
+name: CI
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches:
+      - "*"
   workflow_dispatch:
 
 env:
@@ -13,6 +12,7 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
 
     steps:
     - uses: actions/checkout@v4
