@@ -6,14 +6,14 @@ service_sdk::macros::use_my_no_sql_entity!();
 #[derive(Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct ActiveCampaignSettingsModel {
-    // pub api_key: String,
-    // pub url: String,
+    pub api_key: Option<String>,
+    pub url:  Option<String>,
     pub event_actid: String,
     pub event_key: String,
     pub backoffice_url: String,
-    // pub default_account_owner: String,
-    // pub deal_stage_status_index: ActiveCampaignDealStageStatus,
-    // pub deal_group_index: ActiveCampaignDealGroup,
+    pub default_account_owner:  Option<String>,
+    pub deal_stage_status_index:  Option<ActiveCampaignDealStageStatus>,
+    pub deal_group_index:  Option<ActiveCampaignDealGroup>,
 }
 
 #[derive(Serialize, Deserialize, Clone)]
