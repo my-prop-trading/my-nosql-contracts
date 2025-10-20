@@ -54,5 +54,5 @@ pub struct BrandSettingsModel {
     #[serde(default)]
     pub disabled_features: Vec<i32>,
     #[serde(default)]
-    pub bcc_emails_by_type: HashMap<i32, String>,
+    pub email_bccs_by_email_types: HashMap<i32, Vec<String>>,
 }
