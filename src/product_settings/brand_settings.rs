@@ -39,7 +39,7 @@ pub struct BrandSettingsModel {
     pub disclaimer_url: Option<String>,
     pub cookie_policy_url: Option<String>,
     pub google_ads_floodlight_key: Option<String>,
-    // email 
+    // email
     pub email_from: String,
     pub email_from_name: Option<String>,
     pub contract_manager_email: Option<String>,
@@ -48,9 +48,11 @@ pub struct BrandSettingsModel {
     pub mail_logo_url: Option<String>,
     pub mail_success_picture_url: Option<String>,
     pub mail_fail_picture_url: Option<String>,
-    // 
+    //
     pub registration_type: Option<String>,
     pub economic_calendar_url: Option<String>,
     #[serde(default)]
     pub disabled_features: Vec<i32>,
+    #[serde(default)]
+    pub bcc_emails: Vec<String>,
 }
