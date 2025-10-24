@@ -191,6 +191,9 @@ pub mod account_trade;
 #[cfg(feature = "file")]
 pub mod file_entity;
 
+// #[cfg(feature = "admin-notifications")]
+pub mod admin_notifications;
+
 #[cfg(feature = "account-candle")]
 pub use account_candle::*;
 

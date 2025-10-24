@@ -1,6 +1,6 @@
 [package]
 name = "my-nosql-contracts"
-version = "0.8.4"
+version = "0.8.5"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
@@ -36,6 +36,7 @@ profit-widget=[]
 personal-data=[]
 account-trade=[]
 file=[]
+admin-notifications=[]
 # List of features provided by this package. use to check that all features are building
 # cargo build --features all
 all = [
@@ -70,6 +71,7 @@ all = [
     "personal-data",
     "account-trade",
     "file",
+    "admin-notifications",
 ]
 
 [dependencies]
