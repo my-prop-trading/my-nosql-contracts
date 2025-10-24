@@ -20,8 +20,8 @@ pub struct AdminNotificationCategoryMyNosqlModel {
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct LargeAccountSizeMyNosqlModel {
     pub category_name: String,
-    pub account_size: f64,
-    pub no_discount_price: f64,
+    pub biggest_account_size: f64,
+    pub no_discount_account_size: f64,
 }
 
 impl AdminNotificationSettingsMyNoSqlEntity {
