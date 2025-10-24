@@ -7,7 +7,7 @@ service_sdk::macros::use_my_no_sql_entity!();
 #[serde(rename_all = "PascalCase")]
 pub struct AdminNotificationSettingsMyNoSqlEntity {
     pub category: Vec<AdminNotificationCategoryMyNosqlModel>,
-    pub large_account_size: LargeAccountSizeMyNosqlModel,
+    pub large_account_size: Option<LargeAccountSizeMyNosqlModel>,
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
@@ -19,6 +19,7 @@ pub struct AdminNotificationCategoryMyNosqlModel {
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct LargeAccountSizeMyNosqlModel {
+    pub category_name: String,
     pub account_size: f64,
     pub no_discount_price: f64,
 }
