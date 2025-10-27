@@ -6,6 +6,7 @@ service_sdk::macros::use_my_no_sql_entity!();
 #[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct AdminNotificationSettingsMyNoSqlEntity {
+    #[serde(default)]
     pub channels: Vec<AdminNotificationChannelMyNosqlModel>,
     pub card_multiple_geo: Option<CardMultipleGeoMyNosqlModel>,
     pub card_shared_name: Option<CardSharedNameMyNosqlModel>,
@@ -19,6 +20,7 @@ pub struct AdminNotificationSettingsMyNoSqlEntity {
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
+#[serde(rename_all = "PascalCase")]
 pub struct AdminNotificationChannelMyNosqlModel {
     pub slack_url: String,
     pub name: String,
@@ -26,6 +28,7 @@ pub struct AdminNotificationChannelMyNosqlModel {
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
+#[serde(rename_all = "PascalCase")]
 pub struct CardMultipleGeoMyNosqlModel {
     pub channel_id: String,
     pub period_minutes: i32,
@@ -36,40 +39,47 @@ pub struct CardSharedNameMyNosqlModel {
     pub clients_count: i32,
 }
 #[derive(Serialize, Deserialize, Debug, Clone)]
+#[serde(rename_all = "PascalCase")]
 pub struct FailSuspiciousPatternMyNosqlModel {
     pub channel_id: String,
     pub period_minutes: i32,
     pub payins_count: i32,
 }
 #[derive(Serialize, Deserialize, Debug, Clone)]
+#[serde(rename_all = "PascalCase")]
 pub struct ExcessiveActiveAccountsMyNosqlModel {
     pub channel_id: String,
     pub accounts_count: i32,
 }
 #[derive(Serialize, Deserialize, Debug, Clone)]
+#[serde(rename_all = "PascalCase")]
 pub struct LargeAccountSizeMyNosqlModel {
     pub channel_id: String,
     pub biggest_account_size: f64,
     pub no_discount_account_size: f64,
 }
 #[derive(Serialize, Deserialize, Debug, Clone)]
+#[serde(rename_all = "PascalCase")]
 pub struct FastSuccessPayinSequenceMyNosqlModel {
     pub channel_id: String,
     pub payins_count: i32,
     pub interval_minutes: i32,
 }
 #[derive(Serialize, Deserialize, Debug, Clone)]
+#[serde(rename_all = "PascalCase")]
 pub struct ExessiveSuccessPayinsMyNosqlModel {
     pub channel_id: String,
     pub payins_count: i32,
     pub interval_minutes: i32,
 }
 #[derive(Serialize, Deserialize, Debug, Clone)]
+#[serde(rename_all = "PascalCase")]
 pub struct FastAffiliatePayinsMyNosqlModel {
     pub channel_id: String,
     pub interval_minutes: i32,
 }
 #[derive(Serialize, Deserialize, Debug, Clone)]
+#[serde(rename_all = "PascalCase")]
 pub struct MultiaccountSettingsMyNosqlModel {
     pub channel_id: String,
 }
