@@ -35,6 +35,10 @@ pub struct TradingMetricsMyNoSqlEntity {
     pub daily_loss_percent: f64,
     pub current_daily_loss: f64,
     pub day_entry_equity: f64,
+    pub best_day_profit: f64,
+    pub best_day_ratio: f64,
+    pub best_day_cap: f64,
+    pub best_day_rule_status: i32,
 }
 
 impl TradingMetricsMyNoSqlEntity {
