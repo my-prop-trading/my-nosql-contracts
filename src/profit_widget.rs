@@ -15,7 +15,7 @@ pub struct ProfitWidgetMyNoSqlEntity {
     pub left_to_withdraw_in_profit_period: f64,
     pub trader_account_revenue_share_percentage: f64,
     #[serde(default)]
-    pub best_day_rule_breached: bool,
+    pub restriction: i32,
 }
 
 impl ProfitWidgetMyNoSqlEntity {
