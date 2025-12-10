@@ -4,7 +4,6 @@ use crate::IdentomatSettingsModel;
 use crate::KycSettingsModel;
 use crate::TradingPackagesSettingsModel;
 use crate::AcqufySettingsModel;
-use crate::PayoutSettingsModel;
 use crate::RecaptchaSettingsModel;
 use crate::GoogleAnalyticsSettingsModel;
 use crate::TradingPlatformSettingsModel;
@@ -28,7 +27,6 @@ pub enum ProductSettings {
     KycSettings(KycSettingsModel),
     TradingPackagesSettingsModel(TradingPackagesSettingsModel),
     Acqufy(AcqufySettingsModel),
-    PayoutSettings(PayoutSettingsModel),
     CtraderSettings(CtraderSettingsModel),
     CrossMarginSettings(CrossMarginSettingsModel),
     RecaptchaSettings(RecaptchaSettingsModel),

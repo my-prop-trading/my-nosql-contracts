@@ -1,6 +1,6 @@
 [package]
 name = "my-nosql-contracts"
-version = "0.8.14"
+version = "0.9.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
@@ -19,12 +19,10 @@ user-profile-field-template = []
 product-settings = []
 woo-commerce = []
 kyc-identomat-cache = []
-payout-withdrawal-settings = []
 cfd-bridge-cache=[]
 language-content=[]
 features-entity=[]
 cfd-cross-margin-bridge-cache=[]
-payout-withdrawal-limit-settings=[]
 intraday-settings=[]
 max-allocation=[]
 trading-metrics=[]
@@ -54,12 +52,10 @@ all = [
     "product-settings",
     "woo-commerce",
     "kyc-identomat-cache",
-    "payout-withdrawal-settings",
     "cfd-bridge-cache",
     "language-content",
     "features-entity",
     "cfd-cross-margin-bridge-cache",
-    "payout-withdrawal-limit-settings",
     "intraday-settings",
     "max-allocation",
     "trading-metrics",

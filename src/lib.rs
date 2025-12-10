@@ -4,12 +4,12 @@ mod default_value;
 mod fav_instruments_cache;
 mod instrument_avatar;
 mod instrument_group;
+mod instrument_mapping_entity;
 mod key_value_cache;
 mod price_change_model;
+mod trader_packages_field_order;
 mod trading_instrument;
 mod trading_profile;
-mod instrument_mapping_entity;
-mod trader_packages_field_order;
 
 pub mod kyc_proof_type_no_sql;
 pub use bid_ask_snapshot_model::*;
@@ -18,13 +18,13 @@ pub use default_value::*;
 pub use fav_instruments_cache::*;
 pub use instrument_avatar::*;
 pub use instrument_group::*;
+pub use instrument_mapping_entity::*;
 pub use key_value_cache::*;
+pub use kyc_proof_type_no_sql::*;
 pub use price_change_model::*;
+pub use trader_packages_field_order::*;
 pub use trading_instrument::*;
 pub use trading_profile::*;
-pub use instrument_mapping_entity::*;
-pub use trader_packages_field_order::*;
-pub use kyc_proof_type_no_sql::*;
 
 mod common;
 pub use common::*;
@@ -113,13 +113,6 @@ pub mod kyc_identomat_cache;
 #[cfg(feature = "kyc-identomat-cache")]
 pub use kyc_identomat_cache::*;
 
-
-#[cfg(feature = "payout-withdrawal-settings")]
-pub mod payout_withdrawal_settings_entity;
-
-#[cfg(feature = "payout-withdrawal-settings")]
-pub use payout_withdrawal_settings_entity::*;
-
 #[cfg(feature = "cfd-bridge-cache")]
 pub mod cfd_bridge;
 
@@ -132,7 +125,6 @@ pub mod language_content_entity;
 #[cfg(feature = "language-content")]
 pub use language_content_entity::*;
 
-
 #[cfg(feature = "features-entity")]
 pub mod features_entity;
 
@@ -144,12 +136,6 @@ pub mod cfd_cross_margin_bridge;
 
 #[cfg(feature = "cfd-cross-margin-bridge-cache")]
 pub use cfd_cross_margin_bridge::*;
-
-#[cfg(feature = "payout-withdrawal-limit-settings")]
-pub mod payout_withdrawal_limit_settings_entity;
-
-#[cfg(feature = "payout-withdrawal-limit-settings")]
-pub use payout_withdrawal_limit_settings_entity::*;
 
 #[cfg(feature = "intraday-settings")]
 pub mod intraday_settings_entity;
@@ -172,10 +158,10 @@ pub use trading_metrics::*;
 #[cfg(feature = "rest-api-cache")]
 pub mod rest_api_cache;
 
-#[cfg(feature = "payment-page")]
-pub mod payment_page;
 #[cfg(feature = "account-candle")]
 pub mod account_candle;
+#[cfg(feature = "payment-page")]
+pub mod payment_page;
 
 #[cfg(feature = "platform-info")]
 pub mod platform_info_entity;
@@ -199,3 +185,6 @@ pub use account_candle::*;
 
 #[cfg(feature = "rest-api-cache")]
 pub use rest_api_cache::*;
+
+pub mod payout_settings_entity;
+pub use payout_settings_entity::*;
