@@ -16,6 +16,8 @@ pub struct ProfitWidgetMyNoSqlEntity {
     pub trader_account_revenue_share_percentage: f64,
     #[serde(default)]
     pub restriction: i32,
+    #[serde(default)]
+    pub trading_package_id: String,
 }
 
 impl ProfitWidgetMyNoSqlEntity {
