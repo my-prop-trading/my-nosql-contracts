@@ -107,6 +107,7 @@ pub struct TradingPackageApiCacheMyNoSqlEntity {
     pub trader_package_type: i32,
     pub trading_condition: i32,
     pub refund_payout_number: i32,
+    pub compensation_type: i32,
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
