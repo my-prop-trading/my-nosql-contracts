@@ -83,6 +83,11 @@ pub struct FastAffiliatePayinsMyNosqlModel {
 pub struct MultiaccountSettingsMyNosqlModel {
     pub channel_id: String,
 }
+#[derive(Serialize, Deserialize, Debug, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct NewPayoutSettingsMyNosqlModel {
+    pub channel_id: String,
+}
 
 impl AdminNotificationSettingsMyNoSqlEntity {
     pub fn generate_partition_key() -> &'static str {
