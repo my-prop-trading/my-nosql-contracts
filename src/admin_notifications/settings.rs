@@ -17,6 +17,7 @@ pub struct AdminNotificationSettingsMyNoSqlEntity {
     pub exessive_success_payins: Option<ExessiveSuccessPayinsMyNosqlModel>,
     pub fast_affiliate_payins: Option<FastAffiliatePayinsMyNosqlModel>,
     pub multiaccount: Option<MultiaccountSettingsMyNosqlModel>,
+    pub new_payout: Option<NewPayoutSettingsMyNosqlModel>,
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
