@@ -18,6 +18,7 @@ pub struct AdminNotificationSettingsMyNoSqlEntity {
     pub fast_affiliate_payins: Option<FastAffiliatePayinsMyNosqlModel>,
     pub multiaccount: Option<MultiaccountSettingsMyNosqlModel>,
     pub new_payout: Option<NewPayoutSettingsMyNosqlModel>,
+    pub new_contract: Option<NewContractSettingsMyNosqlModel>,
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
@@ -87,6 +88,11 @@ pub struct MultiaccountSettingsMyNosqlModel {
 #[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct NewPayoutSettingsMyNosqlModel {
+    pub channel_id: String,
+}
+#[derive(Serialize, Deserialize, Debug, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct NewContractSettingsMyNosqlModel {
     pub channel_id: String,
 }
 
