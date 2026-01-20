@@ -186,8 +186,5 @@ pub use account_candle::*;
 #[cfg(feature = "rest-api-cache")]
 pub use rest_api_cache::*;
 
-#[cfg(feature = "trust-pilot-settings")]
-pub mod trust_pilot_settings_entity;
-
 pub mod payout_settings_entity;
 pub use payout_settings_entity::*;
