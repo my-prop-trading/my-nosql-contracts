@@ -188,3 +188,6 @@ pub use rest_api_cache::*;
 
 pub mod payout_settings_entity;
 pub use payout_settings_entity::*;
+
+pub mod video_tutorial_entity;
+pub use video_tutorial_entity::*;
