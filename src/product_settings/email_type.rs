@@ -46,6 +46,16 @@ pub enum EmailTypeMyNoSql {
     RegistrationSuccessful = 40,
     DemoAccountInactivityAlert = 41,
     LiveAccountInactivityAlert = 42,
+    PaymentFailedBankDecline = 43,
+    PaymentFailedIncorrectPaymentDetails = 44,
+    PaymentFailedInsufficientFunds = 45,
+    PaymentFailedLimitExceeded = 46,
+    PaymentFailedBankRestrictions = 47,
+    PaymentFailedSuspectedFraud = 48,
+    PaymentFailedAuthenticationIssues = 49,
+    PaymentFailedCardAccountIssues = 50,
+    PaymentFailedTransactionCancelledByUser = 51,
+    PaymentFailedTemporaryTechnicalIssues = 52,
 }
 
 impl EmailTypeMyNoSql {
@@ -93,7 +103,17 @@ impl EmailTypeMyNoSql {
             Self::ReactivateAccount,
             Self::RegistrationSuccessful,
             Self::DemoAccountInactivityAlert,
-            Self::LiveAccountInactivityAlert
+            Self::LiveAccountInactivityAlert,
+            Self::PaymentFailedBankDecline,
+            Self::PaymentFailedIncorrectPaymentDetails,
+            Self::PaymentFailedInsufficientFunds,
+            Self::PaymentFailedLimitExceeded,
+            Self::PaymentFailedBankRestrictions,
+            Self::PaymentFailedSuspectedFraud,
+            Self::PaymentFailedAuthenticationIssues,
+            Self::PaymentFailedCardAccountIssues,
+            Self::PaymentFailedTransactionCancelledByUser,
+            Self::PaymentFailedTemporaryTechnicalIssues,
             ];
         return enums;
     }
@@ -142,7 +162,17 @@ impl EmailTypeMyNoSql {
             Self::ReactivateAccount => "ReactivateAccount",
             Self::RegistrationSuccessful => "RegistrationSuccessful",
             Self::DemoAccountInactivityAlert => "DemoAccountInactivityAlert",
-            Self::LiveAccountInactivityAlert => "LiveAccountInactivityAlert"
+            Self::LiveAccountInactivityAlert => "LiveAccountInactivityAlert",
+            Self::PaymentFailedBankDecline => "PaymentFailedBankDecline",
+            Self::PaymentFailedIncorrectPaymentDetails => "PaymentFailedIncorrectPaymentDetails",
+            Self::PaymentFailedInsufficientFunds => "PaymentFailedInsufficientFunds",
+            Self::PaymentFailedLimitExceeded => "PaymentFailedLimitExceeded",
+            Self::PaymentFailedBankRestrictions => "PaymentFailedBankRestrictions",
+            Self::PaymentFailedSuspectedFraud => "PaymentFailedSuspectedFraud",
+            Self::PaymentFailedAuthenticationIssues => "PaymentFailedAuthenticationIssues",
+            Self::PaymentFailedCardAccountIssues => "PaymentFailedCardAccountIssues",
+            Self::PaymentFailedTransactionCancelledByUser => "PaymentFailedTransactionCancelledByUser",
+            Self::PaymentFailedTemporaryTechnicalIssues => "PaymentFailedTemporaryTechnicalIssues",
         }
     }
 }
@@ -199,6 +229,16 @@ impl From<i32> for EmailTypeMyNoSql {
             40 => EmailTypeMyNoSql::RegistrationSuccessful,
             41 => EmailTypeMyNoSql::DemoAccountInactivityAlert,
             42 => EmailTypeMyNoSql::LiveAccountInactivityAlert,
+            43 => EmailTypeMyNoSql::PaymentFailedBankDecline,
+            44 => EmailTypeMyNoSql::PaymentFailedIncorrectPaymentDetails,
+            45 => EmailTypeMyNoSql::PaymentFailedInsufficientFunds,
+            46 => EmailTypeMyNoSql::PaymentFailedLimitExceeded,
+            47 => EmailTypeMyNoSql::PaymentFailedBankRestrictions,
+            48 => EmailTypeMyNoSql::PaymentFailedSuspectedFraud,
+            49 => EmailTypeMyNoSql::PaymentFailedAuthenticationIssues,
+            50 => EmailTypeMyNoSql::PaymentFailedCardAccountIssues,
+            51 => EmailTypeMyNoSql::PaymentFailedTransactionCancelledByUser,
+            52 => EmailTypeMyNoSql::PaymentFailedTemporaryTechnicalIssues,
 
             _ => panic!(
                 "Invalid value '{}' for EmailTypeMyNoSql",
