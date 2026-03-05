@@ -191,3 +191,6 @@ pub use payout_settings_entity::*;
 
 pub mod video_tutorial_entity;
 pub use video_tutorial_entity::*;
+
+pub mod banner_entity;
+pub use banner_entity::*;
