@@ -9,7 +9,9 @@ pub struct PayoutSettingsMyNoSqlEntity {
     pub currencies: Vec<String>,
     pub cryptos: Vec<CryptoCurrencyMyNoSqlModel>,
     pub is_bank_transfer_enabled: bool,
+    pub is_rise_transfer_enabled: bool,
     pub bank_transfer_limits: PayoutLimitsSettingsMyNoSqlModel,
+    pub rise_limits: PayoutLimitsSettingsMyNoSqlModel,
     pub crypto_limits: PayoutLimitsSettingsMyNoSqlModel,
     pub excessive_profit_percent: Option<f64>,
 }
