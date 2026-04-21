@@ -27,6 +27,8 @@ pub struct TraderAccountMyNoSqlEntity {
     pub price_currency: String,
     pub leverage: i32,
     pub label: String,
+    pub account_life_time_type: AccountLifeTimeTypeMyNoSql,
+    pub trial_days: i32,
 
     pub phase1_daily_drawdown: f64,
     pub phase1_overall_drawdown: f64,
@@ -165,6 +167,12 @@ pub enum TradingConditionTypeMyNoSql {
     NoCommission = 2,
 }
 
+#[derive(Serialize, Deserialize, Clone, Copy, Debug, PartialEq, PartialOrd, Ord, Eq, Hash)]
+#[repr(i32)]
+pub enum AccountLifeTimeTypeMyNoSql {
+    Unlimited = 0,
+    Trial = 1,
+}
 
 use std::convert::TryFrom;
 use service_sdk::my_no_sql_sdk::abstractions::Timestamp;
