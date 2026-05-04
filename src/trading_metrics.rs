@@ -41,6 +41,7 @@ pub struct TradingMetricsMyNoSqlEntity {
     pub best_day_rule_status: i32,
     pub total_realized_profit: f64,
     pub pass_requirements: Option<Vec<i32>>,
+    pub warnings: Option<Vec<i32>>,
 }
 
 impl TradingMetricsMyNoSqlEntity {
