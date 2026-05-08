@@ -194,3 +194,9 @@ pub use video_tutorial_entity::*;
 
 pub mod banner_entity;
 pub use banner_entity::*;
+
+#[cfg(feature = "highlight-card")]
+mod highlight_card_entity;
+
+#[cfg(feature = "highlight-card")]
+pub use highlight_card_entity::*;
