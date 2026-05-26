@@ -180,6 +180,9 @@ pub mod file_entity;
 // #[cfg(feature = "admin-notifications")]
 pub mod admin_notifications;
 
+pub mod certificate_statistics_settings;
+pub use certificate_statistics_settings::*;
+
 #[cfg(feature = "account-candle")]
 pub use account_candle::*;
 
