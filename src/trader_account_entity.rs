@@ -111,6 +111,9 @@ pub struct TraderAccountMyNoSqlEntity {
 
     #[serde(default)]
     pub trading_condition: TradingConditionTypeMyNoSql,
+
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub min_trading_days: Option<i32>,
 }
 
 #[derive(Serialize, Deserialize, Clone, Copy, Debug, PartialEq, PartialOrd, Ord, Eq, Hash)]
