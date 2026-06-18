@@ -114,6 +114,18 @@ pub struct TradingPackageApiCacheMyNoSqlEntity {
     pub compensation_type: i32,
     #[serde(default)]
     pub drawdown_type: i32,
+    #[serde(default)]
+    pub exposure_loss_enabled: bool,
+    #[serde(default)]
+    pub soft_breach_cap: f64,
+    #[serde(default)]
+    pub hard_breach_cap: f64,
+    #[serde(default)]
+    pub margin_rule_enabled: bool,
+    #[serde(default)]
+    pub margin_rule_soft_cap_percent: f64,
+    #[serde(default)]
+    pub margin_rule_hard_cap_percent: f64,
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
