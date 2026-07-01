@@ -126,6 +126,8 @@ pub struct TradingPackageApiCacheMyNoSqlEntity {
     pub margin_rule_soft_cap_percent: f64,
     #[serde(default)]
     pub margin_rule_hard_cap_percent: f64,
+    #[serde(default)]
+    pub min_trading_days: Option<i32>,
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
