@@ -203,3 +203,9 @@ mod highlight_card_entity;
 
 #[cfg(feature = "highlight-card")]
 pub use highlight_card_entity::*;
+
+#[cfg(feature = "trader-card")]
+pub mod trader_card;
+
+#[cfg(feature = "trader-card")]
+pub use trader_card::*;
