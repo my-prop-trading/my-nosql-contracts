@@ -58,6 +58,7 @@ pub enum EmailTypeMyNoSql {
     PaymentFailedTemporaryTechnicalIssues = 52,
     FairShotGranted = 53,
     CompetitionEnrolled = 54,
+    AccountReviewReady = 55,
 }
 
 impl EmailTypeMyNoSql {
@@ -118,6 +119,7 @@ impl EmailTypeMyNoSql {
             Self::PaymentFailedTemporaryTechnicalIssues,
             Self::FairShotGranted,
             Self::CompetitionEnrolled,
+            Self::AccountReviewReady,
             ];
         return enums;
     }
@@ -179,6 +181,7 @@ impl EmailTypeMyNoSql {
             Self::PaymentFailedTemporaryTechnicalIssues => "PaymentFailedTemporaryTechnicalIssues",
             Self::FairShotGranted => "FairShotGranted",
             Self::CompetitionEnrolled => "CompetitionEnrolled",
+            Self::AccountReviewReady => "AccountReviewReady",
         }
     }
 }
@@ -247,6 +250,7 @@ impl From<i32> for EmailTypeMyNoSql {
             52 => EmailTypeMyNoSql::PaymentFailedTemporaryTechnicalIssues,
             53 => EmailTypeMyNoSql::FairShotGranted,
             54 => EmailTypeMyNoSql::CompetitionEnrolled,
+            55 => EmailTypeMyNoSql::AccountReviewReady,
 
             _ => panic!(
                 "Invalid value '{}' for EmailTypeMyNoSql",
