@@ -27,7 +27,9 @@ pub struct TraderAccountMyNoSqlEntity {
     pub price_currency: String,
     pub leverage: i32,
     pub label: String,
+    #[serde(default)]
     pub account_life_time_type: AccountLifeTimeTypeMyNoSql,
+    #[serde(default)]
     pub trial_days: i32,
 
     pub phase1_daily_drawdown: f64,
@@ -170,9 +172,10 @@ pub enum TradingConditionTypeMyNoSql {
     NoCommission = 2,
 }
 
-#[derive(Serialize, Deserialize, Clone, Copy, Debug, PartialEq, PartialOrd, Ord, Eq, Hash)]
+#[derive(Serialize, Deserialize, Clone, Copy, Debug, Default, PartialEq, PartialOrd, Ord, Eq, Hash)]
 #[repr(i32)]
 pub enum AccountLifeTimeTypeMyNoSql {
+    #[default]
     Unlimited = 0,
     Trial = 1,
 }
