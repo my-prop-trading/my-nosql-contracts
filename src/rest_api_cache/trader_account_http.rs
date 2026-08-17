@@ -37,6 +37,10 @@ pub struct TraderAccountApiCacheMyNoSqlEntity {
     pub hide_platform_url_for_dashboard: bool,
     pub trader_package_type: i32,
     pub trading_condition: i32,
+    // PROP25-2366: set means the funded account is unlocked by a second payment of this amount.
+    // Needed alongside the awaiting-activation status_text so the client can show the amount.
+    #[serde(default)]
+    pub activation_fee: Option<f64>,
 }
 
 
