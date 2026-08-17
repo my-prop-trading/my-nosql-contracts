@@ -128,6 +128,10 @@ pub struct TradingPackageApiCacheMyNoSqlEntity {
     pub margin_rule_hard_cap_percent: f64,
     #[serde(default)]
     pub min_trading_days: Option<i32>,
+    // PROP25-2366: set means Price buys the evaluation only and the funded account is unlocked
+    // by this fee after the final phase. The frontend must show both parts of the cost.
+    #[serde(default)]
+    pub activation_fee: Option<f64>,
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
