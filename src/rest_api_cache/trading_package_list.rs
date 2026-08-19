@@ -155,6 +155,12 @@ pub struct TradingPackageGroupApiCacheMyNoSqlEntity {
     pub ico_url: String,
     pub order: i32,
     pub packages: Vec<String>,
+    // Both lists are allow-lists; empty means "no restriction", which is how every group behaved
+    // before the fields existed.
+    #[serde(default)]
+    pub platforms: Vec<i32>,
+    #[serde(default)]
+    pub countries: Vec<String>,
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
