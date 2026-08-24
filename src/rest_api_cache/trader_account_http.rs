@@ -41,6 +41,10 @@ pub struct TraderAccountApiCacheMyNoSqlEntity {
     // Needed alongside the awaiting-activation status_text so the client can show the amount.
     #[serde(default)]
     pub activation_fee: Option<f64>,
+    // PROP25-2396 Home tab: trader-chosen challenge name, or the generated default when never
+    // renamed. serde(default) so cached rows written before this field deserialize as None.
+    #[serde(default)]
+    pub display_name: Option<String>,
 }
 
 
