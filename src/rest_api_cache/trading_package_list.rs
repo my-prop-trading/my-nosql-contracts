@@ -132,6 +132,11 @@ pub struct TradingPackageApiCacheMyNoSqlEntity {
     // by this fee after the final phase. The frontend must show both parts of the cost.
     #[serde(default)]
     pub activation_fee: Option<f64>,
+    // PROP25-2446: fair shot (progress pass) so the challenge table and checkout can advertise it.
+    #[serde(default)]
+    pub fair_shot_enabled: bool,
+    #[serde(default)]
+    pub fair_shot_threshold_pct: f64,
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
