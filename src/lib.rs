@@ -209,3 +209,9 @@ pub mod trader_card;
 
 #[cfg(feature = "trader-card")]
 pub use trader_card::*;
+
+#[cfg(feature = "abuse-restrictions")]
+pub mod abuse_restriction;
+
+#[cfg(feature = "abuse-restrictions")]
+pub use abuse_restriction::*;
