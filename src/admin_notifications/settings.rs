@@ -22,6 +22,24 @@ pub struct AdminNotificationSettingsMyNoSqlEntity {
     pub successful_payin: Option<SuccessfulPayinSettingsMyNosqlModel>,
     pub external_payment: Option<BaseAdminNotificationSettingsMyNosqlModel>,
     pub potential_payout: Option<PotentialPayoutSettingsMyNosqlModel>,
+    // PROP25-2548: per-trigger client-type / payment-type exclusion filters (block-list).
+    // `serde(default)` so blobs written before this field deserialize into an empty list.
+    #[serde(default)]
+    pub trigger_filters: Vec<AdminNotificationTriggerFilterMyNosqlModel>,
+}
+
+// PROP25-2548: which client types and payment types are EXCLUDED (not notified) for one trigger.
+// Block-list: an alert is sent when its client type is not in `excluded_client_types` AND its payment
+// type is not in `excluded_payment_types`. `trigger` is the AdminNotificationTriggerGrpc int value;
+// `excluded_client_types` are ClientType int values (0..4). Empty lists exclude nothing.
+#[derive(Serialize, Deserialize, Debug, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct AdminNotificationTriggerFilterMyNosqlModel {
+    pub trigger: i32,
+    #[serde(default)]
+    pub excluded_client_types: Vec<i32>,
+    #[serde(default)]
+    pub excluded_payment_types: Vec<String>,
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
