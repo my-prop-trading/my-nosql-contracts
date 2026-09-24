@@ -16,6 +16,7 @@ use crate::SendGridExtendingSettingsModel;
 use crate::ActiveCampaignSettingsModel;
 use crate::SentrySettingsModel;
 use crate::PixelTikTokSettingsModel;
+use crate::LivePayoutsDiscordSettingsModel;
 
 service_sdk::macros::use_my_no_sql_entity!();
 
@@ -42,4 +43,5 @@ pub enum ProductSettings {
     SendGridExtendingSettings(SendGridExtendingSettingsModel),
     ActiveCampaignSettings(ActiveCampaignSettingsModel),
     PixelTikTokSettings(PixelTikTokSettingsModel),
+    LivePayoutsDiscordSettings(LivePayoutsDiscordSettingsModel),
 }

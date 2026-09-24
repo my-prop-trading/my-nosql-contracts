@@ -70,3 +70,6 @@ pub use sentry_settings::*;
 
 mod pixel_tik_tok_settings;
 pub use pixel_tik_tok_settings::*;
+
+mod live_payouts_discord_settings;
+pub use live_payouts_discord_settings::*;
