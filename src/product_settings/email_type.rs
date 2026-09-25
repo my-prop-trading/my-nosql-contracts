@@ -61,6 +61,9 @@ pub enum EmailTypeMyNoSql {
     AccountReviewReady = 55,
     ActivationRequired = 56,
     CompetitionStarted = 57,
+    // PROP25-2491 Bulk purchase: single confirmation email per bulk order.
+    BulkPaymentReceivedPhase1AccountsActive = 58,
+    BulkPaymentReceivedContractDetailsComingSoon = 59,
 }
 
 impl EmailTypeMyNoSql {
@@ -124,6 +127,8 @@ impl EmailTypeMyNoSql {
             Self::AccountReviewReady,
             Self::ActivationRequired,
             Self::CompetitionStarted,
+            Self::BulkPaymentReceivedPhase1AccountsActive,
+            Self::BulkPaymentReceivedContractDetailsComingSoon,
             ];
         return enums;
     }
@@ -188,6 +193,8 @@ impl EmailTypeMyNoSql {
             Self::AccountReviewReady => "AccountReviewReady",
             Self::ActivationRequired => "ActivationRequired",
             Self::CompetitionStarted => "CompetitionStarted",
+            Self::BulkPaymentReceivedPhase1AccountsActive => "BulkPaymentReceivedPhase1AccountsActive",
+            Self::BulkPaymentReceivedContractDetailsComingSoon => "BulkPaymentReceivedContractDetailsComingSoon",
         }
     }
 }
@@ -259,6 +266,8 @@ impl From<i32> for EmailTypeMyNoSql {
             55 => EmailTypeMyNoSql::AccountReviewReady,
             56 => EmailTypeMyNoSql::ActivationRequired,
             57 => EmailTypeMyNoSql::CompetitionStarted,
+            58 => EmailTypeMyNoSql::BulkPaymentReceivedPhase1AccountsActive,
+            59 => EmailTypeMyNoSql::BulkPaymentReceivedContractDetailsComingSoon,
 
             _ => panic!(
                 "Invalid value '{}' for EmailTypeMyNoSql",
