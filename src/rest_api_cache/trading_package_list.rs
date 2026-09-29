@@ -137,6 +137,14 @@ pub struct TradingPackageApiCacheMyNoSqlEntity {
     pub fair_shot_enabled: bool,
     #[serde(default)]
     pub fair_shot_threshold_pct: f64,
+    // PROP25-2491 Bulk purchase: whether this package may be bought in bulk. The frontend shows the
+    // quantity selector only when this is true — it is NOT inferred from bulk_discount_percents.
+    #[serde(default)]
+    pub bulk_purchase_enabled: bool,
+    // PROP25-2491 Bulk purchase: discount percent per account by position — [0] on the 1st account
+    // (usually 0), [1] on the 2nd, and so on. Max quantity the trader may buy = length.
+    #[serde(default)]
+    pub bulk_discount_percents: Vec<f64>,
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
