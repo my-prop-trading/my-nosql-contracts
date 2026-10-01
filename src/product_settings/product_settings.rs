@@ -17,6 +17,7 @@ use crate::ActiveCampaignSettingsModel;
 use crate::SentrySettingsModel;
 use crate::PixelTikTokSettingsModel;
 use crate::LivePayoutsDiscordSettingsModel;
+use crate::LiveChatApiSettingsModel;
 
 service_sdk::macros::use_my_no_sql_entity!();
 
@@ -44,4 +45,5 @@ pub enum ProductSettings {
     ActiveCampaignSettings(ActiveCampaignSettingsModel),
     PixelTikTokSettings(PixelTikTokSettingsModel),
     LivePayoutsDiscordSettings(LivePayoutsDiscordSettingsModel),
+    LiveChatApiSettings(LiveChatApiSettingsModel),
 }

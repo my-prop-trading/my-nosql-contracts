@@ -73,3 +73,6 @@ pub use pixel_tik_tok_settings::*;
 
 mod live_payouts_discord_settings;
 pub use live_payouts_discord_settings::*;
+
+mod livechat_api_settings;
+pub use livechat_api_settings::*;
