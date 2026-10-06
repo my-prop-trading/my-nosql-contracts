@@ -45,6 +45,11 @@ pub struct TraderAccountApiCacheMyNoSqlEntity {
     // renamed. serde(default) so cached rows written before this field deserialize as None.
     #[serde(default)]
     pub display_name: Option<String>,
+    // PROP25-2553: true for a phase an operator marked completed in the back office rather than
+    // traded; the client account-list endpoint hides such rows. serde(default) so cached rows
+    // written before this field deserialize as false (visible), matching the pre-change behaviour.
+    #[serde(default)]
+    pub is_manual_skipped: bool,
 }
 
 
