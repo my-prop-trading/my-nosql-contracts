@@ -215,3 +215,9 @@ pub mod abuse_restriction;
 
 #[cfg(feature = "abuse-restrictions")]
 pub use abuse_restriction::*;
+
+#[cfg(feature = "client-notification-settings")]
+pub mod client_notification_settings;
+
+#[cfg(feature = "client-notification-settings")]
+pub use client_notification_settings::*;
