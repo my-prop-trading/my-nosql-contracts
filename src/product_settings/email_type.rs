@@ -64,6 +64,10 @@ pub enum EmailTypeMyNoSql {
     // PROP25-2491 Bulk purchase: single confirmation email per bulk order.
     BulkPaymentReceivedPhase1AccountsActive = 58,
     BulkPaymentReceivedContractDetailsComingSoon = 59,
+    // PROP25-2751 Free Trial
+    TrialAccountCreated = 60,
+    TrialPassed = 61,
+    TrialFailed = 62,
 }
 
 impl EmailTypeMyNoSql {
@@ -129,6 +133,9 @@ impl EmailTypeMyNoSql {
             Self::CompetitionStarted,
             Self::BulkPaymentReceivedPhase1AccountsActive,
             Self::BulkPaymentReceivedContractDetailsComingSoon,
+            Self::TrialAccountCreated,
+            Self::TrialPassed,
+            Self::TrialFailed,
             ];
         return enums;
     }
@@ -195,6 +202,9 @@ impl EmailTypeMyNoSql {
             Self::CompetitionStarted => "CompetitionStarted",
             Self::BulkPaymentReceivedPhase1AccountsActive => "BulkPaymentReceivedPhase1AccountsActive",
             Self::BulkPaymentReceivedContractDetailsComingSoon => "BulkPaymentReceivedContractDetailsComingSoon",
+            Self::TrialAccountCreated => "TrialAccountCreated",
+            Self::TrialPassed => "TrialPassed",
+            Self::TrialFailed => "TrialFailed",
         }
     }
 }
@@ -268,6 +278,9 @@ impl From<i32> for EmailTypeMyNoSql {
             57 => EmailTypeMyNoSql::CompetitionStarted,
             58 => EmailTypeMyNoSql::BulkPaymentReceivedPhase1AccountsActive,
             59 => EmailTypeMyNoSql::BulkPaymentReceivedContractDetailsComingSoon,
+            60 => EmailTypeMyNoSql::TrialAccountCreated,
+            61 => EmailTypeMyNoSql::TrialPassed,
+            62 => EmailTypeMyNoSql::TrialFailed,
 
             _ => panic!(
                 "Invalid value '{}' for EmailTypeMyNoSql",
