@@ -50,6 +50,12 @@ pub struct TraderAccountApiCacheMyNoSqlEntity {
     // written before this field deserialize as false (visible), matching the pre-change behaviour.
     #[serde(default)]
     pub is_manual_skipped: bool,
+    // PROP25-2751 Free Trial: the client area marks a TrialPass account and shows the time left.
+    // serde(default) so rows cached before these fields read as a non-trial account.
+    #[serde(default)]
+    pub trial_pass_enabled: bool,
+    #[serde(default)]
+    pub trial_ends_at: Option<String>,
 }
 
 
