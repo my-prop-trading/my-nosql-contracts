@@ -221,3 +221,9 @@ pub mod client_notification_settings;
 
 #[cfg(feature = "client-notification-settings")]
 pub use client_notification_settings::*;
+
+#[cfg(feature = "news-trading")]
+pub mod news_trading;
+
+#[cfg(feature = "news-trading")]
+pub use news_trading::*;
