@@ -68,6 +68,9 @@ pub enum EmailTypeMyNoSql {
     TrialAccountCreated = 60,
     TrialPassed = 61,
     TrialFailed = 62,
+    // PROP25-2684 News trading rule: daily digest of deductions, and a reversal by risk.
+    NewsTradingAdjustment = 63,
+    NewsTradingAdjustmentReversed = 64,
 }
 
 impl EmailTypeMyNoSql {
@@ -136,6 +139,8 @@ impl EmailTypeMyNoSql {
             Self::TrialAccountCreated,
             Self::TrialPassed,
             Self::TrialFailed,
+            Self::NewsTradingAdjustment,
+            Self::NewsTradingAdjustmentReversed,
             ];
         return enums;
     }
@@ -205,6 +210,8 @@ impl EmailTypeMyNoSql {
             Self::TrialAccountCreated => "TrialAccountCreated",
             Self::TrialPassed => "TrialPassed",
             Self::TrialFailed => "TrialFailed",
+            Self::NewsTradingAdjustment => "NewsTradingAdjustment",
+            Self::NewsTradingAdjustmentReversed => "NewsTradingAdjustmentReversed",
         }
     }
 }
@@ -281,6 +288,8 @@ impl From<i32> for EmailTypeMyNoSql {
             60 => EmailTypeMyNoSql::TrialAccountCreated,
             61 => EmailTypeMyNoSql::TrialPassed,
             62 => EmailTypeMyNoSql::TrialFailed,
+            63 => EmailTypeMyNoSql::NewsTradingAdjustment,
+            64 => EmailTypeMyNoSql::NewsTradingAdjustmentReversed,
 
             _ => panic!(
                 "Invalid value '{}' for EmailTypeMyNoSql",
