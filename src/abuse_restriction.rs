@@ -5,6 +5,7 @@ use service_sdk::my_no_sql_sdk::abstractions::Timestamp;
 service_sdk::macros::use_my_no_sql_entity!();
 
 pub const ABUSE_KEY_TYPE_IP: &str = "ip";
+pub const ABUSE_KEY_TYPE_CLIENT: &str = "client";
 
 const IPV4_KEY_PREFIX: &str = "v4_";
 const IPV6_KEY_PREFIX: &str = "v6_";
@@ -65,9 +66,29 @@ pub fn build_ip_key(ip: &str) -> Option<String> {
     Some(key)
 }
 
+/// Restriction key of a client id, shared so that the writer and the gates cannot drift apart.
+pub fn build_client_key(client_id: &str) -> Option<String> {
+    let key = client_id.trim().to_lowercase();
+
+    if key.is_empty() {
+        return None;
+    }
+
+    Some(key)
+}
+
 #[cfg(test)]
 mod tests {
-    use super::build_ip_key;
+    use super::{build_client_key, build_ip_key};
+
+    #[test]
+    fn client_key_is_trimmed_and_lowercased() {
+        assert_eq!(
+            build_client_key(" 227B01E7-F5AC-4DA8-9C4F-E17EF82A3912 ").as_deref(),
+            Some("227b01e7-f5ac-4da8-9c4f-e17ef82a3912")
+        );
+        assert_eq!(build_client_key("  "), None);
+    }
 
     #[test]
     fn ipv4_keeps_the_full_address() {

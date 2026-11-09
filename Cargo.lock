@@ -1092,7 +1092,7 @@ dependencies = [
 
 [[package]]
 name = "my-nosql-contracts"
-version = "0.10.38"
+version = "0.10.39"
 dependencies = [
  "serde",
  "service-sdk",
