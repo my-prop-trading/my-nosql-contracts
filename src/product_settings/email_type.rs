@@ -71,6 +71,10 @@ pub enum EmailTypeMyNoSql {
     // PROP25-2684 News trading rule: daily digest of deductions, and a reversal by risk.
     NewsTradingAdjustment = 63,
     NewsTradingAdjustmentReversed = 64,
+    // PROP25-2781 Manual grant
+    AccountGranted = 65,
+    AccountGrantedLiveKycRequired = 66,
+    AccountGrantedLiveContractRequired = 67,
 }
 
 impl EmailTypeMyNoSql {
@@ -141,6 +145,9 @@ impl EmailTypeMyNoSql {
             Self::TrialFailed,
             Self::NewsTradingAdjustment,
             Self::NewsTradingAdjustmentReversed,
+            Self::AccountGranted,
+            Self::AccountGrantedLiveKycRequired,
+            Self::AccountGrantedLiveContractRequired,
             ];
         return enums;
     }
@@ -212,6 +219,9 @@ impl EmailTypeMyNoSql {
             Self::TrialFailed => "TrialFailed",
             Self::NewsTradingAdjustment => "NewsTradingAdjustment",
             Self::NewsTradingAdjustmentReversed => "NewsTradingAdjustmentReversed",
+            Self::AccountGranted => "AccountGranted",
+            Self::AccountGrantedLiveKycRequired => "AccountGrantedLiveKycRequired",
+            Self::AccountGrantedLiveContractRequired => "AccountGrantedLiveContractRequired",
         }
     }
 }
@@ -290,6 +300,9 @@ impl From<i32> for EmailTypeMyNoSql {
             62 => EmailTypeMyNoSql::TrialFailed,
             63 => EmailTypeMyNoSql::NewsTradingAdjustment,
             64 => EmailTypeMyNoSql::NewsTradingAdjustmentReversed,
+            65 => EmailTypeMyNoSql::AccountGranted,
+            66 => EmailTypeMyNoSql::AccountGrantedLiveKycRequired,
+            67 => EmailTypeMyNoSql::AccountGrantedLiveContractRequired,
 
             _ => panic!(
                 "Invalid value '{}' for EmailTypeMyNoSql",
