@@ -75,6 +75,9 @@ pub struct NewsRuleSettingsMyNoSqlEntity {
     pub long_hold_deduction_percent: f64,
     // news_trading.ImpactType values.
     pub impacts: Vec<i32>,
+    // Versions saved before the field existed covered Instant Funding accounts.
+    #[serde(default)]
+    pub exclude_instant_funding: bool,
 }
 
 impl NewsRuleSettingsMyNoSqlEntity {
