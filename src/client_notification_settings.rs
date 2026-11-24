@@ -10,6 +10,9 @@ service_sdk::macros::use_my_no_sql_entity!();
 pub struct ClientNotificationSettingsMyNoSqlEntity {
     pub exposure_loss_soft_breach: ClientNotificationRuleMyNoSql,
     pub margin_rule_soft_breach: ClientNotificationRuleMyNoSql,
+    /// Unset = not configured.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub rpt_violation: Option<ClientNotificationRuleMyNoSql>,
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
