@@ -75,6 +75,10 @@ pub enum EmailTypeMyNoSql {
     AccountGranted = 65,
     AccountGrantedLiveKycRequired = 66,
     AccountGrantedLiveContractRequired = 67,
+    // PROP25-2924 Risk Per Trade Idea: demo violation notices.
+    RptWarning = 68,
+    RptWarningShort = 69,
+    RptFundedLimit = 70,
 }
 
 impl EmailTypeMyNoSql {
@@ -148,6 +152,9 @@ impl EmailTypeMyNoSql {
             Self::AccountGranted,
             Self::AccountGrantedLiveKycRequired,
             Self::AccountGrantedLiveContractRequired,
+            Self::RptWarning,
+            Self::RptWarningShort,
+            Self::RptFundedLimit,
             ];
         return enums;
     }
@@ -222,6 +229,9 @@ impl EmailTypeMyNoSql {
             Self::AccountGranted => "AccountGranted",
             Self::AccountGrantedLiveKycRequired => "AccountGrantedLiveKycRequired",
             Self::AccountGrantedLiveContractRequired => "AccountGrantedLiveContractRequired",
+            Self::RptWarning => "RptWarning",
+            Self::RptWarningShort => "RptWarningShort",
+            Self::RptFundedLimit => "RptFundedLimit",
         }
     }
 }
@@ -303,6 +313,9 @@ impl From<i32> for EmailTypeMyNoSql {
             65 => EmailTypeMyNoSql::AccountGranted,
             66 => EmailTypeMyNoSql::AccountGrantedLiveKycRequired,
             67 => EmailTypeMyNoSql::AccountGrantedLiveContractRequired,
+            68 => EmailTypeMyNoSql::RptWarning,
+            69 => EmailTypeMyNoSql::RptWarningShort,
+            70 => EmailTypeMyNoSql::RptFundedLimit,
 
             _ => panic!(
                 "Invalid value '{}' for EmailTypeMyNoSql",
